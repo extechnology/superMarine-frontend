@@ -9,7 +9,7 @@ import {
 
 const Footer = () => {
   return (
-    <div className="bg-gray-800 py-10 text-white">
+    <div className="bg-gray-800 pt-10 pb-5 text-white">
       <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 ">
         <div>
           <h1 className="text-2xl semibold-bold pb-4">Office Address</h1>
@@ -55,8 +55,8 @@ const Footer = () => {
           </ul>
         </div>
       </div>
-      <div className="max-w-7xl mx-auto mt-10 h-0.5 bg-gray-600"></div>
-      <div className="max-w-7xl mx-auto mt-10 grid grid-cols-1 md:grid-cols-3">
+      <div className="max-w-7xl mx-auto mt-6 h-[.2px] bg-gray-600"></div>
+      <div className="max-w-7xl mx-auto mt-5 grid grid-cols-1 md:grid-cols-3">
         <div>
           <p>© 2023 Super Marine. All Rights Reserved.</p>
         </div>
