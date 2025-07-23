@@ -7,6 +7,10 @@
 @import "swiper/css/effect-fade";
 
 
+
+::-webkit-scrollbar{
+  display: none;
+}
 /* Hero.css */
 @keyframes zoomInSlow {
   0% {

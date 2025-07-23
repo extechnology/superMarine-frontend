@@ -30,14 +30,14 @@ const Data = [
 ];
 const ExperienceNow = () => {
   return (
-    <div>
-      <div className="max-w-7xl mx-auto pb-8">
-        <h1 className="text-center text-xl  ">
-          <span className="backdrop-blur-lg bg-black/20 px-5 py-3 rounded-full">
+    <div className="bg-[url('/sea.jpg')] bg-cover  bg-center">
+      <div className="max-w-7xl mx-auto pb-12 pt-12">
+        <h1 className="text-center text-lg  ">
+          <span className="backdrop-blur-2xl text-white bg-black/80 px-5 py-3 rounded-full">
             Experience Now
           </span>
         </h1>
-        <h1 className="text-center text-3xl font-bold py-5">
+        <h1 className="text-center text-3xl text-white  font-bold py-5">
           Experience Our Finest Yachts and JetSkies
         </h1>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
@@ -65,7 +65,7 @@ const ExperienceNow = () => {
                     <p className="text-sm sm:text-base">{data.description}</p>
                   </div>
                   <div>
-                    <p className="text-lg experience-price sm:text-2xl font-bold">
+                    <p className="text-lg experience sm:text-2xl font-bold">
                       {data.price}
                     </p>
                   </div>

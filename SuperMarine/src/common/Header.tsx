@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { HiMenu, HiX } from "react-icons/hi";
+import { Link } from "react-router";
 
 const Header: React.FC = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -22,7 +23,7 @@ const Header: React.FC = () => {
         scrolled ? "bg-white shadow-md" : "bg-transparent"
       }`}
     >
-      <div className="flex justify-between items-center max-w-7xl mx-auto py-3 px-6">
+      <div className="flex justify-between items-center max-w-7xl mx-auto py-3 px-0">
         {/* Logo */}
         <h1
           className={`text-2xl font-bold transition-colors ${
@@ -41,11 +42,21 @@ const Header: React.FC = () => {
                 : "border border-white text-white backdrop-blur-md "
             }`}
           >
-            <li className="cursor-pointer content-center">Home</li>
-            <li className="cursor-pointer content-center">About Us</li>
-            <li className="cursor-pointer content-center">Services</li>
-            <li className="cursor-pointer content-center">Gallery</li>
-            <li className="cursor-pointer content-center">Contact Us</li>
+            <li className="cursor-pointer content-center">
+              <Link to={"/"}>Home</Link>
+            </li>
+            <li className="cursor-pointer content-center">
+              <Link to={"/about"}>About Us</Link>
+            </li>
+            <li className="cursor-pointer content-center">
+              <Link to={"/service"}>Services</Link>
+            </li>
+            <li className="cursor-pointer content-center">
+              <Link to={"/gallery"}>Gallery</Link>
+            </li>
+            <li className="cursor-pointer content-center">
+              <Link to={"/contact"}>Contact Us</Link>
+            </li>
             <li>
               <button
                 type="button"
