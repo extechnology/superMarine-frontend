@@ -30,7 +30,7 @@ const Data = [
 ];
 const ExperienceNow = () => {
   return (
-    <div className="bg-[url('/sea.jpg')] bg-cover  bg-center">
+    <div className="bg-gradient-to-b from-black via-black/90 to-[#1a1a1a]">
       <div className="max-w-7xl mx-auto pb-12 pt-12">
         <h1 className="text-center text-lg  ">
           <span className="backdrop-blur-2xl text-white bg-black/80 px-5 py-3 rounded-full">

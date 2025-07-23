@@ -1,6 +1,6 @@
 const HeroForm = () => {
   return (
-    <div className="">
+    <div className="bg-black">
       <div className="relative -top-32 z-30">
         <div className="max-w-6xl mx-auto flex  bg-transparent justify-center rounded-lg overflow-hidden">
           {/* Left Form - Vertical */}
