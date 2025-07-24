@@ -6,7 +6,7 @@ const Header: React.FC = () => {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   // const [dropdownOpen, setDropdownOpen] = useState(false);
-  const [mobileDropdownOpen, setMobileDropdownOpen] = useState(false);
+  // const [mobileDropdownOpen, setMobileDropdownOpen] = useState(false);
 
   const timeoutRef = useRef<NodeJS.Timeout | null>(null);
 
@@ -38,7 +38,7 @@ const Header: React.FC = () => {
 
   const toggleMenu = () => setMenuOpen((prev) => !prev);
   // const toggleDropdown = () => setDropdownOpen((prev) => !prev);
-  const toggleMobileDropdown = () => setMobileDropdownOpen((prev) => !prev);
+  // const toggleMobileDropdown = () => setMobileDropdownOpen((prev) => !prev);
 
   return (
     <header
@@ -128,16 +128,18 @@ const Header: React.FC = () => {
               <Link to="/contact">Contact Us</Link>
             </li>
             <li>
-              <button
-                type="button"
-                className={`px-4 py-1 rounded-full font-semibold border ${
-                  scrolled
-                    ? "bg-blue-600 text-white hover:bg-blue-700 border-blue-600"
-                    : "bg-white text-blue-700 hover:bg-gray-100 border-white"
-                }`}
-              >
-                Book Now
-              </button>
+              <Link to={"/book-now"}>
+                <button
+                  type="button"
+                  className={`px-4 py-1 rounded-full font-semibold border cursor-pointer ${
+                    scrolled
+                      ? "bg-blue-600 text-white hover:bg-blue-700 border-blue-600"
+                      : "bg-white text-blue-700 hover:bg-gray-100 border-white"
+                  }`}
+                >
+                  Book Now
+                </button>
+              </Link>
             </li>
           </ul>
         </nav>
@@ -171,7 +173,7 @@ const Header: React.FC = () => {
           </Link>
 
           {/* Mobile Dropdown */}
-          <div className="relative">
+          {/* <div className="relative">
             <button
               onClick={toggleMobileDropdown}
               className="flex items-center gap-1 focus:outline-none"
@@ -197,7 +199,11 @@ const Header: React.FC = () => {
                 </li>
               </ul>
             )}
-          </div>
+          </div> */}
+
+          <Link to="/service" onClick={toggleMenu}>
+            Services
+          </Link>
 
           <Link to="/gallery" onClick={toggleMenu}>
             Gallery
@@ -205,12 +211,14 @@ const Header: React.FC = () => {
           <Link to="/contact" onClick={toggleMenu}>
             Contact Us
           </Link>
-          <button
-            type="button"
-            className="px-6 py-2 rounded-full bg-blue-600 text-white hover:bg-blue-700"
-          >
-            Book Now
-          </button>
+          <Link to={"/book-now"}>
+            <button
+              type="button"
+              className="px-6 py-2 rounded-full bg-blue-600 text-white hover:bg-blue-700"
+            >
+              Book Now
+            </button>
+          </Link>
         </div>
       </div>
     </header>

@@ -105,7 +105,7 @@ const Services: React.FC = () => {
                 {/* Content container - pinned to bottom */}
                 <div className="absolute inset-0 z-20 flex flex-col justify-end p-6 text-white">
                   {/* Content that moves up on hover */}
-                  <div className="transform relative top-12 transition-transform duration-300 group-hover:-translate-y-10">
+                  <div className="transform relative top-15 transition-transform duration-300 group-hover:-translate-y-10">
                     <h2 className="text-2xl font-bold mb-1 drop-shadow-md">
                       {data.title}
                     </h2>
@@ -140,7 +140,7 @@ const Services: React.FC = () => {
                   </div>
 
                   {/* Booking button - hidden until hover */}
-                  <button className="mt-4 bg-white text-black py-2 px-4 rounded-lg font-medium opacity-100 sm:opacity-0 sm:group-hover:opacity-100 transition-all duration-300 transform translate-y-0 sm:translate-y-5 sm:group-hover:translate-y-0 w-full">
+                  <button className="mt-5 bg-white text-black py-2 px-4 rounded-lg font-medium opacity-100 sm:opacity-0 sm:group-hover:opacity-100 transition-all duration-300 transform translate-y-0 sm:translate-y-5 sm:group-hover:translate-y-0 w-full">
                     Book Now
                   </button>
                 </div>

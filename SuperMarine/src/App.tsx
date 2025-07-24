@@ -11,6 +11,7 @@ const About = lazy(() => import("./pages/About"));
 const Contact = lazy(() => import("./pages/ContactUs"));
 const Service = lazy(() => import("./pages/Services"));
 const Gallery = lazy(() => import("./pages/Gallery"));
+const BookNow = lazy(() => import("./pages/BookNow"));
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
           <Route path="/contact" element={<Contact />} />
           <Route path="/service" element={<Service />} />
           <Route path="/gallery" element={<Gallery />} />
+          <Route path="/book-now" element={<BookNow />} />
         </Routes>
       </Suspense>
       <WhatsAppButton/>
