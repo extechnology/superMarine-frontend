@@ -17,17 +17,17 @@ const ContactUs: React.FC = () => {
 
         {/* Centered Text */}
         <div className="absolute inset-0 z-20 flex items-center justify-center">
-          <h1 className="text-white text-2xl md:text-5xl font-bold">
+          <h1 className="text-white proza-libre-bold text-2xl md:text-5xl font-bold">
             Contact us
           </h1>
         </div>
       </div>
-        <h1 className="w-[70%] mx-auto bg-black text-white text-lg">
-          For inquiries, bookings, or assistance, feel free to contact Luxury
-          Charters. Our dedicated team is here to ensure a seamless and
-          unforgettable experience. Reach out today and embark on your
-          extraordinary journey into aquatic luxury.
-        </h1>
+      <h1 className="md:w-[70%] mx-auto px-4 md:px-0 py-5 md:py-0 text-justify  bg-black text-white text-lg">
+        For inquiries, bookings, or assistance, feel free to contact Luxury
+        Charters. Our dedicated team is here to ensure a seamless and
+        unforgettable experience. Reach out today and embark on your
+        extraordinary journey into aquatic luxury.
+      </h1>
 
       <div className="bg-black min-h-screen flex items-center justify-center px-4 pb-10">
         <div className="bg-[#1a1a1a] rounded-3xl w-full max-w-7xl grid grid-cols-1 md:grid-cols-2 overflow-hidden">
@@ -36,13 +36,14 @@ const ContactUs: React.FC = () => {
             <div>
               <p className="text-sm text-yellow-600 uppercase">Location</p>
               <p className="text-lg font-semibold leading-relaxed">
-                Jumeirah, Harbor 1, Dubai, <br /> United Arab Emirates
+                9GC9+X65 - Musaffah - M3 - <br /> Abu Dhabi - United Arab
+                Emirates
               </p>
             </div>
 
             <div>
               <p className="text-sm text-yellow-600 uppercase">Phone Number</p>
-              <p className="text-lg font-semibold">+971 56 217 1574</p>
+              <p className="text-lg font-semibold">+971 50 117 4427</p>
             </div>
 
             <div>

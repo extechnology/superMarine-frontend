@@ -37,14 +37,14 @@ const ExperienceNow = () => {
             Experience Now
           </span>
         </h1>
-        <h1 className="text-center text-3xl text-white  font-bold py-5">
+        <h1 className="text-center text-4xl proza-libre-bold text-white  font-bold py-8 px-4 md:px-0">
           Experience Our Finest Yachts and JetSkies
         </h1>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
           {Data.map((data) => (
             <div
               key={data.id}
-              className="relative group overflow-hidden rounded-3xl"
+              className="relative group overflow-hidden rounded-3xl px-4 md:px-0"
             >
               <img
                 src={data.image}

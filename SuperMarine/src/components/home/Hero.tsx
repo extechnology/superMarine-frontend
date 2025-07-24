@@ -52,7 +52,7 @@ const Hero = () => {
 
               {/* Content */}
               <div className="relative z-20 flex flex-col justify-center items-center text-white text-center px-4 h-full">
-                <h2 className="text-4xl md:text-5xl font-bold mb-4">
+                <h2 className="text-4xl proza-libre-bold md:text-5xl font-bold mb-4">
                   {slide.title}
                 </h2>
                 <p className="text-lg md:text-xl mb-6">{slide.subtitle}</p>

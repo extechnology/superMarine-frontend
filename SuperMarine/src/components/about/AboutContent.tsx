@@ -1,13 +1,15 @@
 const AboutContent = () => {
   return (
     <div className="bg-black py-6">
-      <div className="max-w-7xl mx-auto ">
+      <div className="max-w-7xl mx-auto px-4 md:px-0 ">
         <p className="text-white mb-5">
-          <span className="bg-gray-700 px-3 py-1 rounded-full">About Us</span>
+          <span className="bg-gray-700 proza-libre-bold px-3 py-1 rounded-full">
+            About Us
+          </span>
         </p>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-7">
           <div>
-            <h1 className="text-3xl font-bold text-white text-start pb-5">
+            <h1 className="text-3xl proza-libre-bold font-bold text-white text-start pb-5">
               Ride the Waves with Unmatched Power
             </h1>
             <p className="text-white text-md text-justify">

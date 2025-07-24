@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Afacad:ital,wght@0,400..700;1,400..700&family=Orbitron:wght@400..900&family=Proza+Libre:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600;1,700;1,800&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Afacad:ital,wght@0,400..700;1,400..700&family=Monoton&family=Orbitron:wght@400..900&family=Proza+Libre:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600;1,700;1,800&display=swap');
+/* @import url('https://fonts.googleapis.com/css2?family=Afacad:ital,wght@0,400..700;1,400..700&family=Monoton&family=Orbitron:wght@400..900&family=Proza+Libre:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600;1,700;1,800&display=swap'); */
+@import url('https://fonts.googleapis.com/css2?family=Afacad:ital,wght@0,400..700;1,400..700&family=Monoton&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Orbitron:wght@400..900&family=Proza+Libre:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600;1,700;1,800&display=swap');
 @import "tailwindcss";
 @import "swiper/css";
 @import "swiper/css/pagination";
@@ -35,4 +36,20 @@
 .experience-price {
   font-family: "monoton", sans-serif;
   font-optical-sizing: auto;
+}
+
+body{
+  font-family: "montserrat", sans-serif;
+  font-optical-sizing: auto;
+}
+
+.montsserat {
+  font-family: "montserrat", sans-serif;
+  font-optical-sizing: auto;
+}
+
+.proza-libre-bold {
+  font-family: "Proza Libre", sans-serif;
+  font-weight: 700;
+  font-style: normal;
 }

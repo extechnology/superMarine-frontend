@@ -12,7 +12,7 @@ const GallerySlider = () => {
   return (
     <div className="bg-black text-white">
       <div className="w-full py-10 max-w-7xl mx-auto ">
-        <h2 className="text-2xl md:text-3xl font-semibold text-center mb-4">
+        <h2 className="text-2xl md:text-4xl proza-libre-bold font-semibold text-center mb-4">
           Our Adventures Gallery
         </h2>
         <Swiper
@@ -24,14 +24,14 @@ const GallerySlider = () => {
             768: { slidesPerView: 2 },
             1024: { slidesPerView: 3 },
           }}
-          className="w-full"
+          className="w-full "
         >
           {images.map((img, idx) => (
-            <SwiperSlide key={idx}>
+            <SwiperSlide key={idx} className="px-4 md:px-0">
               <img
                 src={img}
                 alt={`Gallery ${idx + 1}`}
-                className="w-full h-60 object-cover rounded-xl shadow-lg"
+                className="w-full h-60 object-cover rounded-xl shadow-lg "
               />
             </SwiperSlide>
           ))}
