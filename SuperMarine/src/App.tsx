@@ -4,6 +4,8 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Header from "./common/Header";
 import Footer from "./common/Footer";
 import Loader from "./common/Loader";
+import ScrollToTop from "./common/ScrollToTop";
+import WhatsAppButton from "./common/WhatsApp";
 const Home = lazy(() => import("./pages/Home"));
 const About = lazy(() => import("./pages/About"));
 const Contact = lazy(() => import("./pages/ContactUs"));
@@ -13,6 +15,7 @@ const Gallery = lazy(() => import("./pages/Gallery"));
 function App() {
   return (
     <Router>
+      <ScrollToTop/>
       <Header />
       <Suspense fallback={<Loader />}>
         <Routes>
@@ -23,6 +26,7 @@ function App() {
           <Route path="/gallery" element={<Gallery />} />
         </Routes>
       </Suspense>
+      <WhatsAppButton/>
       <Footer />
     </Router>
   );
