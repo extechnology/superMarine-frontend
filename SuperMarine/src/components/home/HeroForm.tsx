@@ -2,7 +2,7 @@ const HeroForm = () => {
   return (
     <div className="bg-black">
       <div className="relative -top-32 z-30 px-4 md:px-0">
-        <div className="max-w-6xl mx-auto md:flex bg-transparent justify-center  rounded-lg overflow-hidden">
+        <div className="max-w-6xl mx-auto md:flex bg-transparent justify-center overflow-hidden">
           {/* Left Form - Vertical */}
           <form className="flex flex-col gap-4 p-10 bg-gray-100 md:w-1/2 shadow-lg">
             <h1 className="text-2xl font-bold text-gray-800 mb-4">
