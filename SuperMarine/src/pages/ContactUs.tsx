@@ -1,5 +1,7 @@
-import { FaInstagram, FaFacebook, FaTiktok } from "react-icons/fa";
 import React from "react";
+import { FaInstagram, FaFacebook, FaTiktok } from "react-icons/fa";
+import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
+import "leaflet/dist/leaflet.css";
 
 const ContactUs: React.FC = () => {
   return (
@@ -32,7 +34,7 @@ const ContactUs: React.FC = () => {
       <div className="bg-black min-h-screen flex items-center justify-center px-4 pb-10">
         <div className="bg-[#1a1a1a] rounded-3xl w-full max-w-7xl grid grid-cols-1 md:grid-cols-2 overflow-hidden">
           {/* Left Side - Contact Info */}
-          <div className="text-white p-10 space-y-8">
+          <div className="text-white p-10 content-center space-y-8">
             <div>
               <p className="text-sm text-yellow-600 uppercase">Location</p>
               <p className="text-lg font-semibold leading-relaxed">
@@ -88,16 +90,21 @@ const ContactUs: React.FC = () => {
           </div>
 
           {/* Right Side - Google Map */}
-          <div className="w-full h-[500px]">
-            <iframe
-              title="Map"
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3609.5364097650254!2d55.227750375189586!3d25.194207531760572!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5f4345fc013e27%3A0x8f17c5c948882232!2sJumeirah%201%20-%20Dubai%20-%20United%20Arab%20Emirates!5e0!3m2!1sen!2sin!4v1721727623026!5m2!1sen!2sin"
-              width="100%"
-              height="100%"
-              loading="lazy"
-              allowFullScreen
-              className="border-none"
-            ></iframe>
+          <div className="w-full  content-center flex items-center z-1 h-[500px]">
+            <MapContainer
+              center={[25.1942075, 55.2277503]}
+              zoom={15}
+              scrollWheelZoom={true}
+              className="h-[500px] z-0 w-full rounded-xl"
+            >
+              <TileLayer
+                attribution='&copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a>'
+                url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+              />
+              <Marker position={[25.1942075, 55.2277503]}>
+                <Popup>Jumeirah 1, Dubai</Popup>
+              </Marker>
+            </MapContainer>
           </div>
         </div>
       </div>

@@ -77,6 +77,7 @@ const Header: React.FC = () => {
               className="relative cursor-pointer content-center"
               onMouseEnter={handleMouseEnter}
               onMouseLeave={handleMouseLeave}
+              onClick={toggleDropdown}
             >
               <span className="flex items-center gap-1 select-none">
                 Services ▾
