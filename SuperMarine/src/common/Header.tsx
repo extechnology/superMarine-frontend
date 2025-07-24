@@ -5,23 +5,22 @@ import { Link } from "react-router-dom";
 const Header: React.FC = () => {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
-  const [dropdownOpen, setDropdownOpen] = useState(false); 
+  // const [dropdownOpen, setDropdownOpen] = useState(false); 
   const [mobileDropdownOpen, setMobileDropdownOpen] = useState(false);
 
   const timeoutRef = useRef<NodeJS.Timeout | null>(null);
 
-  const handleMouseEnter = () => {
-    if (timeoutRef.current) clearTimeout(timeoutRef.current);
-    setDropdownOpen(true);
-  };
+  // const handleMouseEnter = () => {
+  //   if (timeoutRef.current) clearTimeout(timeoutRef.current);
+  //   setDropdownOpen(true);
+  // };
 
-  const handleMouseLeave = () => {
-    timeoutRef.current = setTimeout(() => {
-      setDropdownOpen(false);
-    }, 200); // Delay to allow user to click
-  };
+  // const handleMouseLeave = () => {
+  //   timeoutRef.current = setTimeout(() => {
+  //     setDropdownOpen(false);
+  //   }, 200); 
+  // };
 
-  // Clean up timeout on unmount
   useEffect(() => {
     return () => {
       if (timeoutRef.current) clearTimeout(timeoutRef.current);
@@ -38,7 +37,7 @@ const Header: React.FC = () => {
   }, []);
 
   const toggleMenu = () => setMenuOpen((prev) => !prev);
-  const toggleDropdown = () => setDropdownOpen((prev) => !prev);
+  // const toggleDropdown = () => setDropdownOpen((prev) => !prev);
   const toggleMobileDropdown = () => setMobileDropdownOpen((prev) => !prev);
 
   return (
@@ -71,9 +70,12 @@ const Header: React.FC = () => {
             <li className="cursor-pointer content-center">
               <Link to="/about">About Us</Link>
             </li>
+            <li className="cursor-pointer content-center">
+              <Link to={"/service"}>Services</Link>
+            </li>
 
             {/* Services Dropdown */}
-            <li
+            {/* <li
               className="relative cursor-pointer content-center"
               onMouseEnter={handleMouseEnter}
               onMouseLeave={handleMouseLeave}
@@ -115,7 +117,7 @@ const Header: React.FC = () => {
                   <Link to="/service/customization"> Water Bikes Leasing</Link>
                 </li>
               </ul>
-            </li>
+            </li> */}
             <li className="cursor-pointer content-center">
               <Link to="/gallery">Gallery</Link>
             </li>

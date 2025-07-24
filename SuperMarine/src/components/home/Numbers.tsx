@@ -8,8 +8,8 @@ const stats = [
 
 const Numbers = () => {
   return (
-    <div className="relative py-10 bg-[url('/sea.jpg')] bg-cover text-white  bg-center text-center grid grid-cols-1 md:grid-cols-3  w-full mx-auto">
-      <div className="absolute bg-gradient-to-b from-black/20 via-black/40 to-black/60 inset-0"></div>
+    <div className="relative py-10 bg-[url('/sea.jpg')] bg-cover text-white  bg-center text-center grid grid-cols-1 md:grid-cols-3 space-y-8 md:space-y-0  w-full mx-auto">
+      <div className="absolute m-0 bg-gradient-to-b from-black/20 via-black/40 to-black/60 inset-0"></div>
       {stats.map((stat, idx) => (
         <div key={idx} className="text-xl md:text-2xl z-10 font-bold">
           <div>

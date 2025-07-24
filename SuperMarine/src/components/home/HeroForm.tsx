@@ -1,10 +1,10 @@
 const HeroForm = () => {
   return (
     <div className="bg-black">
-      <div className="relative -top-32 z-30">
-        <div className="max-w-6xl mx-auto flex  bg-transparent justify-center rounded-lg overflow-hidden">
+      <div className="relative -top-32 z-30 px-4 md:px-0">
+        <div className="max-w-6xl mx-auto md:flex bg-transparent justify-center  rounded-lg overflow-hidden">
           {/* Left Form - Vertical */}
-          <form className="flex flex-col gap-4 p-10 bg-gray-100 w-1/2 shadow-lg">
+          <form className="flex flex-col gap-4 p-10 bg-gray-100 md:w-1/2 shadow-lg">
             <h1 className="text-2xl font-bold text-gray-800 mb-4">
               Make Your Trip
             </h1>
@@ -63,12 +63,12 @@ const HeroForm = () => {
           </form>
 
           {/* Right Content - Landscape */}
-          <div className="flex flex-col shadow-lg justify-between p-10 bg-amber-100 w-1/2 h-[85%] my-auto">
+          <div className="flex flex-col shadow-lg justify-between p-10 bg-amber-100 md:w-1/2 h-[85%] my-auto">
             <div>
-              <h1 className="text-2xl font-bold text-gray-800 mb-6">
+              <h1 className="text-2xl font-bold text-center text-gray-800 mb-6">
                 Better way to Rent your Vehicle
               </h1>
-              <div className="flex justify-between gap-6">
+              <div className="md:flex space-y-6 md:space-y-0 justify-between gap-6">
                 <div className="flex flex-col items-center text-center">
                   <div className="w-16 h-16 bg-amber-500 rounded-full mb-3 flex items-center justify-center text-white text-2xl font-bold">
                     1

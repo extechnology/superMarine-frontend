@@ -7,7 +7,7 @@ const AboutHero = () => {
         alt="no image"
         className="w-full h-96 object-cover"
       />
-      <div className="absolute left-[8%] md:text-center md:left-0 proza-libre-bold bottom-[22%] flex items-center justify-center text-white text-4xl font-bold">
+      <div className="absolute md:left-[8%] md:text-left text-center proza-libre-bold bottom-[22%] flex items-center justify-center text-white text-4xl font-bold">
         Experience the Rush <br /> with SuperJet's Blazing Speed
       </div>
     </div>
