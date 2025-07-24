@@ -48,12 +48,13 @@ const Header: React.FC = () => {
     >
       <div className="flex justify-between items-center max-w-7xl mx-auto py-3 px-4 md:px-0">
         <h1
-          className={`text-2xl font-bold transition-colors ${
+          className={`text-5xl tracking-wide bebas-neue font-bold transition-colors ${
             scrolled ? "text-black" : "text-white"
           }`}
         >
           Super Marine
         </h1>
+        {/* <img src="/text-log.png" alt="" className="h-11" /> */}
 
         {/* Desktop Navigation */}
         <nav className="hidden md:block">
