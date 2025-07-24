@@ -92,7 +92,7 @@ const ContactUs: React.FC = () => {
           {/* Right Side - Google Map */}
           <div className="w-full  content-center flex items-center z-1 h-[500px]">
             <MapContainer
-              center={[25.1942075, 55.2277503]}
+              center={[24.335974, 54.510278]}
               zoom={15}
               scrollWheelZoom={true}
               className="h-[500px] z-0 w-full rounded-xl"

@@ -30,15 +30,15 @@ const Data = [
 ];
 const ExperienceNow = () => {
   return (
-    <div className="bg-gradient-to-b from-black via-black/90 to-[#1a1a1a]">
+    <div className="bg-black">
       <div className="max-w-7xl mx-auto pb-12 pt-12">
         <h1 className="text-center text-lg  ">
-          <span className="backdrop-blur-2xl text-white bg-black/80 px-5 py-3 rounded-full">
+          <span className="backdrop-blur-2xl text-white bg-gray-800  px-5 py-3 rounded-full">
             Experience Now
           </span>
         </h1>
         <h1 className="text-center text-4xl proza-libre-bold text-white  font-bold py-8 px-4 md:px-0">
-          Experience Our Finest Yachts and JetSkies
+          Adventure Starts Where the Road Ends
         </h1>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
           {Data.map((data) => (
