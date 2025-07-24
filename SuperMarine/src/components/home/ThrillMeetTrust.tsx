@@ -1,8 +1,8 @@
 const ThrillMeetTrust = () => {
   return (
     <div className="bg-black">
-      <div className="max-w-7xl mx-auto px-4 md:px-0 py-6">
-        <section className="bg-black text-white py-16 px-4 md:px-0">
+      <div className="max-w-7xl mx-auto px-4 md:px-0">
+        <section className="bg-black text-white py-10 md:py-16 ">
           <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-10 items-center">
             {/* Image Section */}
             <div className="rounded-2xl overflow-hidden shadow-2xl">
