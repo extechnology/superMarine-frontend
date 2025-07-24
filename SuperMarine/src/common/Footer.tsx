@@ -6,6 +6,7 @@ import {
   BsTwitterX,
   BsPinterest,
 } from "react-icons/bs";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
@@ -30,33 +31,43 @@ const Footer = () => {
             Quick Links
           </h1>
           <ul className="space-y-2 text-sm">
-            <li>Home</li>
-            <li>About</li>
-            <li>Services</li>
-            <li>Gallery </li>
-            <li>Contact </li>
+            <li>
+              <Link to={"/"}>Home</Link>
+            </li>
+            <li>
+              <Link to={"/about"}>About</Link>
+            </li>
+            <li>
+              <Link to={"/service"}>Services</Link>
+            </li>
+            <li>
+              <Link to={"/gallery"}>Gallery</Link>{" "}
+            </li>
+            <li>
+              <Link to={"/contact"}>Contact</Link>{" "}
+            </li>
           </ul>
         </div>
 
         <div>
           <ul className="flex gap-10 text-yellow-600 ">
             <li>
-              <BsFacebook size={20}  />
+              <BsFacebook size={20} />
             </li>
             <li>
-              <BsInstagram size={20}  />
+              <BsInstagram size={20} />
             </li>
             <li>
-              <BsYoutube size={20}  />
+              <BsYoutube size={20} />
             </li>
             <li>
-              <BsTwitterX size={20}  />
+              <BsTwitterX size={20} />
             </li>
             <li>
-              <BsLinkedin size={20}  />
+              <BsLinkedin size={20} />
             </li>
             <li>
-              <BsPinterest size={20}  />
+              <BsPinterest size={20} />
             </li>
           </ul>
         </div>
