@@ -8,9 +8,9 @@ const sampleServiceData: ServiceData[] = [
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam, neque",
 
     image: "/jet-ski.jpg",
-    price: 100, // Changed from string to number
+    price: 100, 
     duration: "1",
-    discount: 20, // Changed from string "20%" to number 20
+    discount: 18, 
   },
   {
     id: 2,
@@ -21,7 +21,7 @@ const sampleServiceData: ServiceData[] = [
     image: "/jet-ski.jpg",
     price: 150,
     duration: "1",
-    discount: 20,
+    discount: 10,
   },
   {
     id: 3,
@@ -32,7 +32,7 @@ const sampleServiceData: ServiceData[] = [
     image: "/jet-ski.jpg",
     price: 200,
     duration: "1",
-    discount: 20,
+    discount: 31,
   },
   {
     id: 4,
@@ -43,7 +43,7 @@ const sampleServiceData: ServiceData[] = [
     image: "/jet-ski.jpg",
     price: 180,
     duration: "1",
-    discount: 20,
+    discount: 50,
   },
   {
     id: 5,
@@ -54,7 +54,7 @@ const sampleServiceData: ServiceData[] = [
     image: "/jet-ski.jpg",
     price: 120,
     duration: "1",
-    discount: 20, // Changed from string "20" to number 20
+    discount: 24, // Changed from string "20" to number 20
   },
 ];
 
@@ -133,13 +133,14 @@ const Services: React.FC = () => {
                         )}
                       </div>
                       <span className="text-md">
-                        Duration : <span className="font-bold">{data.duration} hours</span>
+                        Duration :{" "}
+                        <span className="font-bold">{data.duration} hours</span>
                       </span>
                     </div>
                   </div>
 
                   {/* Booking button - hidden until hover */}
-                  <button className="mt-4 bg-white text-black py-2 px-4 rounded-lg  font-medium opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-5 group-hover:translate-y-0 w-full">
+                  <button className="mt-4 bg-white text-black py-2 px-4 rounded-lg font-medium opacity-100 sm:opacity-0 sm:group-hover:opacity-100 transition-all duration-300 transform translate-y-0 sm:translate-y-5 sm:group-hover:translate-y-0 w-full">
                     Book Now
                   </button>
                 </div>
