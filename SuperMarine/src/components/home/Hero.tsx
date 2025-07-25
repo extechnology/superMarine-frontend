@@ -6,23 +6,20 @@ const slides: Slide[] = [
   {
     id: 1,
     image: "/hero-carousel1.jpg",
-    title: "Discover New Horizons",
-    subtitle: "Explore the world with confidence",
-    buttonText: "Get Started",
+    title: "Ride the Waves, Rule the Dunes!",
+    subtitle: "Experience the ultimate water adventure with excitement, splashes, and unforgettable memories",
   },
   {
     id: 2,
     image: "/hero-carousel2.jpg",
-    title: "Innovation in Motion",
-    subtitle: "Shaping the future together",
-    buttonText: "Learn More",
+    title: "Fuel Your Thrill — Jet Ski & Quad Bike Awaits!",
+    subtitle: "Experience the ultimate water adventure with excitement, splashes, and unforgettable memories",
   },
   {
     id: 3,
     image: "/hero-carousel1.jpg",
     title: "Empowering Your Journey",
     subtitle: "Solutions built for you",
-    buttonText: "Contact Us",
   },
 ];
 
@@ -56,9 +53,14 @@ const Hero = () => {
                   {slide.title}
                 </h2>
                 <p className="text-lg md:text-xl mb-6">{slide.subtitle}</p>
-                <button className="px-6 py-3 bg-transparent border border-white text-white rounded-lg shadow-lg hover:bg-white hover:text-black transition">
-                  {slide.buttonText}
-                </button>
+                <div className="flex gap-4">
+                  <button className="px-6 py-3 bg-transparent border border-white text-white rounded-lg shadow-lg hover:bg-white hover:text-black transition">
+                    Contact Us
+                  </button>
+                  <button className="px-6 py-3  border bg-white text-black rounded-lg shadow-lg hover:text-white hover:border-white hover:bg-transparent transition">
+                    Enquire Now
+                  </button>
+                </div>
               </div>
             </div>
           </SwiperSlide>

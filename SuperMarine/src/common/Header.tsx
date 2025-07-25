@@ -13,6 +13,7 @@ const Header: React.FC = () => {
     if (timeoutRef.current) clearTimeout(timeoutRef.current);
     setDropdownOpen(true);
   };
+  
 
   const handleMouseLeave = () => {
     timeoutRef.current = setTimeout(() => {
@@ -167,71 +168,61 @@ const Header: React.FC = () => {
           menuOpen ? "translate-x-0" : "-translate-x-full"
         }`}
       >
-        <div className="flex flex-col items-center justify-center h-full gap-8 text-xl">
-          <Link to="/" onClick={toggleMenu}>
+        <div className="flex flex-col items-center justify-center h-full gap-6 text-lg">
+          <Link to="/" onClick={toggleMenu} className="hover:underline">
             Home
           </Link>
-          <Link to="/about" onClick={toggleMenu}>
+          <Link to="/about" onClick={toggleMenu} className="hover:underline">
             About Us
           </Link>
 
-          {/* Mobile Dropdown */}
+          {/* Optimized Mobile Dropdown */}
           <div className="relative">
             <button
               onClick={toggleMobileDropdown}
-              className="flex items-center gap-1 focus:outline-none"
+              className="flex items-center gap-1 py-2 rounded hover:bg-white/10 transition"
             >
               Services ▾
             </button>
-            {mobileDropdownOpen && (
-              <ul className="mt-2 bg-gray-100 rounded shadow-inner text-center">
-                <li
-                  className="h-24 relative text-white"
-                  style={{
-                    backgroundImage: `url('/beautiful.jpg')`,
-                    backgroundSize: "cover",
-                    backgroundPosition: "center",
-                  }}
-                >
-                  <Link
-                    to="/rental_service"
-                    className="absolute inset-0 px-5 py-3 bg-black/40 hover:bg-black/60 transition duration-200 flex items-center font-semibold"
-                  >
-                    Rental Services
-                  </Link>
-                </li>
 
-                <li
-                  className="h-24 relative text-white"
-                  style={{
-                    backgroundImage: `url('/jet-ski.jpg')`,
-                    backgroundSize: "cover",
-                    backgroundPosition: "center",
-                  }}
+            <ul
+              className={`absolute left-1/2 -translate-x-1/2 mt-2 w-56 text-center transition-all duration-300 origin-top overflow-hidden bg-black/50 rounded-lg shadow-lg backdrop-blur-md ${
+                mobileDropdownOpen
+                  ? "max-h-[500px] opacity-100"
+                  : "max-h-0 opacity-0"
+              }`}
+            >
+              <li>
+                <Link
+                  to="/rental_service"
+                  onClick={toggleMenu}
+                  className="block px-6 py-3 text-white hover:bg-white/20 transition font-medium"
                 >
-                  <Link
-                    to="service_and_repair"
-                    className="absolute inset-0 px-5 py-3 bg-black/40 hover:bg-black/60 transition duration-200 flex items-center font-semibold"
-                  >
-                    Service & Repair
-                  </Link>
-                </li>
-              </ul>
-            )}
+                  Rental Services
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/service_and_repair"
+                  onClick={toggleMenu}
+                  className="block px-6 py-3 text-white hover:bg-white/20 transition font-medium"
+                >
+                  Service & Repair
+                </Link>
+              </li>
+            </ul>
           </div>
 
-          
-
-          <Link to="/gallery" onClick={toggleMenu}>
+          <Link to="/gallery" onClick={toggleMenu} className="hover:underline">
             Gallery
           </Link>
-          <Link to="/contact" onClick={toggleMenu}>
+          <Link to="/contact" onClick={toggleMenu} className="hover:underline">
             Contact Us
           </Link>
           <Link
             to={"/book-now"}
             onClick={toggleMenu}
-            className="px-6 py-2 rounded-full bg-blue-600 text-white hover:bg-blue-700"
+            className="px-6 py-2 rounded-full bg-blue-600 text-white hover:bg-blue-700 transition"
           >
             Book Now
           </Link>

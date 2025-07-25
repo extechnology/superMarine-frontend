@@ -52,7 +52,7 @@ const HeroForm = () => {
               />
             </label>
 
-            <div className="grid grid-cols-3 gap-4">
+            <div className="grid md:grid-cols-3 gap-4">
               <label className="flex flex-col gap-1">
                 <span className="text-sm font-medium text-gray-700">
                   Ride Date
