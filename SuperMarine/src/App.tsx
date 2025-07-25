@@ -1,5 +1,5 @@
 import "./App.css";
-import { lazy,Suspense } from "react";
+import { lazy, Suspense } from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Header from "./common/Header";
 import Footer from "./common/Footer";
@@ -9,26 +9,28 @@ import WhatsAppButton from "./common/WhatsApp";
 const Home = lazy(() => import("./pages/Home"));
 const About = lazy(() => import("./pages/About"));
 const Contact = lazy(() => import("./pages/ContactUs"));
-const Service = lazy(() => import("./pages/Services"));
+const ServiceAndRepair = lazy(() => import("./pages/Repair"));
+const RentalService = lazy(() => import("./pages/RentalService"));
 const Gallery = lazy(() => import("./pages/Gallery"));
 const BookNow = lazy(() => import("./pages/BookNow"));
 
 function App() {
   return (
     <Router>
-      <ScrollToTop/>
+      <ScrollToTop />
       <Header />
       <Suspense fallback={<Loader />}>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
-          <Route path="/service" element={<Service />} />
+          <Route path="/rental_service" element={<RentalService />} />
+          <Route path="/service_and_repair" element={<ServiceAndRepair />} />
           <Route path="/gallery" element={<Gallery />} />
           <Route path="/book-now" element={<BookNow />} />
         </Routes>
       </Suspense>
-      <WhatsAppButton/>
+      <WhatsAppButton />
       <Footer />
     </Router>
   );

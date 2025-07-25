@@ -19,7 +19,7 @@ const Address = () => {
 
           {/* Middle Section */}
           <div className="text-white space-y-2">
-            <h3 className="font-bold text-lg">Office Address :</h3>
+            <h3 className="font-bold text-md md:text-lg">Office Address :</h3>
             <p className="text-gray-300 text-sm">
               9GC9+X65 - Mussaffah - M3 <br />
               Abu Dhabi - United Arab Emirates
@@ -34,7 +34,7 @@ const Address = () => {
 
           {/* Right Section (Location Map) */}
           <div className="text-white">
-            <h3 className="font-bold text-lg mb-2">Location Map :</h3>
+            <h3 className="font-bold text-md md:text-lg mb-2">Location Map :</h3>
             <MapContainer
               center={[24.335974, 54.510278]} 
               zoom={15}

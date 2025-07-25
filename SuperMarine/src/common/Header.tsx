@@ -5,21 +5,20 @@ import { Link } from "react-router-dom";
 const Header: React.FC = () => {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
-  // const [dropdownOpen, setDropdownOpen] = useState(false);
-  // const [mobileDropdownOpen, setMobileDropdownOpen] = useState(false);
-
+  const [dropdownOpen, setDropdownOpen] = useState(false);
+  const [mobileDropdownOpen, setMobileDropdownOpen] = useState(false);
   const timeoutRef = useRef<NodeJS.Timeout | null>(null);
 
-  // const handleMouseEnter = () => {
-  //   if (timeoutRef.current) clearTimeout(timeoutRef.current);
-  //   setDropdownOpen(true);
-  // };
+  const handleMouseEnter = () => {
+    if (timeoutRef.current) clearTimeout(timeoutRef.current);
+    setDropdownOpen(true);
+  };
 
-  // const handleMouseLeave = () => {
-  //   timeoutRef.current = setTimeout(() => {
-  //     setDropdownOpen(false);
-  //   }, 200);
-  // };
+  const handleMouseLeave = () => {
+    timeoutRef.current = setTimeout(() => {
+      setDropdownOpen(false);
+    }, 200);
+  };
 
   useEffect(() => {
     return () => {
@@ -37,8 +36,8 @@ const Header: React.FC = () => {
   }, []);
 
   const toggleMenu = () => setMenuOpen((prev) => !prev);
-  // const toggleDropdown = () => setDropdownOpen((prev) => !prev);
-  // const toggleMobileDropdown = () => setMobileDropdownOpen((prev) => !prev);
+  const toggleDropdown = () => setDropdownOpen((prev) => !prev);
+  const toggleMobileDropdown = () => setMobileDropdownOpen((prev) => !prev);
 
   return (
     <header
@@ -61,7 +60,7 @@ const Header: React.FC = () => {
         {/* Desktop Navigation */}
         <nav className="hidden md:block">
           <ul
-            className={`flex gap-8 rounded-full px-8 py-3 transition-all duration-300 ${
+            className={`flex gap-8 rounded-full font-medium px-8 py-3 transition-all duration-300 ${
               scrolled
                 ? "bg-white text-black"
                 : "border border-white text-white backdrop-blur-md"
@@ -73,12 +72,12 @@ const Header: React.FC = () => {
             <li className="cursor-pointer content-center">
               <Link to="/about">About Us</Link>
             </li>
-            <li className="cursor-pointer content-center">
+            {/* <li className="cursor-pointer content-center">
               <Link to={"/service"}>Services</Link>
-            </li>
+            </li> */}
 
             {/* Services Dropdown */}
-            {/* <li
+            <li
               className="relative cursor-pointer content-center"
               onMouseEnter={handleMouseEnter}
               onMouseLeave={handleMouseLeave}
@@ -89,38 +88,45 @@ const Header: React.FC = () => {
               </span>
 
               <ul
-                className={`absolute top-full left-0 mt-3 w-52 bg-white text-gray-800 rounded-xl shadow-xl transition-all duration-300 ease-in-out overflow-hidden transform ${
+                className={`absolute top-full left-0 mt-3 w-64 rounded-xl shadow-xl transition-all duration-300 ease-in-out overflow-hidden transform ${
                   dropdownOpen
                     ? "opacity-100 scale-100 translate-y-0 visible"
                     : "opacity-0 scale-95 -translate-y-2 invisible pointer-events-none"
                 }`}
               >
-                <li className="px-5 py-2  hover:bg-gray-100 transition-colors duration-200">
-                  <Link to="/service/repair"> Jet Ski Service</Link>
-                </li>
-                <li className="px-5 py-2  hover:bg-gray-100 transition-colors duration-200">
-                  <Link to="/service/maintenance">
-                    {" "}
-                    Marine Motorcycles Rental
+                <li
+                  className="h-24 relative text-white"
+                  style={{
+                    backgroundImage: `url('/beautiful.jpg')`,
+                    backgroundSize: "cover",
+                    backgroundPosition: "center",
+                  }}
+                >
+                  <Link
+                    to="/rental_service"
+                    className="absolute inset-0 px-5 py-3 bg-black/40 hover:bg-black/60 transition duration-200 flex items-center font-semibold"
+                  >
+                    Rental Services
                   </Link>
                 </li>
-                <li className="px-5 py-2  hover:bg-gray-100 transition-colors duration-200">
-                  <Link to="/service/customization">
-                    {" "}
-                    Marine Motorcycles Repairing
+
+                <li
+                  className="h-24 relative text-white"
+                  style={{
+                    backgroundImage: `url('/jet-ski.jpg')`,
+                    backgroundSize: "cover",
+                    backgroundPosition: "center",
+                  }}
+                >
+                  <Link
+                    to="service_and_repair"
+                    className="absolute inset-0 px-5 py-3 bg-black/40 hover:bg-black/60 transition duration-200 flex items-center font-semibold"
+                  >
+                    Service & Repair
                   </Link>
-                </li>
-                <li className="px-5 py-2  hover:bg-gray-100 transition-colors duration-200">
-                  <Link to="/service/customization">
-                    {" "}
-                    Water Bikes Repairing and Maintaining
-                  </Link>
-                </li>
-                <li className="px-5 py-2  hover:bg-gray-100 transition-colors duration-200">
-                  <Link to="/service/customization"> Water Bikes Leasing</Link>
                 </li>
               </ul>
-            </li> */}
+            </li>
             <li className="cursor-pointer content-center">
               <Link to="/gallery">Gallery</Link>
             </li>
@@ -160,7 +166,7 @@ const Header: React.FC = () => {
 
       {/* Mobile Menu */}
       <div
-        className={`md:hidden fixed top-0 left-0 w-full h-screen bg-white z-40 transform transition-transform duration-300 ease-in-out ${
+        className={`md:hidden fixed top-0 left-0 w-full h-screen bg-black/50 backdrop-blur-xl text-white z-40 transform transition-transform duration-300 ease-in-out ${
           menuOpen ? "translate-x-0" : "-translate-x-full"
         }`}
       >
@@ -173,7 +179,7 @@ const Header: React.FC = () => {
           </Link>
 
           {/* Mobile Dropdown */}
-          {/* <div className="relative">
+          <div className="relative">
             <button
               onClick={toggleMobileDropdown}
               className="flex items-center gap-1 focus:outline-none"
@@ -199,7 +205,7 @@ const Header: React.FC = () => {
                 </li>
               </ul>
             )}
-          </div> */}
+          </div>
 
           <Link to="/service" onClick={toggleMenu}>
             Services
@@ -211,13 +217,12 @@ const Header: React.FC = () => {
           <Link to="/contact" onClick={toggleMenu}>
             Contact Us
           </Link>
-          <Link to={"/book-now"}>
-            <button
-              type="button"
-              className="px-6 py-2 rounded-full bg-blue-600 text-white hover:bg-blue-700"
-            >
-              Book Now
-            </button>
+          <Link
+            to={"/book-now"}
+            onClick={toggleMenu}
+            className="px-6 py-2 rounded-full bg-blue-600 text-white hover:bg-blue-700"
+          >
+            Book Now
           </Link>
         </div>
       </div>

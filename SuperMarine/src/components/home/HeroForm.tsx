@@ -4,103 +4,149 @@ const HeroForm = () => {
       <div className="relative -top-32 z-30 px-4 md:px-0">
         <div className="max-w-6xl mx-auto md:flex bg-transparent justify-center overflow-hidden">
           {/* Left Form - Vertical */}
-          <form className="flex flex-col gap-4 p-10 bg-gray-100 md:w-1/2 shadow-lg">
-            <h1 className="text-2xl font-bold text-gray-800 mb-4">
-              Make Your Trip
+          <form className="flex flex-col gap-4 p-10 bg-white md:w-1/2 shadow-lg">
+            <h1 className="text-xl md:text-2xl font-semibold text-gray-800 mb-4">
+              Adventure Vehicle Booking
             </h1>
-            <label htmlFor="Pick up Location" className="flex flex-col gap-1">
-              <span className="text-sm font-medium text-gray-700">
-                Pick up Location
-              </span>
+
+            <label className="flex flex-col gap-1">
+              <span className="text-sm font-medium text-gray-700">Name</span>
               <input
                 type="text"
-                placeholder="Enter location"
+                placeholder="Enter your name"
                 className="p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-amber-500"
               />
             </label>
-            <label htmlFor="Drop off Location" className="flex flex-col gap-1">
-              <span className="text-sm font-medium text-gray-700">
-                Drop off Location
-              </span>
-              <input
-                type="text"
-                placeholder="Enter location"
-                className="p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-amber-500"
-              />
-            </label>
-            <div className="grid grid-cols-2 gap-4">
-              <label htmlFor="Pick up Date" className="flex flex-col gap-1">
+            <div className="flex justify-between">
+              <label className="flex flex-col gap-1">
                 <span className="text-sm font-medium text-gray-700">
-                  Pick up Date
+                  Phone No.
                 </span>
                 <input
-                  type="date"
+                  type="tel"
+                  placeholder="Enter your phone number"
                   className="p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-amber-500"
                 />
               </label>
-              <label htmlFor="Drop off Date" className="flex flex-col gap-1">
+
+              <label className="flex flex-col gap-1">
                 <span className="text-sm font-medium text-gray-700">
-                  Drop off Date
+                  Email ID
                 </span>
                 <input
-                  type="date"
+                  type="email"
+                  placeholder="Enter your email"
                   className="p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-amber-500"
                 />
               </label>
             </div>
-            <label htmlFor="Pick up Time" className="flex flex-col gap-1">
+
+            <label className="flex flex-col gap-1">
               <span className="text-sm font-medium text-gray-700">
-                Pick up Time
+                Adventure Vehicle
               </span>
               <input
-                type="time"
+                type="text"
+                placeholder="Search or select vehicle"
                 className="p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-amber-500"
               />
             </label>
-            <button className="mt-4 bg-amber-500 hover:bg-amber-600 text-white font-bold py-3 px-4 rounded-md transition duration-200">
-              Rent a Car Now
-            </button>
+
+            <div className="grid grid-cols-3 gap-4">
+              <label className="flex flex-col gap-1">
+                <span className="text-sm font-medium text-gray-700">
+                  Ride Date
+                </span>
+                <input
+                  type="date"
+                  className="p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-amber-500"
+                />
+              </label>
+
+              <label className="flex flex-col gap-1">
+                <span className="text-sm font-medium text-gray-700">
+                  Report Time
+                </span>
+                <input
+                  type="time"
+                  className="p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-amber-500"
+                />
+              </label>
+
+              <label className="flex flex-col gap-1">
+                <span className="text-sm font-medium text-gray-700">
+                  Ride Time
+                </span>
+                <input
+                  type="time"
+                  className="p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-amber-500"
+                />
+              </label>
+            </div>
+            <div className="flex justify-between">
+              <label className="flex flex-col gap-1">
+                <span className="text-sm font-medium text-gray-700">
+                  No. of Persons
+                </span>
+                <input
+                  type="number"
+                  placeholder="Enter number of persons"
+                  className="p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-amber-500"
+                />
+              </label>
+
+              <label className="flex flex-col gap-1">
+                <span className="text-sm font-medium text-gray-700">
+                  Ride Cost (AED)
+                </span>
+                <input
+                  type="text"
+                  placeholder="Auto-calculated or enter manually"
+                  className="p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-amber-500"
+                />
+              </label>
+            </div>
           </form>
 
           {/* Right Content - Landscape */}
           <div className="flex flex-col shadow-lg justify-between p-10 bg-amber-100 md:w-1/2 h-[85%] my-auto">
             <div>
-              <h1 className="text-2xl font-bold text-center text-gray-800 mb-6">
-                Better way to Rent your Vehicle
+              <h1 className="text-xl md:text-2xl font-bold text-center text-gray-800 mb-6">
+                Ride Steps
               </h1>
               <div className="md:flex space-y-6 md:space-y-0 justify-between gap-6">
                 <div className="flex flex-col items-center text-center">
                   <div className="w-16 h-16 bg-amber-500 rounded-full mb-3 flex items-center justify-center text-white text-2xl font-bold">
                     1
                   </div>
-                  <h3 className="font-semibold">Choose Location</h3>
-                  <p className="text-sm text-gray-600 mt-1">
-                    Select your desired pickup location
-                  </p>
+                  <h3 className="font-semibold text-sm">
+                    Search Adventure Vehicle
+                  </h3>
                 </div>
                 <div className="flex flex-col items-center text-center">
                   <div className="w-16 h-16 bg-amber-500 rounded-full mb-3 flex items-center justify-center text-white text-2xl font-bold">
                     2
                   </div>
-                  <h3 className="font-semibold">Pick-Up Date</h3>
-                  <p className="text-sm text-gray-600 mt-1">
-                    Choose your rental dates
-                  </p>
+                  <h3 className="font-semibold text-sm">Confirm the Ride</h3>
+                  <p className=" text-gray-600 text-xs mt-1"></p>
                 </div>
                 <div className="flex flex-col items-center text-center">
                   <div className="w-16 h-16 bg-amber-500 rounded-full mb-3 flex items-center justify-center text-white text-2xl font-bold">
                     3
                   </div>
-                  <h3 className="font-semibold">Book Your Car</h3>
-                  <p className="text-sm text-gray-600 mt-1">
-                    Reserve your perfect vehicle
-                  </p>
+                  <h3 className="font-semibold text-sm">
+                    Experience the Adventure
+                  </h3>
                 </div>
               </div>
             </div>
-            <div className="mt-8">
-              <button className="w-full bg-gray-800 hover:bg-gray-900 text-white font-bold py-3 px-4 rounded-md transition duration-200">
-                Reserve your Perfect Car
+            <div className="flex justify-center mt-7 w-full ">
+              <button className=" bg-orange-600 w-1/2 hover:bg-orange-700 text-white font-bold py-3 px-4 rounded-l-md transition duration-200">
+                Book Now!
+              </button>
+
+              <button className="bg-amber-500 w-1/2 hover:bg-amber-600 text-white font-bold py-3 px-4 rounded-r-md transition duration-200">
+                Enquire Now!
               </button>
             </div>
           </div>

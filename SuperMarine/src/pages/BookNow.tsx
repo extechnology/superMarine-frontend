@@ -98,7 +98,7 @@ const BookingPage = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           {/* Service Details Section */}
           <div className="bg-transparent ">
-            <div className="bg-black/50 backdrop-blur-2xl rounded-xl p-6 shadow-2xl">
+            <div className="bg-black/40 backdrop-blur-md rounded-xl p-6 shadow-2xl">
               <div className="flex items-center justify-between mb-4">
                 <h2 className="text-2xl font-semibold text-white">
                   {jetSkiService.title}
@@ -150,7 +150,7 @@ const BookingPage = () => {
           </div>
 
           {/* Booking Form Section */}
-          <div className="bg-black/40 backdrop-blur-2xl rounded-xl p-6 shadow-2xl">
+          <div className="bg-black/40 backdrop-blur-md rounded-xl p-6 shadow-2xl">
             <h2 className="text-2xl font-semibold mb-6 text-white">
               Booking Details
             </h2>

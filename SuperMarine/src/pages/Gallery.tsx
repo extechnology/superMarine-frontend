@@ -4,15 +4,15 @@ const GalleryData = [
     title:"Yamaha Jet Ski",
   },
   {id:2,
-    image:"/hero-carousel1.jpg",
+    image:"/hero-carousel2.jpg",
     title:"Ducati Jet Ski",
   },
   {id:3,
-    image:"/hero-carousel1.jpg",
+    image:"/beautiful.jpg",
     title:"Rolls Royce Jet Ski",
   },
   {id:4,
-    image:"/hero-carousel1.jpg",
+    image:"/beautiful.jpg",
     title:"Suzuki Jet Ski",
   },
   {id:5,
@@ -20,7 +20,7 @@ const GalleryData = [
     title:"Honda Jet Ski",
   },
   {id:6,
-    image:"/hero-carousel1.jpg",
+    image:"/hero-carousel2.jpg",
     title:"Lamborghini Jet Ski",
   },
 ]
@@ -48,11 +48,11 @@ const Gallery = () => {
       </div>
 
       <div className="bg-black py-10">
-        <div className="grid grid-cols-1 md:grid-cols-3 max-w-7xl mx-auto gap-5 px-4 md:px-0">
+        <div className="grid grid-cols-1 md:grid-cols-3 max-w-7xl mx-auto  px-4 md:px-0">
           {GalleryData.map((data) => (
             <div key={data.id} className="relative">
-              <img src={data.image} alt={data.title} className="rounded-2xl" />
-              <h1 className="absolute proza-libre-bold bottom-5 text-lg text-center font-semibold w-full bg-black/50 py-1 text-white ">
+              <img src={data.image} alt={data.title} className="" />
+              <h1 className="absolute proza-libre-bold bottom-5 text-lg text-center font-semibold w-full backdrop-blur-sm bg-black/50 py-1 text-white ">
                 {data.title}
               </h1>
             </div>

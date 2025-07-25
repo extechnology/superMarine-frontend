@@ -4,10 +4,10 @@ const BookYourAdventure = () => {
   return (
     <div className="bg-black text-white py-10">
       <div className="max-w-7xl mx-auto px-4 md:px-0">
-        <h1 className="text-3xl font-bold text-center proza-libre-bold">
+        <h1 className="md:text-3xl text-2xl font-bold text-center proza-libre-bold">
           Book Your Adventure
         </h1>
-        <p className="text-lg text-center mt-4">
+        <p className="md:text-lg text-sm text-center mt-4">
           Seize the thrill, book your JetSki & Quads Bike adventure with us
           today!
         </p>

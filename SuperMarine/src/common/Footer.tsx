@@ -73,7 +73,7 @@ const Footer = () => {
         </div>
       </div>
       <div className="max-w-7xl mx-auto mt-6 h-[.2px] bg-gray-600"></div>
-      <div className="max-w-7xl space-y-2 md:space-y-0 mx-auto text-xs mt-5 grid grid-cols-1 md:grid-cols-3">
+      <div className="max-w-7xl space-y-2 text-center md:text-left md:space-y-0 mx-auto text-xs mt-5 grid grid-cols-1 md:grid-cols-3">
         <div>
           <p>© 2025 Super Marine. All Rights Reserved.</p>
         </div>

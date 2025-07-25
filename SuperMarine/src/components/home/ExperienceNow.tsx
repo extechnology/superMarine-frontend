@@ -32,12 +32,12 @@ const ExperienceNow = () => {
   return (
     <div className="bg-black">
       <div className="max-w-7xl mx-auto pb-12 pt-12">
-        <h1 className="text-center text-lg  ">
+        <h1 className="text-center md:text-lg text-sm ">
           <span className="backdrop-blur-2xl text-white bg-gray-800  px-5 py-3 rounded-full">
             Experience Now
           </span>
         </h1>
-        <h1 className="text-center text-4xl proza-libre-bold text-white  font-bold py-8 px-4 md:px-0">
+        <h1 className="text-center md:text-4xl text-2xl proza-libre-bold text-white  font-bold py-8 px-4 md:px-0">
           Adventure Starts Where the Road Ends
         </h1>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
@@ -53,19 +53,19 @@ const ExperienceNow = () => {
               />
 
               {/* Overlay gradient */}
-              <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/30 to-black/90 rounded-3xl transition-opacity duration-300 group-hover:opacity-100 opacity-0"></div>
+              <div className="absolute inset-0 bg-gradient-to-b from-black/10 via-black/40 to-black/90 rounded-3xl transition-opacity duration-300 md:group-hover:opacity-100 md:opacity-0"></div>
 
               {/* Text Content */}
-              <div className="absolute inset-0 flex flex-col justify-end p-6 sm:p-10 text-white transition-all duration-500 opacity-0 group-hover:opacity-100">
-                <div className="flex flex-col sm:flex-row justify-between items-start sm:items-end w-full gap-4">
+              <div className="absolute inset-0 flex flex-col justify-end p-6 sm:p-10 text-white transition-all duration-500 md:opacity-0 md:group-hover:opacity-100">
+                <div className="flex px-3 md:px-0  justify-between items-start sm:items-end w-full gap-4">
                   <div>
-                    <h1 className="text-2xl sm:text-3xl experience font-semibold">
+                    <h1 className="text-lg sm:text-3xl experience font-semibold">
                       {data.title}
                     </h1>
                     <p className="text-sm sm:text-base">{data.description}</p>
                   </div>
-                  <div>
-                    <p className="text-lg experience sm:text-2xl font-bold">
+                  <div >
+                    <p className="text-md experience sm:text-2xl font-bold">
                       {data.price}
                     </p>
                   </div>
