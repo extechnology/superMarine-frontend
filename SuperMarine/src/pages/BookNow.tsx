@@ -88,79 +88,82 @@ const BookingPage = () => {
   };
 
   return (
-    <div className="min-h-screen pt-20 bg-gray-900 text-gray-100 py-12 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-7xl mx-auto">
-        <h1 className="text-3xl font-bold mb-8 text-center text-blue-400">
+    <div className="min-h-screen relative pt-30 bg-[url('/sea.jpg')] bg-cover text-gray-100 py-12 px-4 sm:px-6 lg:px-8">
+      <div className="absolute inset-0 z-0 bg-gradient-to-b from-black/30 via-black/60 to-black"></div>
+      <div className="max-w-7xl mx-auto relative z-20">
+        <h1 className="text-3xl proza-libre-bold font-bold mb-8 text-center text-white">
           Jet Ski Rental Booking
         </h1>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           {/* Service Details Section */}
-          <div className="bg-gray-800 rounded-xl p-6 shadow-2xl">
-            <div className="flex items-center justify-between mb-4">
-              <h2 className="text-2xl font-semibold text-blue-300">
-                {jetSkiService.title}
-              </h2>
-              {jetSkiService.discount && (
-                <span className="bg-red-500 text-white px-3 py-1 rounded-full text-sm font-bold">
-                  {jetSkiService.discount}% OFF
-                </span>
-              )}
-            </div>
-
-            <div className="relative h-64 rounded-lg overflow-hidden mb-6">
-              <img
-                src={jetSkiService.image}
-                alt={jetSkiService.title}
-                className="w-full h-full object-cover"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-gray-900/80 to-transparent"></div>
-            </div>
-
-            <p className="text-gray-300 mb-6">{jetSkiService.description}</p>
-
-            <div className="space-y-4">
-              <div className="flex justify-between items-center p-4 bg-gray-700 rounded-lg">
-                <span className="font-medium">Base Price:</span>
-                <span className="font-bold">${jetSkiService.price}</span>
+          <div className="bg-transparent ">
+            <div className="bg-black/50 backdrop-blur-2xl rounded-xl p-6 shadow-2xl">
+              <div className="flex items-center justify-between mb-4">
+                <h2 className="text-2xl font-semibold text-white">
+                  {jetSkiService.title}
+                </h2>
+                {jetSkiService.discount && (
+                  <span className="bg-red-500 text-white px-3 py-1 rounded-full text-sm font-bold">
+                    {jetSkiService.discount}% OFF
+                  </span>
+                )}
               </div>
 
-              <div className="p-4 bg-gray-700 rounded-lg">
-                <h3 className="font-medium mb-2">Duration Options</h3>
-                <div className="grid grid-cols-2 gap-2">
-                  {jetSkiService.durationOptions.map((option) => (
-                    <button
-                      key={option}
-                      onClick={() => setSelectedDuration(option)}
-                      className={`py-2 px-3 rounded-md transition-all ${
-                        selectedDuration === option
-                          ? "bg-blue-600 text-white"
-                          : "bg-gray-600 hover:bg-gray-500"
-                      }`}
-                    >
-                      {option}
-                    </button>
-                  ))}
+              <div className="relative h-64 rounded-lg overflow-hidden mb-6">
+                <img
+                  src={jetSkiService.image}
+                  alt={jetSkiService.title}
+                  className="w-full h-full object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-gray-900/80 to-transparent"></div>
+              </div>
+
+              <p className="text-gray-300 mb-6">{jetSkiService.description}</p>
+
+              <div className="space-y-4">
+                <div className="flex justify-between items-center p-4 bg-gray-700 rounded-lg">
+                  <span className="font-medium">Base Price:</span>
+                  <span className="font-bold">${jetSkiService.price}</span>
+                </div>
+
+                <div className="p-4 bg-gray-700 rounded-lg">
+                  <h3 className="font-medium mb-2">Duration Options</h3>
+                  <div className="grid grid-cols-2 gap-2">
+                    {jetSkiService.durationOptions.map((option) => (
+                      <button
+                        key={option}
+                        onClick={() => setSelectedDuration(option)}
+                        className={`py-2 px-3 rounded-md transition-all ${
+                          selectedDuration === option
+                            ? "bg-blue-600 text-white"
+                            : "bg-gray-600 hover:bg-gray-500"
+                        }`}
+                      >
+                        {option}
+                      </button>
+                    ))}
+                  </div>
                 </div>
               </div>
             </div>
           </div>
 
           {/* Booking Form Section */}
-          <div className="bg-gray-800 rounded-xl p-6 shadow-2xl">
-            <h2 className="text-2xl font-semibold mb-6 text-blue-300">
+          <div className="bg-black/40 backdrop-blur-2xl rounded-xl p-6 shadow-2xl">
+            <h2 className="text-2xl font-semibold mb-6 text-white">
               Booking Details
             </h2>
 
             <form onSubmit={handleSubmit}>
               {/* Date Picker */}
               <div className="mb-6">
-                <label className="block text-sm font-medium mb-2 flex items-center">
+                <label className=" text-sm font-medium mb-2 flex items-center">
                   <Calendar className="mr-2" size={16} />
                   Select Date
                 </label>
                 <input
-                title="Select Date"
+                  title="Select Date"
                   type="date"
                   min={new Date().toISOString().split("T")[0]}
                   onChange={(e) =>
@@ -175,7 +178,7 @@ const BookingPage = () => {
 
               {/* Time Picker */}
               <div className="mb-6">
-                <label className="block text-sm font-medium mb-2 flex items-center">
+                <label className=" text-sm font-medium mb-2 flex items-center">
                   <Clock className="mr-2" size={16} />
                   Select Time Slot
                 </label>
