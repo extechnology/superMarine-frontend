@@ -17,7 +17,7 @@ const HeroForm = () => {
                 className="p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-amber-500"
               />
             </label>
-            <div className="flex justify-between">
+            <div className="md:flex justify-between">
               <label className="flex flex-col gap-1">
                 <span className="text-sm font-medium text-gray-700">
                   Phone No.
@@ -83,7 +83,7 @@ const HeroForm = () => {
                 />
               </label>
             </div>
-            <div className="flex justify-between">
+            <div className="md:flex justify-between">
               <label className="flex flex-col gap-1">
                 <span className="text-sm font-medium text-gray-700">
                   No. of Persons

@@ -72,9 +72,6 @@ const Header: React.FC = () => {
             <li className="cursor-pointer content-center">
               <Link to="/about">About Us</Link>
             </li>
-            {/* <li className="cursor-pointer content-center">
-              <Link to={"/service"}>Services</Link>
-            </li> */}
 
             {/* Services Dropdown */}
             <li
@@ -188,28 +185,42 @@ const Header: React.FC = () => {
             </button>
             {mobileDropdownOpen && (
               <ul className="mt-2 bg-gray-100 rounded shadow-inner text-center">
-                <li className="py-2 px-4 hover:bg-gray-200">
-                  <Link to="/service/repair" onClick={toggleMenu}>
-                    Repair
+                <li
+                  className="h-24 relative text-white"
+                  style={{
+                    backgroundImage: `url('/beautiful.jpg')`,
+                    backgroundSize: "cover",
+                    backgroundPosition: "center",
+                  }}
+                >
+                  <Link
+                    to="/rental_service"
+                    className="absolute inset-0 px-5 py-3 bg-black/40 hover:bg-black/60 transition duration-200 flex items-center font-semibold"
+                  >
+                    Rental Services
                   </Link>
                 </li>
-                <li className="py-2 px-4 hover:bg-gray-200">
-                  <Link to="/service/maintenance" onClick={toggleMenu}>
-                    Maintenance
-                  </Link>
-                </li>
-                <li className="py-2 px-4 hover:bg-gray-200">
-                  <Link to="/service/customization" onClick={toggleMenu}>
-                    Customization
+
+                <li
+                  className="h-24 relative text-white"
+                  style={{
+                    backgroundImage: `url('/jet-ski.jpg')`,
+                    backgroundSize: "cover",
+                    backgroundPosition: "center",
+                  }}
+                >
+                  <Link
+                    to="service_and_repair"
+                    className="absolute inset-0 px-5 py-3 bg-black/40 hover:bg-black/60 transition duration-200 flex items-center font-semibold"
+                  >
+                    Service & Repair
                   </Link>
                 </li>
               </ul>
             )}
           </div>
 
-          <Link to="/service" onClick={toggleMenu}>
-            Services
-          </Link>
+          
 
           <Link to="/gallery" onClick={toggleMenu}>
             Gallery
