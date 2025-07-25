@@ -5,28 +5,22 @@ const SampleServiceData = [
     id: 1,
     title: "Yamaha Jest Ski 100CC",
     image: "/jet-ski.jpg",
-    accommodation: "2",
-    price: 100,
-    duration: "1",
-    discount: 18,
+    description:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam, neque",
   },
   {
     id: 2,
     title: "Yamaha Jest Ski 100CC",
     image: "/jet-ski.jpg",
-    accommodation: "2",
-    price: 100,
-    duration: "1",
-    discount: 18,
+    description:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam, neque",
   },
   {
     id: 3,
     title: "Yamaha Jest Ski 100CC",
     image: "/jet-ski.jpg",
-    accommodation: "2",
-    price: 100,
-    duration: "1",
-    discount: 18,
+    description:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam, neque",
   },
 ];
 
@@ -37,55 +31,34 @@ const ServiceAndRepair = () => {
         <h1 className="text-white text-center md:text-4xl text-2xl proza-libre-bold font-bold py-5">
           Service And Repair
         </h1>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-5 ">
+        <div className="space-y-10 px-4 md:px-0">
           {SampleServiceData.map((data) => (
             <div
               key={data.id}
-              className="bg-white relative text-black rounded-xl"
+              className={`flex flex-col md:flex-row items-center gap-6 bg-gradient-to-r from-gray-800 to-gray-900 rounded-xl p-6 shadow-xl ${
+                data.id % 2 === 0 ? "md:flex-row-reverse" : ""
+              }`}
             >
-              <img src={data.image} alt="" className=" rounded-t-lg" />
-              <h2 className="absolute inset-0 transform -translate-x-[20%] pt-4 font-bold text-center text-lg-center">
-                <span className="bg-amber-400 px-2 py-1 rounded-full">
-                  {data.title}
-                </span>
-              </h2>
-                {/* Max Accommodation */}
-                <p className="text-center flex justify-center gap-5 font-medium text-gray-700">
-                  <span className="text-sm uppercase content-center tracking-wider text-gray-500 block mb-1">
-                    Max Accommodation
-                  </span>
-                  <span className="text-xl font-serif text-amber-600 pb-2">
-                    {data.accommodation}
-                  </span>
+              <div className="w-full md:w-1/2">
+                <img
+                  src={data.image}
+                  alt={data.title}
+                  className="w-full h-64 object-cover rounded-lg shadow-md"
+                />
+              </div>
+
+              <div className="w-full md:w-1/2 text-white space-y-4">
+                <h1 className="text-2xl font-bold">{data.title}</h1>
+                <p className="text-sm md:text-base text-gray-300">
+                  {data.description}
                 </p>
-
-                {/* Price & Duration */}
-                <div className="flex justify-between items-center border-t border-b border-gray-200 py-2 px-2">
-                  <div className="text-center flex gap-5">
-                    <span className="text-xs uppercase content-center tracking-wider text-gray-500 block">
-                      Price :
-                    </span>
-                    <span className="font-medium text-gray-800">
-                      AED {data.price}
-                    </span>
-                  </div>
-                  <div className="text-center flex gap-5">
-                    <span className="text-xs uppercase content-center tracking-wider text-gray-500 block">
-                      Duration :
-                    </span>
-                    <span className="font-medium text-gray-800">
-                      {data.duration} hr
-                    </span>
-                  </div>
-                </div>
-
-                {/* Book Now Button */}
                 <Link
-                  to="/"
-                  className="block w-full bg-amber-500 hover:bg-amber-600 text-gray-900 font-bold py-3 px-6  transition-all duration-300 text-center uppercase tracking-wider text-sm shadow-md hover:shadow-lg"
+                  to="/services"
+                  className="inline-block mt-2 text-amber-400 hover:text-amber-300 font-semibold underline underline-offset-4"
                 >
-                  Book Now
+                  Read More →
                 </Link>
+              </div>
             </div>
           ))}
         </div>
