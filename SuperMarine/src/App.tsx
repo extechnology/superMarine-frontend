@@ -27,7 +27,7 @@ function App() {
           <Route path="/rental_service" element={<RentalService />} />
           <Route path="/service_and_repair" element={<ServiceAndRepair />} />
           <Route path="/gallery" element={<Gallery />} />
-          <Route path="/book-now" element={<BookNow />} />
+          <Route path="/book_now/:id" element={<BookNow />} />
         </Routes>
       </Suspense>
       <WhatsAppButton />

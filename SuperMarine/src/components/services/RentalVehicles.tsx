@@ -1,3 +1,4 @@
+import { Link } from "react-router";
 import type { ServiceData } from "../../types";
 
 const sampleServiceData: ServiceData[] = [
@@ -114,7 +115,7 @@ const RentalVehicles = () => {
                 {/* Content container - pinned to bottom */}
                 <div className=" inset-0 z-20 flex flex-col justify-end p-3 bg-white  relative text-black">
                   {/* Content that moves up on hover */}
-                  <div className="transform relative hover:bg-white p-3 transition-transform duration-300 group-hover:-translate-y-10">
+                  <div className="transform relative bg-white p-3 transition-transform duration-300 group-hover:-translate-y-10">
                     <div className="flex justify-between items-center">
                       <h2 className="md:text-2xl text-lg font-bold mb-1 drop-shadow-md">
                         {data.title}
@@ -153,9 +154,12 @@ const RentalVehicles = () => {
                     </div>
 
                     <div className="flex justify-between gap-4">
-                      <button className="mt-5 bg-amber-400 text-white py-2 px-4 rounded-lg font-medium opacity-100 sm:opacity-0 sm:group-hover:opacity-100 transition-all duration-300 transform translate-y-0 sm:translate-y-5 sm:group-hover:translate-y-0 w-full">
-                        Book Now
-                      </button>
+                      <Link
+                        to={`/book_now/${data.id}`}
+                        className="mt-5 bg-amber-400 text-white py-2 px-4 rounded-lg font-medium opacity-100 sm:opacity-0 sm:group-hover:opacity-100 transition-all duration-300 transform translate-y-0 sm:translate-y-5 sm:group-hover:translate-y-0 w-full"
+                      >
+                        <button>Book Now</button>
+                      </Link>
                       <button className="mt-5 bg-green-500 text-white py-2 px-4 rounded-lg font-medium opacity-100 sm:opacity-0 sm:group-hover:opacity-100 transition-all duration-300 transform translate-y-0 sm:translate-y-5 sm:group-hover:translate-y-0 w-full">
                         Enquire Now
                       </button>
