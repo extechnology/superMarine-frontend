@@ -25,8 +25,7 @@ const ContactUs: React.FC = () => {
         </div>
       </div>
       <h1 className="md:w-[70%] mx-auto px-4 md:px-0 py-5 md:py-0 text-justify  bg-black text-white text-lg">
-        For inquiries, bookings, or assistance, feel free to contact Luxury
-        Charters. Our dedicated team is here to ensure a seamless and
+        For inquiries, bookings, or assistance, feel free to contact Super Marine. Our dedicated team is here to ensure a seamless and
         unforgettable experience. Reach out today and embark on your
         extraordinary journey into aquatic luxury.
       </h1>

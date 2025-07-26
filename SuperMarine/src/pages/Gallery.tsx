@@ -1,4 +1,4 @@
-
+import { useState } from "react";
 const GalleryData = [
   {
     id: 1,
@@ -51,6 +51,17 @@ const GalleryData = [
 ];
 
 const Gallery = () => {
+
+  const [selectedImage, setSelectedImage] = useState<string | null>(null);
+
+  const handleViewImage = (imageUrl: string) => {
+    setSelectedImage(imageUrl);
+  };
+
+  const closeModal = () => {
+    setSelectedImage(null);
+  };
+
   return (
     <div>
       {/* Hero Section */}
@@ -102,7 +113,10 @@ const Gallery = () => {
                   <p className="text-gray-300 text-sm mt-2 opacity-0 group-hover:opacity-100 transition-opacity delay-100 duration-300">
                     {data.description || "View more details"}
                   </p>
-                  <button className="mt-3 bg-white/10 backdrop-blur-sm text-white px-4 py-2 rounded-full text-sm font-medium opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 transition-all delay-150 duration-500 hover:bg-white/20 border border-white/20">
+                  <button
+                    onClick={() => handleViewImage(data.image)}
+                    className="mt-3 bg-white/10 backdrop-blur-sm text-white px-4 py-2 rounded-full text-sm font-medium opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 transition-all delay-150 duration-500 hover:bg-white/20 border border-white/20"
+                  >
                     View Image
                   </button>
                 </div>
@@ -115,6 +129,25 @@ const Gallery = () => {
           </div>
         </div>
       </div>
+      {selectedImage && (
+        <div
+          className="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm flex items-center justify-center p-4"
+          onClick={closeModal}
+        >
+          <img
+            src={selectedImage}
+            alt="Full View"
+            className="max-h-[90vh] max-w-full rounded-lg shadow-lg border border-white"
+            onClick={(e) => e.stopPropagation()} // prevent closing when clicking image
+          />
+          <button
+            className="absolute top-4 right-4 text-white text-xl bg-black/40 px-3 py-1 rounded-full hover:bg-black/70 transition"
+            onClick={closeModal}
+          >
+            ✕
+          </button>
+        </div>
+      )}
     </div>
   );
 };

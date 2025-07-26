@@ -1,4 +1,5 @@
 import { Link } from "react-router";
+import { useState } from "react";
 
 const Data = [
   {
@@ -31,6 +32,12 @@ const Data = [
   },
 ];
 const ExperienceNow = () => {
+
+  const [isOpenId, setIsOpenId] = useState<number | null>(null);
+
+  const handleMobileClick = (id: number) => {
+    setIsOpenId((prev) => (prev === id ? null : id));
+  };
   return (
     <div className="bg-black ">
       <div className="max-w-7xl mx-auto pb-12 pt-12 reveal">
@@ -59,7 +66,9 @@ const ExperienceNow = () => {
             <div
               key={data.id}
               className="relative group overflow-hidden rounded-3xl px-4 md:px-0"
+              onClick={() => handleMobileClick(data.id)}
             >
+              {/* Image */}
               <img
                 src={data.image}
                 alt="no image"
@@ -67,10 +76,24 @@ const ExperienceNow = () => {
               />
 
               {/* Overlay gradient */}
-              <div className="absolute inset-0 bg-gradient-to-b from-black/10 via-black/40 to-black/90 rounded-3xl transition-opacity duration-300 md:group-hover:opacity-100 md:opacity-0"></div>
+              <div
+                className={`
+              absolute inset-0 rounded-3xl bg-gradient-to-b
+              from-black/10 via-black/40 to-black/90 transition-opacity duration-300
+              ${isOpenId === data.id ? "opacity-100" : "opacity-0"}
+              md:opacity-0 md:group-hover:opacity-100
+            `}
+              ></div>
 
               {/* Text Content */}
-              <div className="absolute inset-0 flex flex-col justify-end p-6 sm:p-10 text-white transition-all duration-500 md:opacity-0 md:group-hover:opacity-100">
+              <div
+                className={`
+              absolute inset-0 flex flex-col justify-end p-6 sm:p-10 text-white transition-all duration-500
+              ${isOpenId === data.id ? "opacity-100" : "opacity-0"}
+              md:opacity-0 md:group-hover:opacity-100
+            `}
+              >
+                {/* Book Now button centered */}
                 <div className="absolute inset-0 flex items-center justify-center">
                   <Link
                     to={`/book_now/${data.id}`}
@@ -85,7 +108,8 @@ const ExperienceNow = () => {
                   </Link>
                 </div>
 
-                <div className="flex px-3 md:px-0  justify-between items-start sm:items-end w-full gap-4">
+                {/* Bottom content */}
+                <div className="flex px-3 md:px-0 justify-between items-start sm:items-end w-full gap-4">
                   <div>
                     <h1 className="text-lg sm:text-3xl experience font-semibold">
                       {data.title}

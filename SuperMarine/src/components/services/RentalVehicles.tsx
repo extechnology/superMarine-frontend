@@ -168,11 +168,13 @@ const RentalVehicles = () => {
                           price: data.price,
                           duration: data.duration,
                         }}
-                        className="mt-5 bg-amber-400 text-white py-2 px-4 rounded-lg font-medium opacity-100 sm:opacity-0 sm:group-hover:opacity-100 transition-all duration-300 transform translate-y-0 sm:translate-y-5 sm:group-hover:translate-y-0 w-full"
+                        className="mt-5 bg-[#D4AF37] text-black hover:bg-[#bfa135] py-2 px-4 rounded-lg font-medium opacity-100 sm:opacity-0 sm:group-hover:opacity-100 transition-all duration-300 transform translate-y-0 sm:translate-y-5 sm:group-hover:translate-y-0 w-full"
                       >
                         <button>Book Now</button>
                       </Link>
-                      <button className="mt-5 bg-green-500 text-white py-2 px-4 rounded-lg font-medium opacity-100 sm:opacity-0 sm:group-hover:opacity-100 transition-all duration-300 transform translate-y-0 sm:translate-y-5 sm:group-hover:translate-y-0 w-full">
+                      <button
+                        className="mt-5 bg-black text-[#D4AF37] border border-[#D4AF37] hover:bg-[#1a1a1a] py-2 px-4 rounded-lg font-medium opacity-100 sm:opacity-0 sm:group-hover:opacity-100 transition-all duration-300 transform translate-y-0 sm:translate-y-5 sm:group-hover:translate-y-0 w-full"
+                      >
                         Enquire Now
                       </button>
                     </div>

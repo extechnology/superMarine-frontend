@@ -1,19 +1,22 @@
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Pagination, EffectFade } from "swiper/modules";
 import type { Slide } from "../../types";
+import { Link } from "react-router";
 
 const slides: Slide[] = [
   {
     id: 1,
     image: "/hero-carousel1.jpg",
     title: "Ride the Waves, Rule the Dunes!",
-    subtitle: "Experience the ultimate water adventure with excitement, splashes, and unforgettable memories",
+    subtitle:
+      "Experience the ultimate water adventure with excitement, splashes, and unforgettable memories",
   },
   {
     id: 2,
     image: "/hero-carousel2.jpg",
     title: "Fuel Your Thrill — Jet Ski & Quad Bike Awaits!",
-    subtitle: "Experience the ultimate water adventure with excitement, splashes, and unforgettable memories",
+    subtitle:
+      "Experience the ultimate water adventure with excitement, splashes, and unforgettable memories",
   },
   {
     id: 3,
@@ -68,9 +71,11 @@ const Hero = () => {
                   data-aos="fade-up"
                   data-aos-duration="1000"
                 >
-                  <button className="px-6 py-3 bg-transparent border border-white text-white rounded-lg shadow-lg hover:bg-white hover:text-black transition">
-                    Contact Us
-                  </button>
+                  <Link to={"/contact"}>
+                    <button className="px-6 py-3 bg-transparent border border-white text-white rounded-lg shadow-lg hover:bg-white hover:text-black transition">
+                      Contact Us
+                    </button>
+                  </Link>
                   <button className="px-6 py-3  border bg-white text-black rounded-lg shadow-lg hover:text-white hover:border-white hover:bg-transparent transition">
                     Enquire Now
                   </button>

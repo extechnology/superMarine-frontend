@@ -34,7 +34,7 @@ const BookYourAdventure = () => {
             {/* Overlay */}
             <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/30 to-black/90 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-2xl flex items-center justify-center">
               <Link
-                to="/"
+                to="/rental_service"
                 className="text-white proza-libre-bold text-xl font-semibold bg-black/50 px-5 py-2 rounded-full hover:bg-black/70 transition"
               >
                 Book Your Ride
@@ -52,7 +52,7 @@ const BookYourAdventure = () => {
             {/* Overlay */}
             <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/30 to-black/90 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-2xl flex items-center justify-center">
               <Link
-                to="/"
+                to="/service_and_repair"
                 className="text-white proza-libre-bold text-xl font-semibold bg-black/50 px-5 py-2 rounded-full hover:bg-black/70 transition"
               >
                 Book Your Service

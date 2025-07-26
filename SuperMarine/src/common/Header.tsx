@@ -1,5 +1,6 @@
 import React, { useEffect, useState, useRef } from "react";
-import { HiMenu, HiX } from "react-icons/hi";
+import {  HiX } from "react-icons/hi";
+import { TbSpeedboat } from "react-icons/tb";
 import { Link } from "react-router-dom";
 
 const Header: React.FC = () => {
@@ -155,9 +156,13 @@ const Header: React.FC = () => {
           aria-label="Toggle menu"
         >
           {menuOpen ? (
-            <HiX className={scrolled ? "text-black" : "text-white"} />
+            <HiX
+              className={`w-6 h-6 ${scrolled ? "text-black" : "text-white"}`}
+            />
           ) : (
-            <HiMenu className={scrolled ? "text-black" : "text-white"} />
+            <TbSpeedboat
+              className={`w-9 h-9 ${scrolled ? "text-black" : "text-white"}`}
+            />
           )}
         </button>
       </div>

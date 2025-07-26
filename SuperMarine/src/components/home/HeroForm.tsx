@@ -126,7 +126,6 @@ const HeroForm = () => {
                   className="p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-amber-500"
                 />
               </label>
-
             </div>
           </form>
 
@@ -141,7 +140,7 @@ const HeroForm = () => {
                   <div
                     data-aos="fade-up"
                     data-aos-duration="800"
-                    className="w-16 h-16 bg-amber-500 rounded-full mb-3 flex items-center justify-center text-white text-2xl font-bold"
+                    className="w-16 h-16 bg-yellow-500 rounded-full mb-3 flex items-center justify-center text-white text-2xl font-bold"
                   >
                     1
                   </div>
@@ -157,7 +156,7 @@ const HeroForm = () => {
                   <div
                     data-aos="fade-up"
                     data-aos-duration="800"
-                    className="w-16 h-16 bg-amber-500 rounded-full mb-3 flex items-center justify-center text-white text-2xl font-bold"
+                    className="w-16 h-16 bg-yellow-500 rounded-full mb-3 flex items-center justify-center text-white text-2xl font-bold"
                   >
                     2
                   </div>
@@ -174,7 +173,7 @@ const HeroForm = () => {
                   <div
                     data-aos="fade-up"
                     data-aos-duration="800"
-                    className="w-16 h-16 bg-amber-500 rounded-full mb-3 flex items-center justify-center text-white text-2xl font-bold"
+                    className="w-16 h-16 bg-yellow-500 rounded-full mb-3 flex items-center justify-center text-white text-2xl font-bold"
                   >
                     3
                   </div>
@@ -193,11 +192,17 @@ const HeroForm = () => {
               data-aos="fade-up"
               data-aos-duration="1000"
             >
-              <button className=" bg-orange-600 w-1/2 hover:bg-orange-700 text-white font-bold py-3 px-4 rounded-l-md transition duration-200">
+              <button
+                className=" bg-yellow-500 text-black hover:bg-[#bfa135]
+ font-bold py-3 px-4 rounded-l-md transition duration-200"
+              >
                 Book Now!
               </button>
 
-              <button className="bg-amber-500 w-1/2 hover:bg-amber-600 text-white font-bold py-3 px-4 rounded-r-md transition duration-200">
+              <button
+                className="bg-black text-yellow-500 border border-[#D4AF37] hover:bg-[#1a1a1a]
+ font-bold py-3 px-4 rounded-r-md transition duration-200"
+              >
                 Enquire Now!
               </button>
             </div>
