@@ -127,20 +127,6 @@ const HeroForm = () => {
                 />
               </label>
 
-              <label
-                className="flex flex-col gap-1"
-                data-aos="fade-up"
-                data-aos-duration="1500"
-              >
-                <span className="text-sm font-medium text-gray-700">
-                  Ride Cost (AED)
-                </span>
-                <input
-                  type="text"
-                  placeholder="Auto-calculated or enter manually"
-                  className="p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-amber-500"
-                />
-              </label>
             </div>
           </form>
 
