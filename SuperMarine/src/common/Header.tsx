@@ -132,7 +132,7 @@ const Header: React.FC = () => {
               <Link to="/contact">Contact Us</Link>
             </li>
             <li>
-              <Link to={"/book-now"}>
+              <Link to={"/rental_service"}>
                 <button
                   type="button"
                   className={`px-4 py-1 rounded-full font-semibold border cursor-pointer ${
@@ -220,7 +220,7 @@ const Header: React.FC = () => {
             Contact Us
           </Link>
           <Link
-            to={"/book-now"}
+            to={"/rental_service"}
             onClick={toggleMenu}
             className="px-6 py-2 rounded-full bg-blue-600 text-white hover:bg-blue-700 transition"
           >

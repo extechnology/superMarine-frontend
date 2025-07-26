@@ -56,7 +56,7 @@ const ServiceAndRepair = () => {
                   to="/services"
                   className="inline-block mt-2 text-amber-400 hover:text-amber-300 font-semibold underline underline-offset-4"
                 >
-                  Read More →
+                  Enquire Now →
                 </Link>
               </div>
             </div>

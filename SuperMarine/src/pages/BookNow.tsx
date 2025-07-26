@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Calendar, Clock } from "react-feather";
+import { useLocation } from "react-router";
 
 interface JetSkiService {
   id: number;
@@ -12,7 +13,6 @@ interface JetSkiService {
 }
 
 const BookingPage = () => {
-  // Sample data - replace with your actual data
   const jetSkiService: JetSkiService = {
     id: 1,
     title: "Premium Jet Ski Rental",
@@ -25,6 +25,9 @@ const BookingPage = () => {
   };
 
   // State management
+  const location = useLocation();
+  const BookNowData = location.state;
+  console.log(BookNowData,"sample data");
   const [selectedDate, setSelectedDate] = useState<Date | null>(null);
   const [selectedTime, setSelectedTime] = useState<string>("");
   const [selectedDuration, setSelectedDuration] = useState<string>(
@@ -101,7 +104,7 @@ const BookingPage = () => {
             <div className="bg-black/40 backdrop-blur-md rounded-xl p-6 shadow-2xl">
               <div className="flex items-center justify-between mb-4">
                 <h2 className="text-2xl font-semibold text-white">
-                  {jetSkiService.title}
+                  {BookNowData.title}
                 </h2>
                 {jetSkiService.discount && (
                   <span className="bg-red-500 text-white px-3 py-1 rounded-full text-sm font-bold">
@@ -112,8 +115,8 @@ const BookingPage = () => {
 
               <div className="relative h-64 rounded-lg overflow-hidden mb-6">
                 <img
-                  src={jetSkiService.image}
-                  alt={jetSkiService.title}
+                  src={BookNowData.image}
+                  alt={BookNowData.title}
                   className="w-full h-full object-cover"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-gray-900/80 to-transparent"></div>

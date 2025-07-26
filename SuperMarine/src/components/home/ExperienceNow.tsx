@@ -1,3 +1,5 @@
+import { Link } from "react-router";
+
 const Data = [
   {
     id: 1,
@@ -57,6 +59,20 @@ const ExperienceNow = () => {
 
               {/* Text Content */}
               <div className="absolute inset-0 flex flex-col justify-end p-6 sm:p-10 text-white transition-all duration-500 md:opacity-0 md:group-hover:opacity-100">
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <Link
+                    to={`/book_now/${data.id}`}
+                    state={{
+                      title: data.title,
+                      price: data.price,
+                      image: data.image,
+                    }}
+                    className="font-bold text-lg border-sky-300 border bg-black/50 backdrop-blur-lg py-2 px-4 rounded-full"
+                  >
+                    Book Now
+                  </Link>
+                </div>
+
                 <div className="flex px-3 md:px-0  justify-between items-start sm:items-end w-full gap-4">
                   <div>
                     <h1 className="text-lg sm:text-3xl experience font-semibold">
@@ -64,7 +80,7 @@ const ExperienceNow = () => {
                     </h1>
                     <p className="text-sm sm:text-base">{data.description}</p>
                   </div>
-                  <div >
+                  <div>
                     <p className="text-md experience sm:text-2xl font-bold">
                       {data.price}
                     </p>

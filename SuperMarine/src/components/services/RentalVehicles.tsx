@@ -115,7 +115,7 @@ const RentalVehicles = () => {
                 {/* Content container - pinned to bottom */}
                 <div className=" inset-0 z-20 flex flex-col justify-end p-3 bg-white  relative text-black">
                   {/* Content that moves up on hover */}
-                  <div className="transform relative bg-white p-3 transition-transform duration-300 group-hover:-translate-y-10">
+                  <div className="transform relative bg-white rounded-md p-3 transition-transform duration-300 group-hover:-translate-y-10">
                     <div className="flex justify-between items-center">
                       <h2 className="md:text-2xl text-lg font-bold mb-1 drop-shadow-md">
                         {data.title}
@@ -156,6 +156,7 @@ const RentalVehicles = () => {
                     <div className="flex justify-between gap-4">
                       <Link
                         to={`/book_now/${data.id}`}
+                        state={{title : data.title, image : data.image, price : data.price, duration : data.duration}}
                         className="mt-5 bg-amber-400 text-white py-2 px-4 rounded-lg font-medium opacity-100 sm:opacity-0 sm:group-hover:opacity-100 transition-all duration-300 transform translate-y-0 sm:translate-y-5 sm:group-hover:translate-y-0 w-full"
                       >
                         <button>Book Now</button>
