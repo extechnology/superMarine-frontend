@@ -8,17 +8,29 @@ const stats = [
 
 const Numbers = () => {
   return (
-    <div className="relative py-10 bg-[url('/sea.jpg')] bg-cover text-white  bg-center text-center grid grid-cols-1 md:grid-cols-3 space-y-8 md:space-y-0  w-full mx-auto">
-      <div className="absolute m-0 bg-gradient-to-b from-black/20 via-black/40 to-black/60 inset-0"></div>
-      {stats.map((stat, idx) => (
-        <div key={idx} className="text-xl md:text-2xl z-10 font-bold">
-          <div>
-            <CountUp end={stat.value} duration={2.5} />
-            <span>{stat.suffix}</span>
+    <div className="bg-black">
+      <div
+        data-aos="fade-up"
+        data-aos-duration="900"
+        className="relative py-10 bg-[url('/sea.jpg')] bg-cover text-white  bg-center text-center grid grid-cols-1 md:grid-cols-3 space-y-8 md:space-y-0  w-full mx-auto"
+      >
+        <div className="absolute m-0 bg-gradient-to-b from-black/20 via-black/40 to-black/60 inset-0"></div>
+        {stats.map((stat, idx) => (
+          <div key={idx} className="text-xl md:text-2xl z-10 font-bold">
+            <div data-aos="fade-up" data-aos-duration="1000">
+              <CountUp end={stat.value} duration={2.5} />
+              <span>{stat.suffix}</span>
+            </div>
+            <div
+              data-aos="fade-up"
+              data-aos-duration="1100"
+              className="text-lg font-semibold mt-1"
+            >
+              {stat.title}
+            </div>
           </div>
-          <div className="text-lg font-semibold mt-1">{stat.title}</div>
-        </div>
-      ))}
+        ))}
+      </div>
     </div>
   );
 };

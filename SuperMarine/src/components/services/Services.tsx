@@ -11,13 +11,15 @@ const Services: React.FC = () => {
           className="w-full h-96 object-cover"
         />
         <div className="absolute inset-0 z-20 flex items-center justify-center">
-          <h1 className="text-white proza-libre-bold text-2xl md:text-5xl font-bold">
+          <h1
+            data-aos="fade-up"
+            data-aos-duration="900"
+            className="text-white proza-libre-bold text-2xl md:text-5xl font-bold"
+          >
             Our Services
           </h1>
         </div>
       </div>
-
-
     </div>
   );
 };

@@ -11,8 +11,12 @@ const images = [
 const GallerySlider = () => {
   return (
     <div className="bg-black text-white">
-      <div className="w-full py-10 max-w-7xl mx-auto ">
-        <h2 className="text-2xl md:text-4xl proza-libre-bold font-semibold text-center mb-4">
+      <div className="w-full py-10 max-w-7xl mx-auto reveal">
+        <h2
+          data-aos="fade-up"
+          data-aos-duration="900"
+          className="text-2xl md:text-4xl proza-libre-bold font-semibold text-center mb-4"
+        >
           Our Adventures Gallery
         </h2>
         <Swiper
@@ -25,6 +29,8 @@ const GallerySlider = () => {
             1024: { slidesPerView: 3 },
           }}
           className="w-full "
+          data-aos="fade-up"
+          data-aos-duration="1100"
         >
           {images.map((img, idx) => (
             <SwiperSlide key={idx} className="px-4 md:px-0">

@@ -25,7 +25,7 @@ const slides: Slide[] = [
 
 const Hero = () => {
   return (
-    <div className="w-full h-[90vh]">
+    <div className="w-full h-[90vh] ">
       <Swiper
         modules={[Autoplay, Pagination, EffectFade]}
         autoplay={{ delay: 5000, disableOnInteraction: false }}
@@ -49,11 +49,25 @@ const Hero = () => {
 
               {/* Content */}
               <div className="relative z-20 flex flex-col justify-center items-center text-white text-center px-4 h-full">
-                <h2 className="text-4xl proza-libre-bold md:text-5xl font-bold mb-4">
+                <h2
+                  data-aos="fade-up"
+                  data-aos-duration="800"
+                  className="text-4xl proza-libre-bold md:text-5xl font-bold mb-4"
+                >
                   {slide.title}
                 </h2>
-                <p className="text-lg md:text-xl mb-6">{slide.subtitle}</p>
-                <div className="flex gap-4">
+                <p
+                  data-aos="fade-up"
+                  data-aos-duration="900"
+                  className="text-lg md:text-xl mb-6"
+                >
+                  {slide.subtitle}
+                </p>
+                <div
+                  className="flex gap-4"
+                  data-aos="fade-up"
+                  data-aos-duration="1000"
+                >
                   <button className="px-6 py-3 bg-transparent border border-white text-white rounded-lg shadow-lg hover:bg-white hover:text-black transition">
                     Contact Us
                   </button>

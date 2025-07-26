@@ -4,14 +4,26 @@ const BookYourAdventure = () => {
   return (
     <div className="bg-black text-white py-10">
       <div className="max-w-7xl mx-auto px-4 md:px-0">
-        <h1 className="md:text-3xl text-2xl font-bold text-center proza-libre-bold">
+        <h1
+          data-aos="fade-up"
+          data-aos-duration="1100"
+          className="md:text-3xl text-2xl font-bold text-center proza-libre-bold"
+        >
           Book Your Adventure
         </h1>
-        <p className="md:text-lg text-sm text-center mt-4">
+        <p
+          data-aos="fade-up"
+          data-aos-duration="1200"
+          className="md:text-lg text-sm text-center mt-4"
+        >
           Seize the thrill, book your JetSki & Quads Bike adventure with us
           today!
         </p>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-5 pt-5">
+        <div
+          className="grid grid-cols-1 md:grid-cols-2 gap-5 pt-5"
+          data-aos="fade-up"
+          data-aos-duration="1300"
+        >
           {/* Card 1 */}
           <div className="relative group overflow-hidden rounded-2xl">
             <img

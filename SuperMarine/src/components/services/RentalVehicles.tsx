@@ -85,7 +85,11 @@ const RentalVehicles = () => {
   return (
     <div>
       <div className="py-10">
-        <h1 className="text-center md:text-4xl text-2xl proza-libre-bold text-white font-bold pb-5">
+        <h1
+          data-aos="fade-up"
+          data-aos-duration="1100"
+          className="text-center md:text-4xl text-2xl proza-libre-bold text-white font-bold pb-5"
+        >
           Rental Vehicles
         </h1>
         <div className="flex justify-center">
@@ -100,6 +104,8 @@ const RentalVehicles = () => {
                   src={data.image}
                   className="w-full h-64 object-cover rounded-t-xl transform group-hover:scale-105 transition-transform duration-300"
                   alt={data.title}
+                  data-aos="fade-up"
+                  data-aos-duration="1300"
                 />
 
                 {/* Dark overlay */}
@@ -156,7 +162,12 @@ const RentalVehicles = () => {
                     <div className="flex justify-between gap-4">
                       <Link
                         to={`/book_now/${data.id}`}
-                        state={{title : data.title, image : data.image, price : data.price, duration : data.duration}}
+                        state={{
+                          title: data.title,
+                          image: data.image,
+                          price: data.price,
+                          duration: data.duration,
+                        }}
                         className="mt-5 bg-amber-400 text-white py-2 px-4 rounded-lg font-medium opacity-100 sm:opacity-0 sm:group-hover:opacity-100 transition-all duration-300 transform translate-y-0 sm:translate-y-5 sm:group-hover:translate-y-0 w-full"
                       >
                         <button>Book Now</button>

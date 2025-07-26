@@ -1,11 +1,15 @@
 import "./App.css";
-import { lazy, Suspense } from "react";
+import { lazy, Suspense, useEffect } from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Header from "./common/Header";
 import Footer from "./common/Footer";
 import Loader from "./common/Loader";
 import ScrollToTop from "./common/ScrollToTop";
 import WhatsAppButton from "./common/WhatsApp";
+import AOS from "aos";
+import Lenis from "@studio-freight/lenis";
+import "aos/dist/aos.css";
+import "./App.css";
 const Home = lazy(() => import("./pages/Home"));
 const About = lazy(() => import("./pages/About"));
 const Contact = lazy(() => import("./pages/ContactUs"));
@@ -15,6 +19,28 @@ const Gallery = lazy(() => import("./pages/Gallery"));
 const BookNow = lazy(() => import("./pages/BookNow"));
 
 function App() {
+
+
+  useEffect(() => {
+    AOS.init({
+      duration: 600,
+      once: false,
+    });
+  }, []);
+
+  useEffect(() => {
+    const lenis = new Lenis();
+
+    function raf(time: number) {
+      lenis.raf(time);
+      requestAnimationFrame(raf);
+    }
+
+    requestAnimationFrame(raf);
+  }, []);
+
+  
+
   return (
     <Router>
       <ScrollToTop />

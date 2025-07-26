@@ -36,27 +36,63 @@ const ContactUs: React.FC = () => {
           {/* Left Side - Contact Info */}
           <div className="text-white p-10 content-center space-y-8">
             <div>
-              <p className="text-sm text-yellow-600 uppercase">Location</p>
-              <p className="text-lg font-semibold leading-relaxed">
+              <p
+                data-aos="fade-up"
+                data-aos-duration="800"
+                className="text-sm text-yellow-600 uppercase"
+              >
+                Location
+              </p>
+              <p
+                data-aos="fade-up"
+                data-aos-duration="900"
+                className="text-lg font-semibold leading-relaxed"
+              >
                 9GC9+X65 - Musaffah - M3 - <br /> Abu Dhabi - United Arab
                 Emirates
               </p>
             </div>
 
             <div>
-              <p className="text-sm text-yellow-600 uppercase">Phone Number</p>
-              <p className="text-lg font-semibold">+971 50 117 4427</p>
+              <p
+                data-aos="fade-up"
+                data-aos-duration="1000"
+                className="text-sm text-yellow-600 uppercase"
+              >
+                Phone Number
+              </p>
+              <p
+                data-aos="fade-up"
+                data-aos-duration="1100"
+                className="text-lg font-semibold"
+              >
+                +971 50 117 4427
+              </p>
             </div>
 
             <div>
-              <p className="text-sm text-yellow-600 uppercase">Email Address</p>
-              <p className="text-lg font-semibold">
+              <p
+                data-aos="fade-up"
+                data-aos-duration="1200"
+                className="text-sm text-yellow-600 uppercase"
+              >
+                Email Address
+              </p>
+              <p
+                data-aos="fade-up"
+                data-aos-duration="1300"
+                className="text-lg font-semibold"
+              >
                 info@luxuryjetskidubai.com
               </p>
             </div>
 
             <div>
-              <p className="text-lg font-semibold mb-2">
+              <p
+                data-aos="fade-up"
+                data-aos-duration="1400"
+                className="text-lg font-semibold mb-2"
+              >
                 Follow Our Social Media
               </p>
               <div className="flex items-center space-x-4 text-yellow-600 text-2xl">
@@ -65,6 +101,8 @@ const ContactUs: React.FC = () => {
                   href="https://instagram.com"
                   target="_blank"
                   rel="noopener noreferrer"
+                  data-aos="fade-up"
+                  data-aos-duration="1500"
                 >
                   <FaInstagram />
                 </a>
@@ -74,6 +112,8 @@ const ContactUs: React.FC = () => {
                   href="https://facebook.com"
                   target="_blank"
                   rel="noopener noreferrer"
+                  data-aos="fade-up"
+                  data-aos-duration="1600"
                 >
                   <FaFacebook />
                 </a>
@@ -82,6 +122,8 @@ const ContactUs: React.FC = () => {
                   href="https://tiktok.com"
                   target="_blank"
                   rel="noopener noreferrer"
+                  data-aos="fade-up"
+                  data-aos-duration="1700"
                 >
                   <FaTiktok />
                 </a>

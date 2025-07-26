@@ -1,3 +1,4 @@
+
 const GalleryData = [
   {
     id: 1,

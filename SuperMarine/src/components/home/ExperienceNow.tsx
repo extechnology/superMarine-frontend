@@ -32,17 +32,29 @@ const Data = [
 ];
 const ExperienceNow = () => {
   return (
-    <div className="bg-black">
-      <div className="max-w-7xl mx-auto pb-12 pt-12">
-        <h1 className="text-center md:text-lg text-sm ">
+    <div className="bg-black ">
+      <div className="max-w-7xl mx-auto pb-12 pt-12 reveal">
+        <h1
+          className="text-center md:text-lg text-sm "
+          data-aos="fade-up"
+          data-aos-duration="900"
+        >
           <span className="backdrop-blur-2xl text-white bg-gray-800  px-5 py-3 rounded-full">
             Experience Now
           </span>
         </h1>
-        <h1 className="text-center md:text-4xl text-2xl proza-libre-bold text-white  font-bold py-8 px-4 md:px-0">
+        <h1
+          data-aos="fade-up"
+          data-aos-duration="1000"
+          className="text-center md:text-4xl text-2xl proza-libre-bold text-white  font-bold py-8 px-4 md:px-0"
+        >
           Adventure Starts Where the Road Ends
         </h1>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+        <div
+          data-aos="fade-up"
+          data-aos-duration="1100"
+          className="grid grid-cols-1 md:grid-cols-2 gap-5"
+        >
           {Data.map((data) => (
             <div
               key={data.id}

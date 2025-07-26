@@ -9,7 +9,11 @@ const HeroForm = () => {
               Adventure Vehicle Booking
             </h1>
 
-            <label className="flex flex-col gap-1">
+            <label
+              className="flex flex-col gap-1"
+              data-aos="fade-up"
+              data-aos-duration="700"
+            >
               <span className="text-sm font-medium text-gray-700">Name</span>
               <input
                 type="text"
@@ -18,7 +22,11 @@ const HeroForm = () => {
               />
             </label>
             <div className="md:flex justify-between">
-              <label className="flex flex-col gap-1">
+              <label
+                className="flex flex-col gap-1"
+                data-aos="fade-up"
+                data-aos-duration="800"
+              >
                 <span className="text-sm font-medium text-gray-700">
                   Phone No.
                 </span>
@@ -29,7 +37,11 @@ const HeroForm = () => {
                 />
               </label>
 
-              <label className="flex flex-col gap-1">
+              <label
+                className="flex flex-col gap-1"
+                data-aos="fade-up"
+                data-aos-duration="900"
+              >
                 <span className="text-sm font-medium text-gray-700">
                   Email ID
                 </span>
@@ -41,7 +53,11 @@ const HeroForm = () => {
               </label>
             </div>
 
-            <label className="flex flex-col gap-1">
+            <label
+              className="flex flex-col gap-1"
+              data-aos="fade-up"
+              data-aos-duration="1000"
+            >
               <span className="text-sm font-medium text-gray-700">
                 Adventure Vehicle
               </span>
@@ -53,7 +69,11 @@ const HeroForm = () => {
             </label>
 
             <div className="grid md:grid-cols-3 gap-4">
-              <label className="flex flex-col gap-1">
+              <label
+                className="flex flex-col gap-1"
+                data-aos="fade-up"
+                data-aos-duration="1100"
+              >
                 <span className="text-sm font-medium text-gray-700">
                   Ride Date
                 </span>
@@ -63,7 +83,11 @@ const HeroForm = () => {
                 />
               </label>
 
-              <label className="flex flex-col gap-1">
+              <label
+                className="flex flex-col gap-1"
+                data-aos="fade-up"
+                data-aos-duration="1200"
+              >
                 <span className="text-sm font-medium text-gray-700">
                   Report Time
                 </span>
@@ -73,7 +97,11 @@ const HeroForm = () => {
                 />
               </label>
 
-              <label className="flex flex-col gap-1">
+              <label
+                className="flex flex-col gap-1"
+                data-aos="fade-up"
+                data-aos-duration="1300"
+              >
                 <span className="text-sm font-medium text-gray-700">
                   Ride Time
                 </span>
@@ -84,7 +112,11 @@ const HeroForm = () => {
               </label>
             </div>
             <div className="md:flex justify-between">
-              <label className="flex flex-col gap-1">
+              <label
+                className="flex flex-col gap-1"
+                data-aos="fade-up"
+                data-aos-duration="1400"
+              >
                 <span className="text-sm font-medium text-gray-700">
                   No. of Persons
                 </span>
@@ -95,7 +127,11 @@ const HeroForm = () => {
                 />
               </label>
 
-              <label className="flex flex-col gap-1">
+              <label
+                className="flex flex-col gap-1"
+                data-aos="fade-up"
+                data-aos-duration="1500"
+              >
                 <span className="text-sm font-medium text-gray-700">
                   Ride Cost (AED)
                 </span>
@@ -116,31 +152,61 @@ const HeroForm = () => {
               </h1>
               <div className="md:flex space-y-6 md:space-y-0 justify-between gap-6">
                 <div className="flex flex-col items-center text-center">
-                  <div className="w-16 h-16 bg-amber-500 rounded-full mb-3 flex items-center justify-center text-white text-2xl font-bold">
+                  <div
+                    data-aos="fade-up"
+                    data-aos-duration="800"
+                    className="w-16 h-16 bg-amber-500 rounded-full mb-3 flex items-center justify-center text-white text-2xl font-bold"
+                  >
                     1
                   </div>
-                  <h3 className="font-semibold text-sm">
+                  <h3
+                    data-aos="fade-up"
+                    data-aos-duration="900"
+                    className="font-semibold text-sm"
+                  >
                     Search Adventure Vehicle
                   </h3>
                 </div>
                 <div className="flex flex-col items-center text-center">
-                  <div className="w-16 h-16 bg-amber-500 rounded-full mb-3 flex items-center justify-center text-white text-2xl font-bold">
+                  <div
+                    data-aos="fade-up"
+                    data-aos-duration="800"
+                    className="w-16 h-16 bg-amber-500 rounded-full mb-3 flex items-center justify-center text-white text-2xl font-bold"
+                  >
                     2
                   </div>
-                  <h3 className="font-semibold text-sm">Confirm the Ride</h3>
+                  <h3
+                    data-aos="fade-up"
+                    data-aos-duration="900"
+                    className="font-semibold text-sm"
+                  >
+                    Confirm the Ride
+                  </h3>
                   <p className=" text-gray-600 text-xs mt-1"></p>
                 </div>
                 <div className="flex flex-col items-center text-center">
-                  <div className="w-16 h-16 bg-amber-500 rounded-full mb-3 flex items-center justify-center text-white text-2xl font-bold">
+                  <div
+                    data-aos="fade-up"
+                    data-aos-duration="800"
+                    className="w-16 h-16 bg-amber-500 rounded-full mb-3 flex items-center justify-center text-white text-2xl font-bold"
+                  >
                     3
                   </div>
-                  <h3 className="font-semibold text-sm">
+                  <h3
+                    data-aos="fade-up"
+                    data-aos-duration="900"
+                    className="font-semibold text-sm"
+                  >
                     Experience the Adventure
                   </h3>
                 </div>
               </div>
             </div>
-            <div className="flex justify-center mt-7 w-full ">
+            <div
+              className="flex justify-center mt-7 w-full "
+              data-aos="fade-up"
+              data-aos-duration="1000"
+            >
               <button className=" bg-orange-600 w-1/2 hover:bg-orange-700 text-white font-bold py-3 px-4 rounded-l-md transition duration-200">
                 Book Now!
               </button>
