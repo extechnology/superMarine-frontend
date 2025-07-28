@@ -1,5 +1,4 @@
-
-const Services: React.FC = () => {
+const RentService = () => {
   return (
     <div className="bg-black">
       {/* Hero Section (unchanged) */}
@@ -14,9 +13,9 @@ const Services: React.FC = () => {
           <h1
             data-aos="fade-up"
             data-aos-duration="900"
-            className="text-white proza-libre-bold w-[100%] md:text-center md:w-[50%] text-2xl md:text-5xl font-bold"
+            className="text-white proza-libre-bold text-2xl w-[100%] md:text-center md:w-[50%] md:text-5xl font-bold"
           >
-            Book an Adventure vehicle & Enjoy the Rides
+            Keep the Service on time,  Explore the Comfort
           </h1>
         </div>
       </div>
@@ -24,4 +23,4 @@ const Services: React.FC = () => {
   );
 };
 
-export default Services;
+export default RentService;

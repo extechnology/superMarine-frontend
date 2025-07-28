@@ -1,10 +1,10 @@
+import RentService from "../components/services/RentService";
 import ServiceAndRepair from "../components/services/ServiceAndRepair";
-import Services from "../components/services/Services";
 
 const Repair = () => {
   return (
     <div>
-      <Services />
+      <RentService />
       <div className="bg-black">
         <ServiceAndRepair />
       </div>

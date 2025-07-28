@@ -90,7 +90,7 @@ const RentalVehicles = () => {
           data-aos-duration="1100"
           className="text-center md:text-4xl text-2xl proza-libre-bold text-white font-bold pb-5"
         >
-          Rental Vehicles
+          Keep the Service on time, Explore the Comfort
         </h1>
         <div className="flex justify-center">
           <div className="grid grid-cols-1 md:grid-cols-3 max-w-7xl gap-5 px-4 md:px-0 w-full">
@@ -172,9 +172,7 @@ const RentalVehicles = () => {
                       >
                         <button>Book Now</button>
                       </Link>
-                      <button
-                        className="mt-5 bg-black text-[#D4AF37] border border-[#D4AF37] hover:bg-[#1a1a1a] py-2 px-4 rounded-lg font-medium opacity-100 sm:opacity-0 sm:group-hover:opacity-100 transition-all duration-300 transform translate-y-0 sm:translate-y-5 sm:group-hover:translate-y-0 w-full"
-                      >
+                      <button className="mt-5 bg-black text-[#D4AF37] border border-[#D4AF37] hover:bg-[#1a1a1a] py-2 px-4 rounded-lg font-medium opacity-100 sm:opacity-0 sm:group-hover:opacity-100 transition-all duration-300 transform translate-y-0 sm:translate-y-5 sm:group-hover:translate-y-0 w-full">
                         Enquire Now
                       </button>
                     </div>

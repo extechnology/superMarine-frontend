@@ -33,7 +33,7 @@ const ServiceAndRepair = () => {
           data-aos-duration="1100"
           className="text-white text-center md:text-4xl text-2xl proza-libre-bold font-bold py-5"
         >
-          Service And Repair
+          Our Dedicated Service & Repair
         </h1>
         <div className="space-y-10 px-4 md:px-0">
           {SampleServiceData.map((data) => (
