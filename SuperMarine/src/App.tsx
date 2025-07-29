@@ -16,6 +16,9 @@ const ServiceAndRepair = lazy(() => import("./pages/Repair"));
 const RentalService = lazy(() => import("./pages/RentalService"));
 const Gallery = lazy(() => import("./pages/Gallery"));
 const BookNow = lazy(() => import("./pages/BookNow"));
+const Login = lazy(() => import("./components/accounts/Login"));
+const Register = lazy(() => import("./components/accounts/Register"));
+const VerifyOtp = lazy(() => import("./components/accounts/VerifyOtp"));
 
 function App() {
 
@@ -53,6 +56,9 @@ function App() {
           <Route path="/service_and_repair" element={<ServiceAndRepair />} />
           <Route path="/gallery" element={<Gallery />} />
           <Route path="/book_now/:id" element={<BookNow />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
+          <Route path="/verify-otp" element={<VerifyOtp />} />
         </Routes>
       </Suspense>
       <WhatsAppButton />

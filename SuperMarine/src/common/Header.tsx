@@ -10,6 +10,7 @@ const Header: React.FC = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const [mobileDropdownOpen, setMobileDropdownOpen] = useState(false);
+  const [isHovered, setIsHovered] = useState(false);
   const timeoutRef = useRef<NodeJS.Timeout | null>(null);
 
   const handleMouseEnter = () => {
@@ -144,8 +145,29 @@ const Header: React.FC = () => {
                 </button>
               </Link>
             </li>
-            <li className="content-center">
-              <FaCircleUser className="text-3xl cursor-pointer" />
+            <li
+              className="relative content-center"
+              onMouseEnter={() => setIsHovered(true)}
+              onMouseLeave={() => setIsHovered(false)}
+            >
+              <FaCircleUser className="text-3xl cursor-pointer " />
+
+              {isHovered && (
+                <div className="absolute top-10 right-0 bg-white shadow-lg rounded-md w-40 z-50 py-2 animate-fade-in">
+                  <Link
+                    to="/login"
+                    className="block px-4 py-2 text-sm text-gray-800 hover:bg-gray-100"
+                  >
+                    Login
+                  </Link>
+                  <Link
+                    to="/register"
+                    className="block px-4 py-2 text-sm text-gray-800 hover:bg-gray-100"
+                  >
+                    Sign Up
+                  </Link>
+                </div>
+              )}
             </li>
           </ul>
         </nav>

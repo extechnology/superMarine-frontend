@@ -13,14 +13,14 @@ const slides: Slide[] = [
   },
   {
     id: 2,
-    image: "/hero-carousel2.jpg",
+    image: "/hero2.jpg",
     title: "Fuel Your Thrill — Jet Ski & Quad Bike Awaits!",
     subtitle:
       "Experience the ultimate water adventure with excitement, splashes, and unforgettable memories",
   },
   {
     id: 3,
-    image: "/hero-carousel1.jpg",
+    image: "/hero3.jpg",
     title: "Empowering Your Journey",
     subtitle: "Solutions built for you",
   },
