@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useRef } from "react";
-import {  HiX } from "react-icons/hi";
+import { HiX } from "react-icons/hi";
 import { TbSpeedboat } from "react-icons/tb";
 import { Link } from "react-router-dom";
 
@@ -14,7 +14,6 @@ const Header: React.FC = () => {
     if (timeoutRef.current) clearTimeout(timeoutRef.current);
     setDropdownOpen(true);
   };
-  
 
   const handleMouseLeave = () => {
     timeoutRef.current = setTimeout(() => {
@@ -49,15 +48,12 @@ const Header: React.FC = () => {
     >
       <div className="flex justify-between items-center max-w-7xl mx-auto py-3 px-4 md:px-0">
         <Link to={"/"}>
-          <h1
-            className={`text-5xl tracking-wide bebas-neue font-bold transition-colors ${
-              scrolled ? "text-black" : "text-white"
-            }`}
-          >
-            Super Marine
-          </h1>
+          {scrolled ? (
+            <img src="/arabic-eng-black.png" alt="" className="h-14" />
+          ) : (
+            <img src="/arabic-eng-white.png" alt="" className="h-14" />
+          )}
         </Link>
-        {/* <img src="/text-log.png" alt="" className="h-11" /> */}
 
         {/* Desktop Navigation */}
         <nav className="hidden md:block">

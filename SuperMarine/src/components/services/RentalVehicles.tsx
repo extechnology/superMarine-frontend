@@ -104,8 +104,6 @@ const RentalVehicles = () => {
                   src={data.image}
                   className="w-full h-64 object-cover rounded-t-xl transform group-hover:scale-105 transition-transform duration-300"
                   alt={data.title}
-                  data-aos="fade-up"
-                  data-aos-duration="1300"
                 />
 
                 {/* Dark overlay */}
@@ -123,18 +121,34 @@ const RentalVehicles = () => {
                   {/* Content that moves up on hover */}
                   <div className="transform relative bg-white rounded-md p-3 transition-transform duration-300 group-hover:-translate-y-10">
                     <div className="flex justify-between items-center">
-                      <h2 className="md:text-2xl text-lg font-bold mb-1 drop-shadow-md">
+                      <h2
+                        data-aos="fade-up"
+                        data-aos-duration="800"
+                        className="md:text-2xl text-lg font-bold mb-1 drop-shadow-md"
+                      >
                         {data.title}
                       </h2>
-                      <p className="text-center text-md font-semibold">
+                      <p
+                        data-aos="fade-up"
+                        data-aos-duration="900"
+                        className="text-center text-md font-semibold"
+                      >
                         Max Person : 3
                       </p>
                     </div>
-                    <p className="text-sm md:mb-3 line-clamp-2 drop-shadow-md">
+                    <p
+                      data-aos="fade-up"
+                      data-aos-duration="1000"
+                      className="text-sm md:mb-3 line-clamp-2 drop-shadow-md"
+                    >
                       {data.description}
                     </p>
                     <div className="flex justify-between items-center">
-                      <div className="flex items-center gap-2">
+                      <div
+                        data-aos="fade-up"
+                        data-aos-duration="1100"
+                        className="flex items-center gap-2"
+                      >
                         {data.discount ? (
                           <>
                             <span className="text-xl font-bold">
@@ -153,13 +167,19 @@ const RentalVehicles = () => {
                           </span>
                         )}
                       </div>
-                      <span className="text-md">
-                        Time :{" "}
-                        <span className="font-bold">{data.duration} hr</span>
-                      </span>
+                      <div data-aos="fade-up" data-aos-duration="1200">
+                        <span className="text-md">
+                          Time :{" "}
+                          <span className="font-bold">{data.duration} hr</span>
+                        </span>
+                      </div>
                     </div>
 
-                    <div className="flex justify-between gap-4">
+                    <div
+                      data-aos="fade-up"
+                      data-aos-duration="1300"
+                      className="flex justify-between gap-4"
+                    >
                       <Link
                         to={`/book_now/${data.id}`}
                         state={{
