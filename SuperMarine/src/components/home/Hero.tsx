@@ -6,7 +6,7 @@ import { Link } from "react-router";
 const slides: Slide[] = [
   {
     id: 1,
-    image: "/hero-carousel1.jpg",
+    image: "/hero1.jpg",
     title: "Ride the Waves, Rule the Dunes!",
     subtitle:
       "Experience the ultimate water adventure with excitement, splashes, and unforgettable memories",

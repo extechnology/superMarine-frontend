@@ -2,10 +2,10 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination } from "swiper/modules";
 
 const images = [
-  "/hero-carousel2.jpg",
-  "/hero-carousel2.jpg",
-  "/hero-carousel2.jpg",
-  "/hero-carousel2.jpg",
+  "/adv-gallery1.jpg",
+  "/adv-gallery2.jpg",
+  "/adv-gallery3.jpg",
+  "/adv-gallery1.jpg",
 ];
 
 const GallerySlider = () => {

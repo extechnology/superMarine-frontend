@@ -47,7 +47,7 @@ const AboutContent = () => {
             <img
               data-aos="fade-up"
               data-aos-duration="1000"
-              src="/jet-ski.jpg"
+              src="/ride-the-waves.jpg"
               alt="Jet Ski Adventure"
               className="rounded-2xl  w-full object-cover"
             />

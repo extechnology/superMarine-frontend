@@ -27,7 +27,7 @@ const BookYourAdventure = () => {
           {/* Card 1 */}
           <div className="relative group overflow-hidden rounded-2xl">
             <img
-              src="/jet-ski.jpg"
+              src="book-adventure1.jpg"
               alt="Jet Ski Adventure"
               className="rounded-2xl transform transition-transform duration-500 group-hover:scale-105 w-full h-full object-cover"
             />
@@ -45,7 +45,7 @@ const BookYourAdventure = () => {
           {/* Card 2 */}
           <div className="relative group overflow-hidden rounded-2xl">
             <img
-              src="/jet-ski.jpg"
+              src="/book-adventure2.jpg"
               alt="Jet Ski Adventure"
               className="rounded-2xl transform transition-transform duration-500 group-hover:scale-105 w-full h-full object-cover"
             />

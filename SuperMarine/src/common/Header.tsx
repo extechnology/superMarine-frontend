@@ -2,6 +2,8 @@ import React, { useEffect, useState, useRef } from "react";
 import { HiX } from "react-icons/hi";
 import { TbSpeedboat } from "react-icons/tb";
 import { Link } from "react-router-dom";
+import { FaCircleUser } from "react-icons/fa6";
+
 
 const Header: React.FC = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -141,6 +143,9 @@ const Header: React.FC = () => {
                   Book Now
                 </button>
               </Link>
+            </li>
+            <li className="content-center">
+              <FaCircleUser className="text-3xl cursor-pointer" />
             </li>
           </ul>
         </nav>

@@ -4,14 +4,14 @@ import { useState } from "react";
 const Data = [
   {
     id: 1,
-    image: "/hero-carousel1.jpg",
+    image: "/experience-now1.jpg",
     title: "Yamaha Jet Ski",
     description: "Agressive Jet Ski",
     price: "300 AED",
   },
   {
     id: 2,
-    image: "/hero-carousel1.jpg",
+    image: "/experience-now2.jpg",
     title: "Rolls Royce Boat",
     description: "Quiet Comfortable Boat",
     price: "350 AED",

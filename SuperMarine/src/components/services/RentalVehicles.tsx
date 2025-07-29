@@ -8,7 +8,7 @@ const sampleServiceData: ServiceData[] = [
     description:
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam, neque",
 
-    image: "/jet-ski.jpg",
+    image: "/jet_ski.jpg",
     price: 100,
     duration: "1",
     discount: 18,
@@ -19,7 +19,7 @@ const sampleServiceData: ServiceData[] = [
     description:
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam, neque",
 
-    image: "/jet-ski.jpg",
+    image: "/standing-jet-ski.jpg",
     price: 150,
     duration: "1",
     discount: 10,
@@ -30,7 +30,7 @@ const sampleServiceData: ServiceData[] = [
     description:
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam, neque",
 
-    image: "/jet-ski.jpg",
+    image: "/speed-boat.jpg",
     price: 200,
     duration: "1",
     discount: 31,

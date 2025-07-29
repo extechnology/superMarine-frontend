@@ -7,7 +7,7 @@ const ThrillMeetTrust = () => {
             {/* Image Section */}
             <div className="rounded-2xl overflow-hidden shadow-2xl reveal">
               <img
-                src="/beautiful.jpg"
+                src="/thrill-meet-trust.jpg"
                 alt="Adventure Tours"
                 data-aos="fade-up"
                 data-aos-duration="900"

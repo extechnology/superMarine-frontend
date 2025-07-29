@@ -3,7 +3,7 @@ const AboutHero = () => {
     <div className="relative">
       <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-black/50 to-black"></div>
       <img
-        src="/about-hero.jpg"
+        src="/about.jpg"
         alt="no image"
         className="w-full h-96 object-cover"
       />
