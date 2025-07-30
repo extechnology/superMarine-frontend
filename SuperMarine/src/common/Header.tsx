@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useRef } from "react";
 import { HiX } from "react-icons/hi";
 import { TbSpeedboat } from "react-icons/tb";
-import { Link, Navigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { FaCircleUser } from "react-icons/fa6";
 import { useNavigate } from "react-router-dom";
 
