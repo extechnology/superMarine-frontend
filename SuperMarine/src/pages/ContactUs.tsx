@@ -12,7 +12,7 @@ const ContactUs: React.FC = () => {
 
         {/* Background Image */}
         <img
-          src="/about-hero.jpg"
+          src="/contact-us.jpg"
           alt="no image"
           className="w-full h-96 object-cover"
         />

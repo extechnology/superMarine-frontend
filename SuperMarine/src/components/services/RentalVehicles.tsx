@@ -41,7 +41,7 @@ const sampleServiceData: ServiceData[] = [
     description:
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam, neque",
 
-    image: "/jet-ski.jpg",
+    image: "/quad-bikes.jpg",
     price: 180,
     duration: "1",
     discount: 50,
@@ -52,7 +52,7 @@ const sampleServiceData: ServiceData[] = [
     description:
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam, neque",
 
-    image: "/jet-ski.jpg",
+    image: "/buggy.jpg",
     price: 120,
     duration: "1",
     discount: 24,
@@ -63,7 +63,7 @@ const sampleServiceData: ServiceData[] = [
     description:
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam, neque",
 
-    image: "/jet-ski.jpg",
+    image: "/marine-cars.jpg",
     price: 120,
     duration: "1",
     discount: 24,
@@ -74,7 +74,7 @@ const sampleServiceData: ServiceData[] = [
     description:
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam, neque",
 
-    image: "/jet-ski.jpg",
+    image: "/yachts.jpg",
     price: 120,
     duration: "1",
     discount: 24,
