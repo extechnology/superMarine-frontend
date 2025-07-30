@@ -52,15 +52,31 @@ const GalleryData = [
 
 const Gallery = () => {
 
-  const [selectedImage, setSelectedImage] = useState<string | null>(null);
 
-  const handleViewImage = (imageUrl: string) => {
-    setSelectedImage(imageUrl);
+  const [activeIndex, setActiveIndex] = useState<number | null>(null);
+
+  const handleViewImage = (index: number) => {
+    setActiveIndex(index);
   };
 
   const closeModal = () => {
-    setSelectedImage(null);
+    setActiveIndex(null);
   };
+
+  const goToPrev = () => {
+    setActiveIndex((prev) =>
+      prev !== null
+        ? (prev - 1 + GalleryData.length) % GalleryData.length
+        : null
+    );
+  };
+
+  const goToNext = () => {
+    setActiveIndex((prev) =>
+      prev !== null ? (prev + 1) % GalleryData.length : null
+    );
+  };
+
 
   return (
     <div>
@@ -72,7 +88,7 @@ const Gallery = () => {
         {/* Background Image with parallax effect */}
         <div className="w-full h-96 overflow-hidden">
           <img
-            src="/about-hero.jpg"
+            src="/gallery.jpg"
             alt="Gallery hero"
             className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
           />
@@ -91,7 +107,7 @@ const Gallery = () => {
         <div className="max-w-7xl mx-auto">
           {/* Masonry Grid */}
           <div className="columns-1 sm:columns-2 lg:columns-3 gap-4 space-y-4">
-            {GalleryData.map((data) => (
+            {GalleryData.map((data, index) => (
               <div
                 key={data.id}
                 className="relative break-inside-avoid group overflow-hidden rounded-lg shadow-lg hover:shadow-2xl transition-all duration-500 mb-4"
@@ -114,7 +130,7 @@ const Gallery = () => {
                     {data.description || "View more details"}
                   </p>
                   <button
-                    onClick={() => handleViewImage(data.image)}
+                    onClick={() => handleViewImage(index)}
                     className="mt-3 bg-white/10 backdrop-blur-sm text-white px-4 py-2 rounded-full text-sm font-medium opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 transition-all delay-150 duration-500 hover:bg-white/20 border border-white/20"
                   >
                     View Image
@@ -129,23 +145,46 @@ const Gallery = () => {
           </div>
         </div>
       </div>
-      {selectedImage && (
+      {activeIndex !== null && (
         <div
           className="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm flex items-center justify-center p-4"
           onClick={closeModal}
         >
-          <img
-            src={selectedImage}
-            alt="Full View"
-            className="max-h-[90vh] max-w-full rounded-lg shadow-lg border border-white"
-            onClick={(e) => e.stopPropagation()} // prevent closing when clicking image
-          />
-          <button
-            className="absolute top-4 right-4 text-white text-xl bg-black/40 px-3 py-1 rounded-full hover:bg-black/70 transition"
-            onClick={closeModal}
+          <div
+            className="relative max-w-5xl w-full flex items-center justify-center"
+            onClick={(e) => e.stopPropagation()}
           >
-            ✕
-          </button>
+            {/* Left Navigation */}
+            <button
+              onClick={goToPrev}
+              className="absolute left-4 text-white text-3xl bg-black/40 px-3 py-1 rounded-full hover:bg-black/70 transition z-10"
+            >
+              ‹
+            </button>
+
+            {/* Image Display */}
+            <img
+              src={GalleryData[activeIndex].image}
+              alt="Gallery Full View"
+              className="max-h-[90vh] max-w-full rounded-lg shadow-lg border shadow-black/50"
+            />
+
+            {/* Right Navigation */}
+            <button
+              onClick={goToNext}
+              className="absolute right-4 text-white text-3xl bg-black/40 px-3 py-1 rounded-full hover:bg-black/70 transition z-10"
+            >
+              ›
+            </button>
+
+            {/* Close Button */}
+            <button
+              className="absolute top-4 right-4 text-white text-xl bg-black/40 px-3 py-1 rounded-full hover:bg-black/70 transition"
+              onClick={closeModal}
+            >
+              ✕
+            </button>
+          </div>
         </div>
       )}
     </div>

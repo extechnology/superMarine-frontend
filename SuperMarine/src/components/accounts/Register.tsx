@@ -61,28 +61,29 @@ const Register: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-white pt-28 pb-10 px-4">
-      <div className="w-full max-w-md space-y-6">
+    <div className="min-h-screen flex items-center justify-center bg-gray-950 pt-28 pb-10 px-4">
+      <div className="w-full max-w-md space-y-6 bg-gray-900 p-8 rounded-xl shadow-lg border border-gray-800">
         {/* Logo */}
         <div className="text-center">
           <img
-            src="/ex_edu_logo-03.png"
-            alt="exedu-logo"
-            className="w-32 mx-auto"
+            src="/logo-icon.png"
+            alt="super-marine-logo"
+            className="w-28 mx-auto"
           />
-
-          <p className="text-xs text-gray-500">Hybrid AI Education</p>
+          <p className="text-2xl font-bold text-amber-400 bebas-neue tracking-wide">
+            SUPER MARINE
+          </p>
         </div>
 
         {/* Heading */}
-        <h2 className="text-2xl font-semibold text-gray-800 text-center">
-          Create Account <span className="inline-block">🎉</span>
+        <h2 className="text-2xl font-semibold text-white text-center">
+          Create Account
         </h2>
 
         <form onSubmit={handleRegister} className="space-y-4">
           {/* Name */}
           <div>
-            <label className="block text-sm mb-1 text-gray-700">Name</label>
+            <label className="block text-sm mb-1 text-gray-300">Name</label>
             <input
               type="text"
               name="username"
@@ -90,27 +91,27 @@ const Register: React.FC = () => {
               value={formData.username}
               onChange={handleChange}
               placeholder="Your full name"
-              className="w-full px-4 py-2 border-2 border-pink-400 rounded-md focus:outline-none focus:ring-2 focus:ring-pink-300"
+              className="w-full px-4 py-2 bg-gray-800 text-white border border-gray-700 rounded-md focus:outline-none focus:ring-2 focus:ring-amber-500"
             />
           </div>
 
           {/* Email */}
           <div>
-            <label className="block text-sm mb-1 text-gray-700">Email</label>
+            <label className="block text-sm mb-1 text-gray-300">Email</label>
             <input
               type="email"
               name="email"
               required
               value={formData.email}
               onChange={handleChange}
-              placeholder="Example@email.com"
-              className="w-full px-4 py-2 border-2 border-pink-400 rounded-md focus:outline-none focus:ring-2 focus:ring-pink-300"
+              placeholder="example@email.com"
+              className="w-full px-4 py-2 bg-gray-800 text-white border border-gray-700 rounded-md focus:outline-none focus:ring-2 focus:ring-amber-500"
             />
           </div>
 
           {/* Password */}
           <div>
-            <label className="block text-sm mb-1 text-gray-700">Password</label>
+            <label className="block text-sm mb-1 text-gray-300">Password</label>
             <input
               type="password"
               name="password"
@@ -119,11 +120,13 @@ const Register: React.FC = () => {
               value={formData.password}
               onChange={handleChange}
               placeholder="At least 8 characters"
-              className="w-full px-4 py-2 border-2 border-pink-400 rounded-md focus:outline-none focus:ring-2 focus:ring-pink-300"
+              className="w-full px-4 py-2 bg-gray-800 text-white border border-gray-700 rounded-md focus:outline-none focus:ring-2 focus:ring-amber-500"
             />
           </div>
+
+          {/* Confirm Password */}
           <div>
-            <label className="block text-sm mb-1 text-gray-700">
+            <label className="block text-sm mb-1 text-gray-300">
               Confirm Your Password
             </label>
             <input
@@ -134,21 +137,21 @@ const Register: React.FC = () => {
               value={formData.password_confirm}
               onChange={handleChange}
               placeholder="At least 8 characters"
-              className="w-full px-4 py-2 border-2 border-pink-400 rounded-md focus:outline-none focus:ring-2 focus:ring-pink-300"
+              className="w-full px-4 py-2 bg-gray-800 text-white border border-gray-700 rounded-md focus:outline-none focus:ring-2 focus:ring-amber-500"
             />
           </div>
 
           {/* Sign Up Button */}
           <button
             type="submit"
-            className="w-full py-2 cursor-pointer rounded-md text-white font-medium bg-gradient-to-r from-fuchsia-500 to-violet-500 hover:opacity-90"
+            className="w-full py-2 rounded-md text-white font-semibold bg-gradient-to-r from-red-500 to-amber-500 hover:opacity-90 transition duration-200"
           >
             Sign up
           </button>
         </form>
 
         {/* Divider */}
-        <div className="text-center text-gray-500 text-sm">Or</div>
+        <div className="text-center text-gray-500 text-sm">or</div>
 
         {/* Google Sign Up */}
         <div className="w-full flex justify-center">
@@ -181,9 +184,9 @@ const Register: React.FC = () => {
         </div>
 
         {/* Login Prompt */}
-        <p className="text-center text-sm text-gray-700">
+        <p className="text-center text-sm text-gray-400">
           Already have an account?{" "}
-          <Link to="/login" className="text-blue-600 hover:underline">
+          <Link to="/login" className="text-amber-400 hover:underline">
             Sign in
           </Link>
         </p>

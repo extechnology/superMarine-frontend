@@ -31,38 +31,38 @@ const Login: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-white px-4 pt-10">
-      <div className="w-full max-w-md space-y-6 ">
+    <div className="min-h-screen flex items-center justify-center pt-30 pb-10 bg-gray-950 px-4 ">
+      <div className="w-full max-w-md space-y-6 bg-gray-900 p-8 rounded-xl shadow-lg border border-gray-800">
         {/* Logo */}
         <div className="text-center">
-          <img
-            src="/ex_edu_logo-03.png"
-            alt="exedu-logo"
-            className="w-32 mx-auto"
-          />
-          <p className="text-xs text-gray-500">Hybrid AI Education</p>
+          <img src="/logo-icon.png" alt="logo" className="w-28 mx-auto" />
+          <p className="text-2xl font-bold text-amber-400 bebas-neue tracking-wide">
+            SUPER MARINE
+          </p>
         </div>
+
         {/* Heading */}
-        <h2 className="text-2xl font-semibold text-gray-800 text-center">
+        <h2 className="text-2xl font-semibold text-white text-center">
           Welcome Back <span className="inline-block">👋</span>
         </h2>
+
         <form onSubmit={handleLogin} className="space-y-4">
-          {/* Email */}
+          {/* Username */}
           <div>
-            <label className="block text-sm mb-1 text-gray-700">Username</label>
+            <label className="block text-sm mb-1 text-gray-300">Username</label>
             <input
               type="text"
               required
               value={username}
               onChange={(e) => setUsername(e.target.value)}
               placeholder="Enter Your Username"
-              className="w-full px-4 py-2 border-2 border-pink-400 rounded-md focus:outline-none focus:ring-2 focus:ring-pink-300"
+              className="w-full px-4 py-2 bg-gray-800 text-white border border-gray-700 rounded-md focus:outline-none focus:ring-2 focus:ring-amber-500"
             />
           </div>
 
           {/* Password */}
           <div>
-            <label className="block text-sm mb-1 text-gray-700">Password</label>
+            <label className="block text-sm mb-1 text-gray-300">Password</label>
             <input
               type="password"
               required
@@ -70,25 +70,22 @@ const Login: React.FC = () => {
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               placeholder="At least 8 characters"
-              className="w-full px-4 py-2 border-2 border-pink-400 rounded-md focus:outline-none focus:ring-2 focus:ring-pink-300"
+              className="w-full px-4 py-2 bg-gray-800 text-white border border-gray-700 rounded-md focus:outline-none focus:ring-2 focus:ring-amber-500"
             />
-            {/* <div className="text-right mt-1">
-              <a href="#" className="text-sm text-blue-600 hover:underline">
-                Forgot Password?
-              </a>
-            </div> */}
           </div>
 
           {/* Sign In Button */}
           <button
             type="submit"
-            className="w-full py-2 cursor-pointer rounded-md text-white font-medium bg-gradient-to-r from-fuchsia-500 to-violet-500 hover:opacity-90"
+            className="w-full py-2 cursor-pointer rounded-md text-white font-semibold bg-gradient-to-r from-red-500 to-amber-500 hover:opacity-90 transition duration-200"
           >
             Sign in
           </button>
         </form>
+
         {/* Divider */}
-        <div className="text-center text-gray-500 text-sm">Or</div>
+        <div className="text-center text-gray-500 text-sm">or</div>
+
         {/* Google Login */}
         <div className="w-full flex justify-center">
           <GoogleLogin
@@ -118,10 +115,11 @@ const Login: React.FC = () => {
             }}
           />
         </div>
+
         {/* Sign Up Prompt */}
-        <p className="text-center text-sm text-gray-700">
-          Don't you have an account?{" "}
-          <Link to={"/register"} className="text-blue-600 hover:underline">
+        <p className="text-center text-sm text-gray-400">
+          Don’t have an account?{" "}
+          <Link to="/register" className="text-amber-400 hover:underline">
             Sign up
           </Link>
         </p>

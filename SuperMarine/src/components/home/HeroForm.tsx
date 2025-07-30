@@ -4,7 +4,7 @@ const HeroForm = () => {
       <div className="relative -top-32 z-30 px-4 md:px-0">
         <div className="max-w-6xl mx-auto md:flex bg-transparent justify-center overflow-hidden">
           {/* Left Form - Vertical */}
-          <form className="flex flex-col gap-4 p-10 bg-white md:w-1/2 shadow-lg">
+          <form className="flex flex-col gap-4 p-10 bg-white backdrop-blur-2xl md:w-1/2 shadow-lg">
             <h1 className="text-xl md:text-2xl font-semibold text-gray-800 mb-4">
               Adventure Vehicle Booking
             </h1>
@@ -111,9 +111,9 @@ const HeroForm = () => {
                 />
               </label>
             </div>
-            <div className="md:flex justify-between">
+            <div className="md:flex items-end justify-between gap-4">
               <label
-                className="flex flex-col gap-1"
+                className="flex flex-col flex-1 gap-1"
                 data-aos="fade-up"
                 data-aos-duration="1400"
               >
@@ -126,12 +126,21 @@ const HeroForm = () => {
                   className="p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-amber-500"
                 />
               </label>
+
+              <button
+                data-aos="fade-up"
+                data-aos-duration="1400"
+                className="bg-black text-red-500 border border-[#D4AF37] hover:bg-[#1a1a1a]
+    font-bold py-3 px-6 rounded-md transition duration-200 mt-4 md:mt-0"
+              >
+                Enquire Now!
+              </button>
             </div>
           </form>
 
           {/* Right Content - Landscape */}
           <div className="flex flex-col shadow-lg justify-between p-10 bg-amber-100 md:w-1/2 h-[85%] my-auto">
-            <div>
+            <div className="py-10">
               <h1 className="text-xl md:text-2xl font-bold text-center text-gray-800 mb-6">
                 Ride Steps
               </h1>
@@ -140,7 +149,7 @@ const HeroForm = () => {
                   <div
                     data-aos="fade-up"
                     data-aos-duration="800"
-                    className="w-16 h-16 bg-yellow-500 rounded-full mb-3 flex items-center justify-center text-white text-2xl font-bold"
+                    className="w-16 h-16 bg-red-600 rounded-full mb-3 flex items-center justify-center text-white text-2xl font-bold"
                   >
                     1
                   </div>
@@ -156,7 +165,7 @@ const HeroForm = () => {
                   <div
                     data-aos="fade-up"
                     data-aos-duration="800"
-                    className="w-16 h-16 bg-yellow-500 rounded-full mb-3 flex items-center justify-center text-white text-2xl font-bold"
+                    className="w-16 h-16 bg-red-600 rounded-full mb-3 flex items-center justify-center text-white text-2xl font-bold"
                   >
                     2
                   </div>
@@ -173,7 +182,7 @@ const HeroForm = () => {
                   <div
                     data-aos="fade-up"
                     data-aos-duration="800"
-                    className="w-16 h-16 bg-yellow-500 rounded-full mb-3 flex items-center justify-center text-white text-2xl font-bold"
+                    className="w-16 h-16 bg-red-600 rounded-full mb-3 flex items-center justify-center text-white text-2xl font-bold"
                   >
                     3
                   </div>
@@ -186,25 +195,6 @@ const HeroForm = () => {
                   </h3>
                 </div>
               </div>
-            </div>
-            <div
-              className="flex justify-center mt-7 w-full "
-              data-aos="fade-up"
-              data-aos-duration="1000"
-            >
-              <button
-                className=" bg-yellow-500 text-black hover:bg-[#bfa135]
- font-bold py-3 px-4 rounded-l-md transition duration-200"
-              >
-                Book Now!
-              </button>
-
-              <button
-                className="bg-black text-yellow-500 border border-[#D4AF37] hover:bg-[#1a1a1a]
- font-bold py-3 px-4 rounded-r-md transition duration-200"
-              >
-                Enquire Now!
-              </button>
             </div>
           </div>
         </div>

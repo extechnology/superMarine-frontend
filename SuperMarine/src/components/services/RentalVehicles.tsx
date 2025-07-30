@@ -90,7 +90,7 @@ const RentalVehicles = () => {
           data-aos-duration="1100"
           className="text-center md:text-4xl text-2xl proza-libre-bold text-white font-bold pb-5"
         >
-          Keep the Service on time, Explore the Comfort
+          Available Vehicles
         </h1>
         <div className="flex justify-center">
           <div className="grid grid-cols-1 md:grid-cols-3 max-w-7xl gap-5 px-4 md:px-0 w-full">

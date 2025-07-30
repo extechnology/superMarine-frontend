@@ -1,9 +1,9 @@
 import React, { useEffect, useState, useRef } from "react";
 import { HiX } from "react-icons/hi";
 import { TbSpeedboat } from "react-icons/tb";
-import { Link } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
 import { FaCircleUser } from "react-icons/fa6";
-
+import { useNavigate } from "react-router-dom";
 
 const Header: React.FC = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -12,10 +12,23 @@ const Header: React.FC = () => {
   const [mobileDropdownOpen, setMobileDropdownOpen] = useState(false);
   const [isHovered, setIsHovered] = useState(false);
   const timeoutRef = useRef<NodeJS.Timeout | null>(null);
+  const Token = localStorage.getItem("accessToken");
+  const navigate = useNavigate();
+
+  const isLoggedIn = Token !== null;
 
   const handleMouseEnter = () => {
     if (timeoutRef.current) clearTimeout(timeoutRef.current);
     setDropdownOpen(true);
+  };
+
+  const handleLogout = () => {
+    localStorage.removeItem("accessToken");
+    localStorage.removeItem("refreshToken");
+    localStorage.removeItem("id");
+    localStorage.removeItem("username");
+    localStorage.removeItem("email");
+    navigate("/");
   };
 
   const handleMouseLeave = () => {
@@ -137,8 +150,8 @@ const Header: React.FC = () => {
                   type="button"
                   className={`px-4 py-1 rounded-full font-semibold border cursor-pointer ${
                     scrolled
-                      ? "bg-blue-600 text-white hover:bg-blue-700 border-blue-600"
-                      : "bg-white text-blue-700 hover:bg-gray-100 border-white"
+                      ? "bg-red-600 text-white hover:bg-blue-700 border-red-600"
+                      : "bg-white text-red-700 hover:bg-gray-100 border-white"
                   }`}
                 >
                   Book Now
@@ -151,21 +164,31 @@ const Header: React.FC = () => {
               onMouseLeave={() => setIsHovered(false)}
             >
               <FaCircleUser className="text-3xl cursor-pointer " />
-
               {isHovered && (
                 <div className="absolute top-10 right-0 bg-white shadow-lg rounded-md w-40 z-50 py-2 animate-fade-in">
-                  <Link
-                    to="/login"
-                    className="block px-4 py-2 text-sm text-gray-800 hover:bg-gray-100"
-                  >
-                    Login
-                  </Link>
-                  <Link
-                    to="/register"
-                    className="block px-4 py-2 text-sm text-gray-800 hover:bg-gray-100"
-                  >
-                    Sign Up
-                  </Link>
+                  {!isLoggedIn ? (
+                    <>
+                      <Link
+                        to="/login"
+                        className="block px-4 py-2 text-sm text-gray-800 hover:bg-gray-100"
+                      >
+                        Login
+                      </Link>
+                      <Link
+                        to="/register"
+                        className="block px-4 py-2 text-sm text-gray-800 hover:bg-gray-100"
+                      >
+                        Sign Up
+                      </Link>
+                    </>
+                  ) : (
+                    <button
+                      onClick={handleLogout}
+                      className="w-full text-left px-4 py-2 text-sm text-red-600 hover:bg-gray-100"
+                    >
+                      Logout
+                    </button>
+                  )}
                 </div>
               )}
             </li>

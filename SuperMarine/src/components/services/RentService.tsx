@@ -5,7 +5,7 @@ const RentService = () => {
       <div className="relative">
         <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-black/50 to-black z-10"></div>
         <img
-          src="/about-hero.jpg"
+          src="/rental-service.jpg"
           alt="Services background"
           className="w-full h-96 object-cover"
         />
@@ -13,7 +13,7 @@ const RentService = () => {
           <h1
             data-aos="fade-up"
             data-aos-duration="900"
-            className="text-white proza-libre-bold text-2xl w-[100%] md:text-center md:w-[50%] md:text-5xl font-bold"
+            className="text-white px-5 md:px-0 text-center  proza-libre-bold text-2xl w-[100%] md:w-[50%] md:text-5xl font-bold"
           >
             Keep the Service on time,  Explore the Comfort
           </h1>

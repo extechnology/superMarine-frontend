@@ -1,7 +1,6 @@
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Pagination, EffectFade } from "swiper/modules";
 import type { Slide } from "../../types";
-import { Link } from "react-router";
 
 const slides: Slide[] = [
   {
@@ -66,7 +65,7 @@ const Hero = () => {
                 >
                   {slide.subtitle}
                 </p>
-                <div
+                {/* <div
                   className="flex gap-4"
                   data-aos="fade-up"
                   data-aos-duration="1000"
@@ -79,7 +78,7 @@ const Hero = () => {
                   <button className="px-6 py-3  border bg-white text-black rounded-lg shadow-lg hover:text-white hover:border-white hover:bg-transparent transition">
                     Enquire Now
                   </button>
-                </div>
+                </div> */}
               </div>
             </div>
           </SwiperSlide>
