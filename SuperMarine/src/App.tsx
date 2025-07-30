@@ -9,6 +9,7 @@ import WhatsAppButton from "./common/WhatsApp";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import Lenis from "@studio-freight/lenis";
+import { GoogleOAuthProvider } from "@react-oauth/google";
 const Home = lazy(() => import("./pages/Home"));
 const About = lazy(() => import("./pages/About"));
 const Contact = lazy(() => import("./pages/ContactUs"));
@@ -21,8 +22,6 @@ const Register = lazy(() => import("./components/accounts/Register"));
 const VerifyOtp = lazy(() => import("./components/accounts/VerifyOtp"));
 
 function App() {
-
-
   useEffect(() => {
     AOS.init({
       duration: 600,
@@ -41,28 +40,28 @@ function App() {
     requestAnimationFrame(raf);
   }, []);
 
-  
-
   return (
     <Router>
-      <ScrollToTop />
-      <Header />
-      <Suspense fallback={<Loader />}>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/contact" element={<Contact />} />
-          <Route path="/rental_service" element={<RentalService />} />
-          <Route path="/service_and_repair" element={<ServiceAndRepair />} />
-          <Route path="/gallery" element={<Gallery />} />
-          <Route path="/book_now/:id" element={<BookNow />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/register" element={<Register />} />
-          <Route path="/verify-otp" element={<VerifyOtp />} />
-        </Routes>
-      </Suspense>
-      <WhatsAppButton />
-      <Footer />
+      <GoogleOAuthProvider clientId="YOUR_CLIENT_ID">
+        <ScrollToTop />
+        <Header />
+        <Suspense fallback={<Loader />}>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/contact" element={<Contact />} />
+            <Route path="/rental_service" element={<RentalService />} />
+            <Route path="/service_and_repair" element={<ServiceAndRepair />} />
+            <Route path="/gallery" element={<Gallery />} />
+            <Route path="/book_now/:id" element={<BookNow />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/register" element={<Register />} />
+            <Route path="/verify-otp" element={<VerifyOtp />} />
+          </Routes>
+        </Suspense>
+        <WhatsAppButton />
+        <Footer />
+      </GoogleOAuthProvider>
     </Router>
   );
 }
