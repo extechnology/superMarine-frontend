@@ -1,6 +1,8 @@
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Pagination, EffectFade } from "swiper/modules";
 import type { Slide } from "../../types";
+import useHeroCarousel from "../../hooks/useHeroCarousel";
+import Loader from "../../common/Loader";
 
 const slides: Slide[] = [
   {
@@ -26,6 +28,15 @@ const slides: Slide[] = [
 ];
 
 const Hero = () => {
+  const { hero, loading, error } = useHeroCarousel();
+
+  console.log(hero, "hero");
+
+  if (loading) return <Loader />;
+  if (error)
+    return <div className="error-message">⚠️ Error: {error.message}</div>;
+
+
   return (
     <div className="w-full h-[90vh] ">
       <Swiper

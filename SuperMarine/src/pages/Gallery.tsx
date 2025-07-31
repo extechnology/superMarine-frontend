@@ -1,3 +1,5 @@
+import Loader from "../common/Loader";
+import useGallery from "../hooks/useGallery";
 import { useState } from "react";
 const GalleryData = [
   {
@@ -54,7 +56,9 @@ const Gallery = () => {
 
 
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
+  const { gallery, loading, error } = useGallery();
 
+  console.log(gallery)
   const handleViewImage = (index: number) => {
     setActiveIndex(index);
   };
@@ -76,6 +80,9 @@ const Gallery = () => {
       prev !== null ? (prev + 1) % GalleryData.length : null
     );
   };
+
+  if (loading) return <Loader/>
+  if (error) return <h1>{error.message}</h1>
 
 
   return (

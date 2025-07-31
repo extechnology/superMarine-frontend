@@ -71,3 +71,15 @@ export interface BookingFormData {
   duration: string;
   number_of_persons: number;
 }
+
+export interface gallery {
+  title : string;
+  image : string;
+  description : string;
+}
+
+export interface heroCarousel {
+  title:string;
+  subtitle:string;
+  image:string
+}
