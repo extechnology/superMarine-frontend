@@ -59,3 +59,15 @@ export interface ServiceData {
 export interface ServiceGridProps {
   serviceData: ServiceData[];
 }
+
+
+export interface BookingFormData {
+  name: string;
+  phone: string;
+  email: string;
+  title: string;
+  date: string;
+  time: string;
+  duration: string;
+  number_of_persons: number;
+}

@@ -25,6 +25,7 @@
     "react-leaflet": "^5.0.0",
     "react-router": "^7.7.0",
     "react-router-dom": "^7.7.0",
+    "react-toastify": "^11.0.5",
     "scrollreveal": "^4.0.9",
     "swiper": "^11.2.10",
     "tailwindcss": "^4.1.11"

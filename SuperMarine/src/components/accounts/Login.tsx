@@ -23,6 +23,7 @@ const Login: React.FC = () => {
       localStorage.setItem("id", response.user_id);
 
       console.log("Login successful:", response);
+      toast.success("Login successful!");
       navigate("/");
     } catch (error: any) {
       console.error("Login failed:", error);
@@ -123,6 +124,7 @@ const Login: React.FC = () => {
             Sign up
           </Link>
         </p>
+        <p className="text-center text-sm text-gray-400">Forgot Password?</p>
       </div>
     </div>
   );

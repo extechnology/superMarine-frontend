@@ -10,6 +10,8 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 import Lenis from "@studio-freight/lenis";
 import { GoogleOAuthProvider } from "@react-oauth/google";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 const Home = lazy(() => import("./pages/Home"));
 const About = lazy(() => import("./pages/About"));
 const Contact = lazy(() => import("./pages/ContactUs"));
@@ -43,6 +45,7 @@ function App() {
   return (
     <Router>
       <GoogleOAuthProvider clientId="YOUR_CLIENT_ID">
+        <ToastContainer position="top-center" autoClose={3000} />
         <ScrollToTop />
         <Header />
         <Suspense fallback={<Loader />}>

@@ -92,7 +92,9 @@ const ServiceAndRepair = () => {
               <div className="absolute inset-0 bg-gradient-to-r from-gray-800 to-gray-900 opacity-90 group-hover:from-amber-500/10 group-hover:to-amber-600/10 transition-all duration-500"></div>
 
               <div
-                className={`relative flex flex-col items-center gap-8 p-8 z-10 ${ data.id % 2 ==0 ? "md:flex-row-reverse" : ""}`}
+                className={`relative flex flex-col items-center gap-8 p-8 z-10 ${
+                  data.id % 2 === 0 ? "md:flex-row-reverse" : "md:flex-row"
+                }`}
               >
                 <div className="w-full md:w-2/5 transform transition-all duration-500 group-hover:scale-105">
                   <img
