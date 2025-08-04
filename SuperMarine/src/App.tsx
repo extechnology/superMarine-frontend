@@ -10,8 +10,10 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 import Lenis from "@studio-freight/lenis";
 import { GoogleOAuthProvider } from "@react-oauth/google";
-import { ToastContainer } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
+// import { ToastContainer } from "react-toastify";
+// import "react-toastify/dist/ReactToastify.css";
+import { Toaster } from "sonner";
+import AuthModal from "./components/accounts/AuthModal";
 const Home = lazy(() => import("./pages/Home"));
 const About = lazy(() => import("./pages/About"));
 const Contact = lazy(() => import("./pages/ContactUs"));
@@ -19,8 +21,6 @@ const ServiceAndRepair = lazy(() => import("./pages/Repair"));
 const RentalService = lazy(() => import("./pages/RentalService"));
 const Gallery = lazy(() => import("./pages/Gallery"));
 const BookNow = lazy(() => import("./pages/BookNow"));
-const Login = lazy(() => import("./components/accounts/Login"));
-const Register = lazy(() => import("./components/accounts/Register"));
 const VerifyOtp = lazy(() => import("./components/accounts/VerifyOtp"));
 
 function App() {
@@ -45,7 +45,8 @@ function App() {
   return (
     <Router>
       <GoogleOAuthProvider clientId="YOUR_CLIENT_ID">
-        <ToastContainer position="top-center" autoClose={3000} />
+        <Toaster theme="dark" position="top-center" richColors />
+
         <ScrollToTop />
         <Header />
         <Suspense fallback={<Loader />}>
@@ -57,11 +58,10 @@ function App() {
             <Route path="/service_and_repair" element={<ServiceAndRepair />} />
             <Route path="/gallery" element={<Gallery />} />
             <Route path="/book_now/:id" element={<BookNow />} />
-            <Route path="/login" element={<Login />} />
-            <Route path="/register" element={<Register />} />
             <Route path="/verify-otp" element={<VerifyOtp />} />
           </Routes>
         </Suspense>
+        <AuthModal />
         <WhatsAppButton />
         <Footer />
       </GoogleOAuthProvider>

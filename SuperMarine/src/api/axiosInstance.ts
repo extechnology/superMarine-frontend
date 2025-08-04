@@ -1,5 +1,6 @@
 import axios from "axios";
 import toast from "react-hot-toast";
+import { useModalStore } from "../zustand/modalStore";
 
 const axiosInstance = axios.create({
   baseURL: import.meta.env.VITE_API_BASE_URL || "http://127.0.0.1:8000/",
@@ -18,17 +19,20 @@ axiosInstance.interceptors.request.use((config) => {
 axiosInstance.interceptors.response.use(
   (res) => res,
   (err) => {
-
-    if (err.response?.status === 401 ) {
+    if (err.response?.status === 401) {
       localStorage.removeItem("accessToken");
       localStorage.removeItem("refreshToken");
       localStorage.removeItem("id");
       localStorage.removeItem("username");
       localStorage.removeItem("email");
 
-      alert("Session expired. Please login again.");
-      toast.error(err.response.data?.detail || "Unauthorized");
-      window.location.href = "/login";
+      toast.error(
+        err.response.data?.detail || "Session expired. Please login again."
+      );
+
+      // Trigger login modal
+      const { openLogin } = useModalStore.getState();
+      openLogin();
     }
 
     return Promise.reject(err);

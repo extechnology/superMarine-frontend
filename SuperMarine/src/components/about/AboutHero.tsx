@@ -1,4 +1,13 @@
+import Loader from "../../common/Loader";
+import useAboutHero from "../../hooks/userAboutHero";
+
 const AboutHero = () => {
+
+  const { about, loading, error } = useAboutHero();
+
+  console.log(about, "about");
+  if (loading) return <Loader />;
+  if (error) return <div className="error-message">⚠️ Error: {error.message}</div>;
   return (
     <div className="relative">
       <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-black/50 to-black"></div>

@@ -1,4 +1,6 @@
 import { Link } from "react-router";
+import useService from "../../hooks/useService";
+import Loader from "../../common/Loader";
 
 const SampleServiceData = [
   {
@@ -63,6 +65,12 @@ const SampleServiceData = [
 ];
 
 const ServiceAndRepair = () => {
+
+  const { service, loading, error } = useService();
+  console.log("service", service);
+  if (loading) return <Loader />;
+  if (error)
+    return <div className="error-message">⚠️ Error: {error.message}</div>;
   return (
     <div className="bg-black py-16 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">

@@ -4,6 +4,8 @@ import { TbSpeedboat } from "react-icons/tb";
 import { Link } from "react-router-dom";
 import { FaCircleUser } from "react-icons/fa6";
 import { useNavigate } from "react-router-dom";
+import AuthModal from "../components/accounts/AuthModal";
+import { useModalStore } from "../zustand/modalStore";
 
 const Header: React.FC = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -14,8 +16,8 @@ const Header: React.FC = () => {
   const timeoutRef = useRef<NodeJS.Timeout | null>(null);
   const Token = localStorage.getItem("accessToken");
   const navigate = useNavigate();
-
   const isLoggedIn = Token !== null;
+  const openLogin = useModalStore((state) => state.openLogin);
 
   const handleMouseEnter = () => {
     if (timeoutRef.current) clearTimeout(timeoutRef.current);
@@ -168,18 +170,20 @@ const Header: React.FC = () => {
                 <div className="absolute top-10 right-0 bg-white shadow-lg rounded-md w-40 z-50 py-2 animate-fade-in">
                   {!isLoggedIn ? (
                     <>
-                      <Link
-                        to="/login"
-                        className="block px-4 py-2 text-sm text-gray-800 hover:bg-gray-100"
+                      <button
+                        type="button"
+                        onClick={openLogin}
+                        className="block w-full text-start px-4 py-2 text-sm text-gray-800 hover:bg-gray-100"
                       >
                         Login
-                      </Link>
-                      <Link
-                        to="/register"
-                        className="block px-4 py-2 text-sm text-gray-800 hover:bg-gray-100"
+                      </button>
+
+                      <button
+                        onClick={openLogin}
+                        className="block w-full text-start px-4 py-2 text-sm text-gray-800 hover:bg-gray-100"
                       >
                         Sign Up
-                      </Link>
+                      </button>
                     </>
                   ) : (
                     <button
@@ -279,6 +283,7 @@ const Header: React.FC = () => {
           </Link>
         </div>
       </div>
+      <AuthModal />
     </header>
   );
 };

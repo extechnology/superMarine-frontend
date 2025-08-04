@@ -1,7 +1,7 @@
 import { useState } from "react";
 import type { BookingFormData } from "@/types";
 import axiosInstance from "../../api/axiosInstance";
-import { toast } from "react-toastify";
+import { toast } from "sonner";
 
 const HeroForm = () => {
   const [formData, setFormData] = useState<BookingFormData>({

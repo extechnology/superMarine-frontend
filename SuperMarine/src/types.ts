@@ -60,7 +60,6 @@ export interface ServiceGridProps {
   serviceData: ServiceData[];
 }
 
-
 export interface BookingFormData {
   name: string;
   phone: string;
@@ -73,13 +72,25 @@ export interface BookingFormData {
 }
 
 export interface gallery {
-  title : string;
-  image : string;
-  description : string;
+  title: string;
+  image: string;
+  description: string;
 }
 
 export interface heroCarousel {
-  title:string;
-  subtitle:string;
-  image:string
+  title: string;
+  subtitle: string;
+  image: string;
+}
+
+export interface service {
+  title: string;
+  image: string;
+  description: string;
+  points: string[];
+}
+
+export interface about {
+  title: string;
+  image: string;
 }
