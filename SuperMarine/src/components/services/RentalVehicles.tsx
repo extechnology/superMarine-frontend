@@ -1,5 +1,7 @@
 import { Link } from "react-router";
 import type { ServiceData } from "../../types";
+import useVehicle from "../../hooks/useVehicle";
+import Loader from "../../common/Loader";
 
 const sampleServiceData: ServiceData[] = [
   {
@@ -82,6 +84,12 @@ const sampleServiceData: ServiceData[] = [
 ];
 
 const RentalVehicles = () => {
+
+  const {vehicle, loading, error } = useVehicle();
+  console.log(vehicle, "vehicle");
+  if (loading) return <Loader />;
+  if (error) return <div className="error-message">⚠️ Error: {error.message}</div>;
+
   return (
     <div>
       <div className="py-10">

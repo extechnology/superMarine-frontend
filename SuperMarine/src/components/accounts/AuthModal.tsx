@@ -158,6 +158,9 @@ export default function AuthModal() {
               >
                 Sign In
               </button>
+              <p className="text-sm text-white/70 hover:text-blue-600">
+                forgot password?
+              </p>
             </form>
           ) : (
             <form onSubmit={handleRegister} className="space-y-4">

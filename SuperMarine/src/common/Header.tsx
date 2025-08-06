@@ -18,6 +18,8 @@ const Header: React.FC = () => {
   const navigate = useNavigate();
   const isLoggedIn = Token !== null;
   const openLogin = useModalStore((state) => state.openLogin);
+  const [isMobileUserOpen, setIsMobileUserOpen] = useState(false);
+
 
   const handleMouseEnter = () => {
     if (timeoutRef.current) clearTimeout(timeoutRef.current);
@@ -110,7 +112,7 @@ const Header: React.FC = () => {
                 <li
                   className="h-24 relative text-white"
                   style={{
-                    backgroundImage: `url('/beautiful.jpg')`,
+                    backgroundImage: `url('/nav-dropdown1.jpg')`,
                     backgroundSize: "cover",
                     backgroundPosition: "center",
                   }}
@@ -126,7 +128,7 @@ const Header: React.FC = () => {
                 <li
                   className="h-24 relative text-white"
                   style={{
-                    backgroundImage: `url('/jet-ski.jpg')`,
+                    backgroundImage: `url('/nav-dropdown2.jpg')`,
                     backgroundSize: "cover",
                     backgroundPosition: "center",
                   }}
@@ -265,6 +267,62 @@ const Header: React.FC = () => {
                   Service & Repair
                 </Link>
               </li>
+            </ul>
+          </div>
+
+          {/* User Icon in Mobile Navbar */}
+          <div className="relative">
+            <button
+              onClick={() => setIsMobileUserOpen(!isMobileUserOpen)}
+              className="flex items-center gap-2 py-2 px-4 rounded-full bg-white/10 hover:bg-white/20 transition"
+            >
+              <FaCircleUser className="text-2xl" />
+              <span>User</span>
+            </button>
+
+            <ul
+              className={`absolute left-1/2 -translate-x-1/2 mt-2 w-48 text-center transition-all duration-300 origin-top overflow-hidden bg-white text-black rounded-lg shadow-lg ${
+                isMobileUserOpen ? "max-h-60 opacity-100" : "max-h-0 opacity-0"
+              }`}
+            >
+              {!isLoggedIn ? (
+                <>
+                  <li>
+                    <button
+                      onClick={() => {
+                        toggleMenu();
+                        openLogin();
+                      }}
+                      className="block w-full px-4 py-3 hover:bg-gray-100 transition text-sm font-medium"
+                    >
+                      Login
+                    </button>
+                  </li>
+                  <li>
+                    <button
+                      onClick={() => {
+                        toggleMenu();
+                        openLogin();
+                      }}
+                      className="block w-full px-4 py-3 hover:bg-gray-100 transition text-sm font-medium"
+                    >
+                      Sign Up
+                    </button>
+                  </li>
+                </>
+              ) : (
+                <li>
+                  <button
+                    onClick={() => {
+                      toggleMenu();
+                      handleLogout();
+                    }}
+                    className="block w-full px-4 py-3 text-red-600 hover:bg-gray-100 transition text-sm font-medium"
+                  >
+                    Logout
+                  </button>
+                </li>
+              )}
             </ul>
           </div>
 

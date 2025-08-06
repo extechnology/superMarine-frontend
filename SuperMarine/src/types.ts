@@ -94,3 +94,15 @@ export interface about {
   title: string;
   image: string;
 }
+
+export interface vehicle {
+  unique_id: string;
+  category: string;
+  name: string;
+  description: string;
+  image: string;
+  capacity: number;
+  price: number;
+  duration: number;
+  discount: number;
+}
