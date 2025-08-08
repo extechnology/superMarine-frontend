@@ -1,64 +1,13 @@
 import Loader from "../common/Loader";
 import useGallery from "../hooks/useGallery";
 import { useState } from "react";
-const GalleryData = [
-  {
-    id: 1,
-    image: "/about-hero.jpg",
-    title: "Yamaha Jet Ski",
-    description: "Agressive Jet Ski",
-  },
-  {
-    id: 2,
-    image: "/chair-lift.jpg",
-    title: "Ducati Jet Ski",
-    description: "Agressive Jet Ski",
-  },
-  {
-    id: 3,
-    image: "/underwater.jpg",
-    title: "Rolls Royce Jet Ski",
-    description: "Agressive Jet Ski",
-  },
-  {
-    id: 4,
-    image: "/beautiful.jpg",
-    title: "Suzuki Jet Ski",
-    description: "Agressive Jet Ski",
-  },
-  {
-    id: 5,
-    image: "/sea.jpg",
-    title: "Honda Jet Ski",
-    description: "Agressive Jet Ski",
-  },
-  {
-    id: 6,
-    image: "/hero-carousel1.jpg",
-    title: "Lamborghini Jet Ski",
-    description: "Agressive Jet Ski",
-  },
-  {
-    id: 7,
-    image: "/jet-ski.jpg",
-    title: "Lamborghini Jet Ski",
-    description: "Agressive Jet Ski",
-  },
-  {
-    id: 8,
-    image: "/hero-carousel2.jpg",
-    title: "Lamborghini Jet Ski",
-    description: "Agressive Jet Ski",
-  },
-];
+import type { gallery } from "../types";
 
 const Gallery = () => {
-
-
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
   const { gallery, loading, error } = useGallery();
 
-  console.log(gallery)
+  console.log(gallery);
   const handleViewImage = (index: number) => {
     setActiveIndex(index);
   };
@@ -67,23 +16,24 @@ const Gallery = () => {
     setActiveIndex(null);
   };
 
-  const goToPrev = () => {
-    setActiveIndex((prev) =>
-      prev !== null
-        ? (prev - 1 + GalleryData.length) % GalleryData.length
-        : null
-    );
-  };
+ const goToPrev = () => {
+   if (!gallery || !Array.isArray(gallery) || gallery.length === 0) return;
+
+   setActiveIndex((prev) =>
+     prev !== null ? (prev - 1 + gallery.length) % gallery.length : null
+   );
+ };
 
   const goToNext = () => {
+    if (!gallery || !Array.isArray(gallery) || gallery.length === 0) return;
+
     setActiveIndex((prev) =>
-      prev !== null ? (prev + 1) % GalleryData.length : null
+      prev !== null ? (prev + 1) % gallery.length : null
     );
   };
-
-  if (loading) return <Loader/>
-  if (error) return <h1>{error.message}</h1>
-
+  if (loading) return <Loader />;
+  if (error) return <h1>{error.message}</h1>;
+  if (!Array.isArray(gallery)) return null; 
 
   return (
     <div>
@@ -114,41 +64,46 @@ const Gallery = () => {
         <div className="max-w-7xl mx-auto">
           {/* Masonry Grid */}
           <div className="columns-1 sm:columns-2 lg:columns-3 gap-4 space-y-4">
-            {GalleryData.map((data, index) => (
-              <div
-                key={data.id}
-                className="relative break-inside-avoid group overflow-hidden rounded-lg shadow-lg hover:shadow-2xl transition-all duration-500 mb-4"
-              >
-                {/* Image with zoom and parallax effect */}
-                <div className="overflow-hidden">
-                  <img
-                    src={data.image}
-                    alt={data.title}
-                    className="w-full h-auto transition-all duration-700 ease-out group-hover:scale-110"
-                  />
-                </div>
+            {gallery && gallery.map((item: gallery, index: number) => {
+              const imageUrl = item.image?.startsWith("http")
+                ? item.image
+                : `${import.meta.env.VITE_API_BASE_URL}${item.image}`;
+              return (
+                <div
+                  key={index}
+                  className="relative break-inside-avoid group overflow-hidden rounded-lg shadow-lg hover:shadow-2xl transition-all duration-500 mb-4"
+                >
+                  {/* Image with zoom and parallax effect */}
+                  <div className="overflow-hidden">
+                    <img
+                      src={imageUrl}
+                      alt={item.title || "no image"}
+                      className="w-full h-auto transition-all duration-700 ease-out group-hover:scale-110"
+                    />
+                  </div>
 
-                {/* Animated Title Overlay */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-6">
-                  <h2 className="proza-libre-bold text-white text-xl md:text-2xl font-bold transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
-                    {data.title}
-                  </h2>
-                  <p className="text-gray-300 text-sm mt-2 opacity-0 group-hover:opacity-100 transition-opacity delay-100 duration-300">
-                    {data.description || "View more details"}
-                  </p>
-                  <button
-                    onClick={() => handleViewImage(index)}
-                    className="mt-3 bg-white/10 backdrop-blur-sm text-white px-4 py-2 rounded-full text-sm font-medium opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 transition-all delay-150 duration-500 hover:bg-white/20 border border-white/20"
-                  >
-                    View Image
-                  </button>
-                </div>
+                  {/* Animated Title Overlay */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-6">
+                    <h2 className="proza-libre-bold text-white text-xl md:text-2xl font-bold transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
+                      {item.title}
+                    </h2>
+                    <p className="text-gray-300 text-sm mt-2 opacity-0 group-hover:opacity-100 transition-opacity delay-100 duration-300">
+                      {item.description || "View more details"}
+                    </p>
+                    <button
+                      onClick={() => handleViewImage(index)}
+                      className="mt-3 bg-white/10 backdrop-blur-sm text-white px-4 py-2 rounded-full text-sm font-medium opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 transition-all delay-150 duration-500 hover:bg-white/20 border border-white/20"
+                    >
+                      View Image
+                    </button>
+                  </div>
 
-                {/* Corner Decoration (optional) */}
-                <div className="absolute top-0 left-0 w-12 h-12 border-t-2 border-l-2 border-white/30 opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
-                <div className="absolute bottom-0 right-0 w-12 h-12 border-b-2 border-r-2 border-white/30 opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
-              </div>
-            ))}
+                  {/* Corner Decoration (optional) */}
+                  <div className="absolute top-0 left-0 w-12 h-12 border-t-2 border-l-2 border-white/30 opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
+                  <div className="absolute bottom-0 right-0 w-12 h-12 border-b-2 border-r-2 border-white/30 opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
+                </div>
+              );
+            })}
           </div>
         </div>
       </div>
@@ -171,7 +126,7 @@ const Gallery = () => {
 
             {/* Image Display */}
             <img
-              src={GalleryData[activeIndex].image}
+              src={gallery[activeIndex].image}
               alt="Gallery Full View"
               className="max-h-[90vh] max-w-full rounded-lg shadow-lg border shadow-black/50"
             />

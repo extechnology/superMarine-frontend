@@ -44,7 +44,12 @@ export type Slide = {
   image: string;
   title: string;
   subtitle: string;
+  mobileImage?: string;
 };
+
+export interface SlideWithMobile extends Slide {
+  mobileImage: string;
+}
 
 export interface ServiceData {
   id: number;

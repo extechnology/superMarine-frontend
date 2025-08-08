@@ -17,7 +17,7 @@ export default function AuthModal() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
-
+  console.log(error);
   const navigate = useNavigate();
 
   const handleLogin = async (e: React.FormEvent) => {
@@ -58,6 +58,7 @@ export default function AuthModal() {
 
     try {
       const res = await registerUser(formData);
+      console.log(res);
       navigate("/verify-otp", {
         state: {
           email: formData.email,
@@ -94,7 +95,7 @@ export default function AuthModal() {
         aria-hidden="true"
       />
       <div className="fixed inset-0 flex items-center justify-center p-4">
-        <Dialog.Panel className="w-full max-w-md rounded-xl bg-white/10 border border-white/20 backdrop-blur-md shadow-xl p-6 text-white">
+        <Dialog.Panel className="w-full max-w-md rounded-xl border border-white/20 backdrop-blur-md shadow-xl p-6 text-white">
           {/* Header */}
           <div className="flex justify-between items-center mb-4">
             <h2 className="text-xl font-bold text-amber-400">
@@ -154,7 +155,7 @@ export default function AuthModal() {
               />
               <button
                 type="submit"
-                className="w-full py-2 bg-gradient-to-r from-red-500 to-amber-500 text-white rounded-md font-semibold"
+                className="w-full py-2 bg-gradient-to-r from-red-500 to-red-500 text-white rounded-md font-semibold"
               >
                 Sign In
               </button>
@@ -200,7 +201,7 @@ export default function AuthModal() {
               />
               <button
                 type="submit"
-                className="w-full py-2 bg-gradient-to-r from-red-500 to-amber-500 text-white rounded-md font-semibold"
+                className="w-full py-2 bg-gradient-to-r from-red-500 to-red-600 text-white rounded-md font-semibold"
               >
                 Sign Up
               </button>

@@ -1,8 +1,9 @@
 import React, { useEffect, useState, useRef } from "react";
 import { HiX } from "react-icons/hi";
-import { TbSpeedboat } from "react-icons/tb";
 import { Link } from "react-router-dom";
 import { FaCircleUser } from "react-icons/fa6";
+import { RxHamburgerMenu } from "react-icons/rx";
+
 import { useNavigate } from "react-router-dom";
 import AuthModal from "../components/accounts/AuthModal";
 import { useModalStore } from "../zustand/modalStore";
@@ -66,12 +67,12 @@ const Header: React.FC = () => {
         scrolled ? "bg-white shadow-md" : "bg-transparent"
       }`}
     >
-      <div className="flex justify-between items-center max-w-7xl mx-auto py-3 px-4 md:px-0">
+      <div className="flex justify-between items-center max-w-7xl mx-auto py-3 px-3 md:px-0">
         <Link to={"/"}>
           {scrolled ? (
-            <img src="/arabic-eng-black.png" alt="" className="h-14" />
+            <img src="/arabic-eng-black.png" alt="" className="h-12 md:h-14" />
           ) : (
-            <img src="/arabic-eng-white.png" alt="" className="h-14" />
+            <img src="/arabic-eng-white.png" alt="" className="h-12 md:h-14" />
           )}
         </Link>
 
@@ -205,15 +206,15 @@ const Header: React.FC = () => {
         <button
           className="md:hidden z-50 text-2xl"
           onClick={toggleMenu}
-          aria-label="Toggle menu"
+          aria-label="Toggle menu content-start"
         >
           {menuOpen ? (
             <HiX
               className={`w-6 h-6 ${scrolled ? "text-black" : "text-white"}`}
             />
           ) : (
-            <TbSpeedboat
-              className={`w-9 h-9 ${scrolled ? "text-black" : "text-white"}`}
+            <RxHamburgerMenu
+              className={`w-7 h-7 ${scrolled ? "text-black" : "text-white"}`}
             />
           )}
         </button>

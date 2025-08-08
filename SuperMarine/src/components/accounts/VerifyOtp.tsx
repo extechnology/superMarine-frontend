@@ -86,10 +86,10 @@ const VerifyOtp: React.FC = () => {
       <div className="w-full max-w-md space-y-6">
         {/* Branding */}
         <div className="text-center">
-          <h1 className="text-4xl font-bold text-transparent bg-gradient-to-r from-fuchsia-500 to-violet-500 bg-clip-text">
-            ex<span className="text-fuchsia-500">edu</span>
+          <h1 className="text-4xl font-bold  text-red-500">
+            Super Marine
           </h1>
-          <p className="text-xs text-gray-500">Hybrid AI Education</p>
+          <p className="text-xs text-gray-500">Jet Ski and Rental Services</p>
         </div>
 
         {/* Heading */}
@@ -113,14 +113,14 @@ const VerifyOtp: React.FC = () => {
                 maxLength={1}
                 value={digit}
                 onChange={(e) => handleChange(e.target.value, i)}
-                className="w-10 h-12 text-center text-xl border-2 border-pink-400 rounded-md focus:ring-2 focus:ring-pink-300 outline-none"
+                className="w-10 h-12 text-center text-xl border-2 border-red-400 rounded-md focus:ring-2 focus:ring-red-300 outline-none"
               />
             ))}
           </div>
 
           <button
             type="submit"
-            className="w-full py-2 rounded-md text-white font-medium bg-gradient-to-r from-fuchsia-500 to-violet-500 hover:opacity-90"
+            className="w-full py-2 rounded-md text-white font-medium bg-gradient-to-r from-red-500 to-orange-500 hover:opacity-90"
           >
             Verify OTP
           </button>
