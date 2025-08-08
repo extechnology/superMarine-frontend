@@ -22,7 +22,8 @@ const Footer = () => {
             <li>9GC9+X65 - Musaffah - </li>
             <li>M3 - Abu Dhabi - United </li>
             <li>Arab Emirates,</li>
-            <li>+971501174427 </li>
+            <li>+971 50 117 4427</li>
+            <li>+971 50 959 0553</li>
           </ul>
         </div>
 

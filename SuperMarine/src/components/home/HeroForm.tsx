@@ -99,9 +99,9 @@ const HeroForm = () => {
           {/* Left Form - Vertical */}
           <form
             onSubmit={handleSubmit}
-            className="flex flex-col gap-4 p-10 bg-white backdrop-blur-2xl md:w-1/2 shadow-lg"
+            className="flex flex-col gap-4 p-10 rounded-xl bg-black/10 text-white backdrop-blur-xl md:w-1/2 shadow-lg"
           >
-            <h1 className="text-xl md:text-2xl font-semibold text-gray-800 mb-4">
+            <h1 className="text-xl md:text-2xl font-semibold  mb-4">
               Adventure Vehicle Booking
             </h1>
 
@@ -110,7 +110,7 @@ const HeroForm = () => {
               data-aos="fade-up"
               data-aos-duration="700"
             >
-              <span className="text-sm font-medium text-gray-700">Name</span>
+              <span className="text-sm font-medium ">Name</span>
               <input
                 type="text"
                 name="name"
@@ -126,7 +126,7 @@ const HeroForm = () => {
                 data-aos="fade-up"
                 data-aos-duration="800"
               >
-                <span className="text-sm font-medium text-gray-700">
+                <span className="text-sm font-medium ">
                   Phone No.
                 </span>
                 <input
@@ -144,7 +144,7 @@ const HeroForm = () => {
                 data-aos="fade-up"
                 data-aos-duration="900"
               >
-                <span className="text-sm font-medium text-gray-700">
+                <span className="text-sm font-medium ">
                   Email ID
                 </span>
                 <input
@@ -163,7 +163,7 @@ const HeroForm = () => {
               data-aos="fade-up"
               data-aos-duration="1000"
             >
-              <span className="text-sm font-medium text-gray-700">
+              <span className="text-sm font-medium ">
                 Adventure Vehicle
               </span>
               <input
@@ -182,7 +182,7 @@ const HeroForm = () => {
                 data-aos="fade-up"
                 data-aos-duration="1100"
               >
-                <span className="text-sm font-medium text-gray-700">
+                <span className="text-sm font-medium ">
                   Ride Date
                 </span>
                 <input
@@ -199,7 +199,7 @@ const HeroForm = () => {
                 data-aos="fade-up"
                 data-aos-duration="1200"
               >
-                <span className="text-sm font-medium text-gray-700">
+                <span className="text-sm font-medium ">
                   Report Time
                 </span>
                 <input
@@ -216,7 +216,7 @@ const HeroForm = () => {
                 data-aos="fade-up"
                 data-aos-duration="1300"
               >
-                <span className="text-sm font-medium text-gray-700">
+                <span className="text-sm font-medium ">
                   Duration
                 </span>
                 <input
@@ -234,7 +234,7 @@ const HeroForm = () => {
                 data-aos="fade-up"
                 data-aos-duration="1400"
               >
-                <span className="text-sm font-medium text-gray-700">
+                <span className="text-sm font-medium ">
                   No. of Persons
                 </span>
                 <input
@@ -261,24 +261,24 @@ const HeroForm = () => {
           </form>
 
           {/* Right Content - Landscape */}
-          <div className="flex flex-col shadow-lg justify-between p-10 bg-amber-100 md:w-1/2 h-[85%] my-auto">
-            <div className="py-10">
+          <div className="flex flex-col md:rounded-r-xl rounded-b-xl md:rounded-l-none shadow-lg justify-between p-10 bg-amber-100 md:w-1/2 h-[85%] my-auto">
+            <div className="md:py-10">
               <h1 className="text-xl md:text-2xl font-bold text-center text-gray-800 mb-6">
                 Ride Steps
               </h1>
-              <div className="md:flex space-y-6 md:space-y-0 justify-between gap-6">
+              <div className="flex space-y-6 md:space-y-0 justify-between gap-6">
                 <div className="flex flex-col items-center text-center">
                   <div
                     data-aos="fade-up"
                     data-aos-duration="800"
-                    className="w-16 h-16 bg-red-600 rounded-full mb-3 flex items-center justify-center text-white text-2xl font-bold"
+                    className="w-16 h-16 bg-red-600 rounded-full mb-3 flex items-center justify-center text-white text-xl md:text-2xl font-bold"
                   >
                     1
                   </div>
                   <h3
                     data-aos="fade-up"
                     data-aos-duration="900"
-                    className="font-semibold text-sm"
+                    className="font-semibold text-xs md:text-sm"
                   >
                     Search Adventure Vehicle
                   </h3>
@@ -287,14 +287,14 @@ const HeroForm = () => {
                   <div
                     data-aos="fade-up"
                     data-aos-duration="800"
-                    className="w-16 h-16 bg-red-600 rounded-full mb-3 flex items-center justify-center text-white text-2xl font-bold"
+                    className="w-16 h-16 bg-red-600 rounded-full mb-3 flex items-center justify-center text-white text-xl md:text-2xl font-bold"
                   >
                     2
                   </div>
                   <h3
                     data-aos="fade-up"
                     data-aos-duration="900"
-                    className="font-semibold text-sm"
+                    className="font-semibold text-xs md:text-sm"
                   >
                     Confirm the Ride
                   </h3>
@@ -304,14 +304,14 @@ const HeroForm = () => {
                   <div
                     data-aos="fade-up"
                     data-aos-duration="800"
-                    className="w-16 h-16 bg-red-600 rounded-full mb-3 flex items-center justify-center text-white text-2xl font-bold"
+                    className="w-16 h-16 bg-red-600 rounded-full mb-3 flex items-center justify-center text-white text-xl md:text-2xl font-bold"
                   >
                     3
                   </div>
                   <h3
                     data-aos="fade-up"
                     data-aos-duration="900"
-                    className="font-semibold text-sm"
+                    className="font-semibold text-xs md:text-sm"
                   >
                     Experience the Adventure
                   </h3>

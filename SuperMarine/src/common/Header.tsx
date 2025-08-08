@@ -244,7 +244,7 @@ const Header: React.FC = () => {
             </button>
 
             <ul
-              className={`absolute left-1/2 -translate-x-1/2 mt-2 w-56 text-center transition-all duration-300 origin-top overflow-hidden bg-black/50 rounded-lg shadow-lg backdrop-blur-md ${
+              className={`absolute z-10 left-1/2 -translate-x-1/2 mt-2 w-56 text-center transition-all duration-300 origin-top overflow-hidden bg-white text-black rounded-lg shadow-lg backdrop-blur-2xl ${
                 mobileDropdownOpen
                   ? "max-h-[500px] opacity-100"
                   : "max-h-0 opacity-0"
@@ -254,7 +254,7 @@ const Header: React.FC = () => {
                 <Link
                   to="/rental_service"
                   onClick={toggleMenu}
-                  className="block px-6 py-3 text-white hover:bg-white/20 transition font-medium"
+                  className="block px-6 py-3 text-sm hover:bg-white/20 transition font-medium"
                 >
                   Rental Services
                 </Link>
@@ -263,7 +263,7 @@ const Header: React.FC = () => {
                 <Link
                   to="/service_and_repair"
                   onClick={toggleMenu}
-                  className="block px-6 py-3 text-white hover:bg-white/20 transition font-medium"
+                  className="block px-6 py-3 text-sm hover:bg-white/20 transition font-medium"
                 >
                   Service & Repair
                 </Link>

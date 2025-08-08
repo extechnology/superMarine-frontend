@@ -91,7 +91,7 @@ const BookingPage = () => {
   };
 
   return (
-    <div className="min-h-screen relative pt-30 bg-[url('/sea.jpg')] bg-cover text-gray-100 py-12 px-4 sm:px-6 lg:px-8">
+    <div className="min-h-screen relative pt-30 bg-[url('/Book_now.jpg')] bg-cover text-gray-100 py-12 px-4 sm:px-6 lg:px-8">
       <div className="absolute inset-0 z-0 bg-gradient-to-b from-black/30 via-black/60 to-black"></div>
       <div className="max-w-7xl mx-auto relative z-20">
         <h1 className="text-3xl proza-libre-bold font-bold mb-8 text-center text-white">
