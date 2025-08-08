@@ -148,6 +148,10 @@ const BookingPage = () => {
                     ))}
                   </div>
                 </div>
+                <div className="p-4 bg-gray-700 rounded-lg flex content-center justify-between">
+                  <label htmlFor="numPeople" className="content-center">Number of people</label>
+                  <input className="border border-gray-500 rounded-lg p-2" title="Number of people" type="number" />
+                </div>
               </div>
             </div>
           </div>
