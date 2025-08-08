@@ -2,6 +2,9 @@ import { useState } from "react";
 import type { BookingFormData } from "@/types";
 import axiosInstance from "../../api/axiosInstance";
 import { toast } from "sonner";
+import { FaRegCalendarAlt } from "react-icons/fa";
+import { BsClockFill } from "react-icons/bs";
+
 
 const HeroForm = () => {
   const [formData, setFormData] = useState<BookingFormData>({
@@ -105,30 +108,22 @@ const HeroForm = () => {
               Adventure Vehicle Booking
             </h1>
 
-            <label
-              className="flex flex-col gap-1"
-              data-aos="fade-up"
-              data-aos-duration="700"
-            >
-              <span className="text-sm font-medium ">Name</span>
-              <input
-                type="text"
-                name="name"
-                value={formData.name}
-                onChange={handleChange}
-                placeholder="Enter your name"
-                className="p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-amber-500"
-              />
-            </label>
+            <input
+              type="text"
+              name="name"
+              value={formData.name}
+              onChange={handleChange}
+              placeholder="Enter your name"
+              className="p-3 border border-gray-300 rounded-md bg-black text-white placeholder:text-gray-300 focus:outline-none focus:ring-2 focus:ring-amber-500"
+            />
+
             <div className="md:flex justify-between">
               <label
                 className="flex flex-col gap-1"
                 data-aos="fade-up"
                 data-aos-duration="800"
               >
-                <span className="text-sm font-medium ">
-                  Phone No.
-                </span>
+                <span className="text-sm font-medium ">Phone No.</span>
                 <input
                   type="tel"
                   name="phone"
@@ -144,9 +139,7 @@ const HeroForm = () => {
                 data-aos="fade-up"
                 data-aos-duration="900"
               >
-                <span className="text-sm font-medium ">
-                  Email ID
-                </span>
+                <span className="text-sm font-medium ">Email ID</span>
                 <input
                   type="email"
                   name="email"
@@ -163,17 +156,24 @@ const HeroForm = () => {
               data-aos="fade-up"
               data-aos-duration="1000"
             >
-              <span className="text-sm font-medium ">
-                Adventure Vehicle
-              </span>
-              <input
-                type="text"
+              <span className="text-sm font-medium">Adventure Vehicle</span>
+              <select
                 name="title"
                 value={formData.title}
-                onChange={handleChange}
-                placeholder="Search or select vehicle"
-                className="p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-amber-500"
-              />
+                onChange={(e) =>
+                  setFormData((prev) => ({ ...prev, title: e.target.value }))
+                }
+                className="p-3 border border-gray-300 bg-black rounded-md focus:outline-none focus:ring-2 focus:ring-amber-500"
+              >
+                <option value="">--Select vehicle--</option>
+                <option value="jet_ski">Jet Ski</option>
+                <option value="standing_jet_ski">Standing Jet Ski</option>
+                <option value="speed_boat">Speed Boat</option>
+                <option value="quad_bikes">Quad Bikes</option>
+                <option value="buggy">Buggy</option>
+                <option value="marine_cars">Marine Cars</option>
+                <option value="yacht">Yacht</option>
+              </select>
             </label>
 
             <div className="grid md:grid-cols-3 gap-4">
@@ -182,9 +182,7 @@ const HeroForm = () => {
                 data-aos="fade-up"
                 data-aos-duration="1100"
               >
-                <span className="text-sm font-medium ">
-                  Ride Date
-                </span>
+                <span className="text-sm font-medium ">Ride Date</span>
                 <input
                   type="date"
                   name="date"
@@ -192,6 +190,7 @@ const HeroForm = () => {
                   onChange={handleChange}
                   className="p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-amber-500"
                 />
+                <FaRegCalendarAlt className=" content-center absolute right-3 top-1/2 mt-1 transform  text-white w-4 h-4 pointer-events-none" />
               </label>
 
               <label
@@ -199,33 +198,31 @@ const HeroForm = () => {
                 data-aos="fade-up"
                 data-aos-duration="1200"
               >
-                <span className="text-sm font-medium ">
-                  Report Time
-                </span>
+                <span className="text-sm font-medium ">Report Time</span>
                 <input
                   type="time"
                   name="time"
                   value={formData.time}
                   onChange={handleChange}
-                  className="p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-amber-500"
+                  className="p-3 border content-center border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-amber-500"
                 />
+                <BsClockFill className=" content-center absolute right-3 top-1/2 mt-1 transform  text-white w-4 h-4 pointer-events-none" />
               </label>
 
               <label
-                className="flex flex-col gap-1"
+                className="flex flex-col  gap-1 relative"
                 data-aos="fade-up"
                 data-aos-duration="1300"
               >
-                <span className="text-sm font-medium ">
-                  Duration
-                </span>
+                <span className="text-sm font-medium">Duration</span>
                 <input
                   type="text"
                   name="duration"
                   value={formData.duration}
                   onChange={handleChange}
-                  className="p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-amber-500"
+                  className="p-3 pr-10 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-amber-500"
                 />
+                <BsClockFill className=" content-center absolute right-3 top-1/2 mt-1 transform  text-white w-4 h-4 pointer-events-none" />
               </label>
             </div>
             <div className="md:flex items-end justify-between gap-4">
@@ -234,9 +231,7 @@ const HeroForm = () => {
                 data-aos="fade-up"
                 data-aos-duration="1400"
               >
-                <span className="text-sm font-medium ">
-                  No. of Persons
-                </span>
+                <span className="text-sm font-medium ">No. of Persons</span>
                 <input
                   type="number"
                   name="number_of_persons"
@@ -256,7 +251,6 @@ const HeroForm = () => {
               >
                 Enquire Now!
               </button>
-              
             </div>
           </form>
 
