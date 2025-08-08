@@ -99,7 +99,7 @@ const HeroForm = () => {
           {/* Left Form - Vertical */}
           <form
             onSubmit={handleSubmit}
-            className="flex flex-col gap-4 p-10 rounded-xl bg-black/10 text-white backdrop-blur-xl md:w-1/2 shadow-lg"
+            className="flex flex-col gap-4 md:p-10 p-5 rounded-xl bg-black/10 text-white backdrop-blur-xl md:w-1/2 shadow-lg"
           >
             <h1 className="text-xl md:text-2xl font-semibold  mb-4">
               Adventure Vehicle Booking
