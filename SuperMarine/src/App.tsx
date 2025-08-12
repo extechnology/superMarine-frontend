@@ -12,6 +12,9 @@ import Lenis from "@studio-freight/lenis";
 import { GoogleOAuthProvider } from "@react-oauth/google";
 // import { ToastContainer } from "react-toastify";
 // import "react-toastify/dist/ReactToastify.css";
+import PrivacyPolicy from "./pages/PrivacyPolicy";
+import Terms from "./pages/Terms";
+import RefundPolicy from "./pages/RefundPolicy";
 import { Toaster } from "sonner";
 import AuthModal from "./components/accounts/AuthModal";
 const Home = lazy(() => import("./pages/Home"));
@@ -59,6 +62,9 @@ function App() {
             <Route path="/gallery" element={<Gallery />} />
             <Route path="/book_now/:id" element={<BookNow />} />
             <Route path="/verify-otp" element={<VerifyOtp />} />
+            <Route path="/privacy" element={<PrivacyPolicy />} />
+            <Route path="/terms" element={<Terms />} />
+            <Route path="/refund" element={<RefundPolicy />} />
           </Routes>
         </Suspense>
         <AuthModal />
