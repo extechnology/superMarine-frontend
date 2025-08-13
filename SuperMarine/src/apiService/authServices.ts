@@ -51,6 +51,16 @@ export const resendOtp = async (email: string) => {
   return res.data;
 };
 
+
+export const requestPasswordReset = async (email: string) => {
+  const res = await axiosInstance.post("/password-reset-request/", { email });
+  return res.data;
+};
+
+
+
+
+
 export const loginWithGoogle = async (token: string): Promise<AuthResponse> => {
   const response = await axiosInstance.post<AuthResponse>("google-auth/", {
     token,

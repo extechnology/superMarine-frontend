@@ -30,9 +30,6 @@ const Header: React.FC = () => {
   const handleLogout = () => {
     localStorage.removeItem("accessToken");
     localStorage.removeItem("refreshToken");
-    localStorage.removeItem("id");
-    localStorage.removeItem("username");
-    localStorage.removeItem("email");
     navigate("/");
   };
 
@@ -63,7 +60,7 @@ const Header: React.FC = () => {
 
   return (
     <header
-      className={`fixed montsserat top-0 left-0 w-full z-50 transition-all duration-300 ${
+      className={`fixed montsserat top-0 left-0 w-full z-60 transition-all duration-300 ${
         scrolled ? "bg-white shadow-md" : "bg-transparent"
       }`}
     >
@@ -163,41 +160,34 @@ const Header: React.FC = () => {
                 </button>
               </Link>
             </li>
-            <li
-              className="relative content-center"
-              onMouseEnter={() => setIsHovered(true)}
-              onMouseLeave={() => setIsHovered(false)}
-            >
-              <FaCircleUser className="text-3xl cursor-pointer " />
-              {isHovered && (
-                <div className="absolute top-10 right-0 bg-white shadow-lg rounded-md w-40 z-50 py-2 animate-fade-in">
-                  {!isLoggedIn ? (
-                    <>
-                      <button
-                        type="button"
-                        onClick={openLogin}
-                        className="block w-full text-start px-4 py-2 text-sm text-gray-800 hover:bg-gray-100"
-                      >
-                        Login
-                      </button>
-
-                      <button
-                        onClick={openLogin}
-                        className="block w-full text-start px-4 py-2 text-sm text-gray-800 hover:bg-gray-100"
-                      >
-                        Sign Up
-                      </button>
-                    </>
-                  ) : (
+            <li className="relative content-center group">
+              <FaCircleUser className="text-3xl cursor-pointer" />
+              <div className="absolute top-10 right-0 bg-white shadow-lg rounded-md w-40 z-50 py-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
+                {!isLoggedIn ? (
+                  <>
                     <button
-                      onClick={handleLogout}
-                      className="w-full text-left px-4 py-2 text-sm text-red-600 hover:bg-gray-100"
+                      type="button"
+                      onClick={openLogin}
+                      className="block w-full text-start px-4 py-2 text-sm text-gray-800 hover:bg-gray-100"
                     >
-                      Logout
+                      Login
                     </button>
-                  )}
-                </div>
-              )}
+                    <button
+                      onClick={openLogin}
+                      className="block w-full text-start px-4 py-2 text-sm text-gray-800 hover:bg-gray-100"
+                    >
+                      Sign Up
+                    </button>
+                  </>
+                ) : (
+                  <button
+                    onClick={handleLogout}
+                    className="w-full text-left px-4 py-2 text-sm text-red-600 hover:bg-gray-100"
+                  >
+                    Logout
+                  </button>
+                )}
+              </div>
             </li>
           </ul>
         </nav>

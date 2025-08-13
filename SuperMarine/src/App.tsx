@@ -10,6 +10,9 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 import Lenis from "@studio-freight/lenis";
 import { GoogleOAuthProvider } from "@react-oauth/google";
+import PasswordResetRequestPage from "./pages/ResetPassword";
+import PaymentCancel from "./pages/PaymentCanel";
+import PaymentSuccess from "./pages/PaymentSuccess";
 // import { ToastContainer } from "react-toastify";
 // import "react-toastify/dist/ReactToastify.css";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
@@ -17,6 +20,7 @@ import Terms from "./pages/Terms";
 import RefundPolicy from "./pages/RefundPolicy";
 import { Toaster } from "sonner";
 import AuthModal from "./components/accounts/AuthModal";
+import { PaymentElement } from "@stripe/react-stripe-js";
 const Home = lazy(() => import("./pages/Home"));
 const About = lazy(() => import("./pages/About"));
 const Contact = lazy(() => import("./pages/ContactUs"));
@@ -65,6 +69,9 @@ function App() {
             <Route path="/privacy" element={<PrivacyPolicy />} />
             <Route path="/terms" element={<Terms />} />
             <Route path="/refund" element={<RefundPolicy />} />
+            <Route path="/reset" element={<PasswordResetRequestPage />} />
+            <Route path="/payment/cancel" element={<PaymentCancel />} />
+            <Route path="/payment/success" element={<PaymentSuccess />} />
           </Routes>
         </Suspense>
         <AuthModal />
