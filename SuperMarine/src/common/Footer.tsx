@@ -6,6 +6,7 @@ import {
   BsTwitterX,
   BsPinterest,
 } from "react-icons/bs";
+import { BsFillThreadsFill } from "react-icons/bs";
 import { Link } from "react-router-dom";
 
 const Footer = () => {
@@ -53,22 +54,74 @@ const Footer = () => {
         <div>
           <ul className="flex gap-10 text-yellow-600 ">
             <li>
-              <BsFacebook size={20} />
+              <a
+                title="facebook"
+                target="_blank"
+                rel="noopener noreferrer"
+                href="https://www.facebook.com/supermarine.in/"
+              >
+                <BsFacebook size={20} />
+              </a>
             </li>
             <li>
-              <BsInstagram size={20} />
+              <a
+                title="instagram"
+                target="_blank"
+                rel="noopener noreferrer"
+                href="https://www.instagram.com/supermarine.co/"
+              >
+                <BsInstagram size={20} />
+              </a>
             </li>
             <li>
-              <BsYoutube size={20} />
+              <a
+                title="youtube"
+                target="_blank"
+                rel="noopener noreferrer"
+                href="https://www.youtube.com/@supermarinejetski"
+              >
+                <BsYoutube size={20} />
+              </a>
             </li>
             <li>
-              <BsTwitterX size={20} />
+              <a
+                title="twitter"
+                target="_blank"
+                rel="noopener noreferrer"
+                href="https://x.com/supermarine0553"
+              >
+                <BsTwitterX size={20} />
+              </a>
             </li>
             <li>
-              <BsLinkedin size={20} />
+              <a
+                title="linkedin"
+                target="_blank"
+                rel="noopener noreferrer"
+                href="https://www.linkedin.com/company/supermarin"
+              >
+                <BsLinkedin size={20} />
+              </a>
             </li>
             <li>
-              <BsPinterest size={20} />
+              <a
+                title="pinterest"
+                target="_blank"
+                rel="noopener noreferrer"
+                href="https://in.pinterest.com/supermarinejetski/"
+              >
+                <BsPinterest size={20} />
+              </a>
+            </li>
+            <li>
+              <a
+                title="threads"
+                target="_blank"
+                rel="noopener noreferrer"
+                href="https://www.threads.com/@supermarine.co"
+              >
+                <BsFillThreadsFill size={20} />
+              </a>
             </li>
           </ul>
         </div>
