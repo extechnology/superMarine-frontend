@@ -1,34 +1,23 @@
-// PaymentSuccess.tsx
-import { useEffect, useState } from "react";
-import axiosInstance from "../api/axiosInstance";
+import { CheckCircle } from "lucide-react";
 
 export default function PaymentSuccess() {
-  const [info, setInfo] = useState<any>(null);
-
-  useEffect(() => {
-    const params = new URLSearchParams(window.location.search);
-    const sessionId = params.get("session_id");
-    if (!sessionId) return;
-
-    axiosInstance.get(`/api/payments/session/${sessionId}/`).then((res) => {
-      setInfo(res.data);
-    });
-  }, []);
-
   return (
-    <div className="p-6">
-      <h1 className="text-2xl font-bold">Payment Successful 🎉</h1>
-      {info && (
-        <div className="mt-4">
-          <p>Status: {info.payment_status}</p>
-          <p>
-            Amount: {info.amount_total} {info.currency?.toUpperCase()}
-          </p>
-        </div>
-      )}
-      <p className="mt-2">
-        Your booking has been confirmed. Check your email for details.
-      </p>
+    <div className="flex items-center justify-center min-h-screen bg-gradient-to-br from-green-50 to-green-100 px-4">
+      <div className="bg-white shadow-lg rounded-2xl p-8 max-w-md w-full text-center">
+        <CheckCircle className="mx-auto text-green-500 w-20 h-20" />
+        <h1 className="text-2xl md:text-3xl font-bold mt-4 text-gray-800">
+          Payment Successful 🎉
+        </h1>
+        <p className="text-gray-600 mt-2">
+          Thank you! Your payment has been processed successfully.
+        </p>
+        <button
+          onClick={() => (window.location.href = "/")}
+          className="mt-6 px-6 py-3 rounded-xl bg-green-500 hover:bg-green-600 text-white font-semibold shadow-md transition-all w-full"
+        >
+          Go to Homepage
+        </button>
+      </div>
     </div>
   );
 }

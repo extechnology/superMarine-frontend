@@ -13,6 +13,7 @@ import { GoogleOAuthProvider } from "@react-oauth/google";
 import PasswordResetRequestPage from "./pages/ResetPassword";
 import PaymentCancel from "./pages/PaymentCanel";
 import PaymentSuccess from "./pages/PaymentSuccess";
+import MyBookings from "./pages/MyBookings";
 // import { ToastContainer } from "react-toastify";
 // import "react-toastify/dist/ReactToastify.css";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
@@ -20,7 +21,7 @@ import Terms from "./pages/Terms";
 import RefundPolicy from "./pages/RefundPolicy";
 import { Toaster } from "sonner";
 import AuthModal from "./components/accounts/AuthModal";
-import { PaymentElement } from "@stripe/react-stripe-js";
+// import { PaymentElement } from "@stripe/react-stripe-js";
 const Home = lazy(() => import("./pages/Home"));
 const About = lazy(() => import("./pages/About"));
 const Contact = lazy(() => import("./pages/ContactUs"));
@@ -72,6 +73,7 @@ function App() {
             <Route path="/reset" element={<PasswordResetRequestPage />} />
             <Route path="/payment/cancel" element={<PaymentCancel />} />
             <Route path="/payment/success" element={<PaymentSuccess />} />
+            <Route path="/my_bookings" element={<MyBookings />} />
           </Routes>
         </Suspense>
         <AuthModal />
