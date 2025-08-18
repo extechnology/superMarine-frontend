@@ -88,7 +88,8 @@ export interface heroCarousel {
   image: string;
 }
 
-export interface service {
+export interface Service {
+  id: number;
   title: string;
   image: string;
   description: string;

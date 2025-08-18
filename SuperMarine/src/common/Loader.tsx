@@ -1,6 +1,6 @@
 const Loader = () => {
   return (
-    <div className="flex flex-col md:flex-row items-center justify-center h-screen bg-gradient-to-b from-blue-900 to-blue-600 text-white px-4 text-center space-y-6 md:space-y-0 md:space-x-8">
+    <div className="flex flex-col md:flex-row items-center justify-center h-screen bg-gradient-to-b from-black to-black/80 text-white px-4 text-center space-y-6 md:space-y-0 md:space-x-8">
       {/* Submarine */}
       <div className="relative w-28 h-28 sm:w-32 sm:h-32 md:w-36 md:h-36 animate-spin-slow">
         <div className="absolute inset-0 bg-yellow-400 rounded-full shadow-2xl flex items-center justify-center border-4 border-yellow-500/80">
