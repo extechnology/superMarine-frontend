@@ -52,7 +52,7 @@ function App() {
 
   return (
     <Router>
-      <GoogleOAuthProvider clientId="YOUR_CLIENT_ID">
+      <GoogleOAuthProvider clientId={import.meta.env.VITE_GOOGLE_CLIENT_ID} >
         <Toaster theme="dark" position="top-center" richColors />
 
         <ScrollToTop />
