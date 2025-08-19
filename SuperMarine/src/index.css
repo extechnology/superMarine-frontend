@@ -4,6 +4,9 @@
 @import "swiper/css";
 @import "swiper/css/pagination";
 @import "swiper/css/effect-fade";
+@import "react-phone-number-input/style.css";
+@import "react-datepicker/dist/react-datepicker.css";
+
 
 
 
@@ -66,4 +69,69 @@ body{
   font-family: "Bebas Neue", sans-serif;
   font-weight: 300;
   font-style: normal;
+}
+
+
+/* 🔹 PhoneInput Container */
+.phone-input-custom {
+  @apply flex items-center w-full rounded-md border border-gray-300 bg-black text-white focus-within:ring-2 focus-within:ring-amber-500;
+  padding: 0.75rem; /* Tailwind p-3 equivalent */
+}
+
+/* 🔹 Country Select Dropdown */
+.phone-input-custom .PhoneInputCountry {
+  @apply mr-2;
+}
+
+/* Flag button (the country selector) */
+.phone-input-custom .PhoneInputCountrySelect {
+  @apply bg-black text-white border-none outline-none;
+}
+
+/* 🔹 Input field */
+.phone-input-custom input {
+  @apply flex-1 bg-black text-white outline-none;
+}
+
+/* 🔹 Dropdown (when selecting a country) */
+.phone-input-custom select {
+  @apply bg-black text-white border-gray-600 rounded-md;
+}
+
+
+/* 🔹 Dark calendar container */
+.dark-calendar {
+  @apply bg-black border border-gray-700 rounded-lg shadow-lg p-2;
+}
+
+/* 🔹 Month/Year header */
+.dark-calendar .react-datepicker__header {
+  @apply bg-black border-b border-gray-700 text-white;
+}
+
+/* 🔹 Current month text */
+.dark-calendar .react-datepicker__current-month,
+.dark-calendar .react-datepicker-time__header,
+.dark-calendar .react-datepicker-year-header {
+  @apply text-white;
+}
+
+/* 🔹 Day names */
+.dark-calendar .react-datepicker__day-name {
+  @apply text-gray-400;
+}
+
+/* 🔹 Normal days */
+.dark-calendar .react-datepicker__day {
+  @apply text-white hover:bg-amber-500 hover:text-black rounded-md;
+}
+
+/* 🔹 Today */
+.dark-calendar .react-datepicker__day--today {
+  @apply border border-amber-500 text-amber-400 font-bold;
+}
+
+/* 🔹 Selected day */
+.dark-calendar .react-datepicker__day--selected {
+  @apply bg-amber-500 text-black font-semibold;
 }

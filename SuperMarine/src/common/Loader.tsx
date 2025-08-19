@@ -5,7 +5,7 @@ const Loader = () => {
       <div className="relative w-28 h-28 sm:w-32 sm:h-32 md:w-36 md:h-36 animate-spin-slow">
         <div className="absolute inset-0 bg-yellow-400 rounded-full shadow-2xl flex items-center justify-center border-4 border-yellow-500/80">
           <span className="text-[0.7rem] sm:text-sm md:text-base font-bold text-gray-900">
-            Submarine
+            SuperMarine
           </span>
         </div>
 

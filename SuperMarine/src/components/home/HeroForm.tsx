@@ -2,11 +2,17 @@ import { useState } from "react";
 import type { BookingFormData } from "@/types";
 import axiosInstance from "../../api/axiosInstance";
 import { toast } from "sonner";
-import { FaRegCalendarAlt } from "react-icons/fa";
 import { BsClockFill } from "react-icons/bs";
+import PhoneInput, { isValidPhoneNumber } from "react-phone-number-input";
+import { useNavigate } from "react-router";
+import DatePicker from "react-datepicker";
+
+
 
 
 const HeroForm = () => {
+
+  const navigate = useNavigate();
   const [formData, setFormData] = useState<BookingFormData>({
     name: "",
     phone: "",
@@ -26,11 +32,9 @@ const HeroForm = () => {
     }));
   };
 
-
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    // 🔍 Basic Validation
     const {
       name,
       phone,
@@ -42,6 +46,7 @@ const HeroForm = () => {
       number_of_persons,
     } = formData;
 
+    // 🔍 Basic required field check
     if (
       !name.trim() ||
       !phone.trim() ||
@@ -53,31 +58,30 @@ const HeroForm = () => {
       number_of_persons <= 0
     ) {
       alert("Please fill in all required fields correctly.");
-
       return;
     }
 
-    // Optional: Regex for basic email/phone validation
+    // ✅ Email validation
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    const phoneRegex = /^\d{10}$/;
-
     if (!emailRegex.test(email)) {
       alert("Please enter a valid email address.");
       return;
     }
 
-    if (!phoneRegex.test(phone)) {
-      alert("Please enter a valid 10-digit phone number.");
+    // ✅ Phone validation using react-phone-number-input
+    if (!isValidPhoneNumber(phone)) {
+      alert("Please enter a valid phone number with country code.");
       return;
     }
 
-    // 🚀 Submit to backend if validation passes
+    // 🚀 Submit to backend
     try {
       const response = await axiosInstance.post("enquiry-booking/", formData);
       console.log("Booking successful:", response.data);
       toast.success("Booking submitted successfully!");
+      navigate("/rental_service");
 
-      // Optionally reset form
+      // Reset form
       setFormData({
         name: "",
         phone: "",
@@ -93,7 +97,6 @@ const HeroForm = () => {
       toast.error("Something went wrong. Please try again.");
     }
   };
-
 
   return (
     <div className="bg-black">
@@ -123,14 +126,15 @@ const HeroForm = () => {
                 data-aos="fade-up"
                 data-aos-duration="800"
               >
-                <span className="text-sm font-medium ">Phone No.</span>
-                <input
-                  type="tel"
-                  name="phone"
+                <span className="text-sm font-medium">Phone No.</span>
+                <PhoneInput
+                  international
+                  defaultCountry="IN"
                   value={formData.phone}
-                  onChange={handleChange}
-                  placeholder="Enter your phone number"
-                  className="p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-amber-500"
+                  onChange={(value) =>
+                    setFormData((prev) => ({ ...prev, phone: value || "" }))
+                  }
+                  className="phone-input-custom"
                 />
               </label>
 
@@ -178,35 +182,70 @@ const HeroForm = () => {
 
             <div className="grid md:grid-cols-3 gap-4">
               <label
-                className="flex flex-col gap-1"
+                className="flex flex-col gap-1 relative"
                 data-aos="fade-up"
                 data-aos-duration="1100"
               >
-                <span className="text-sm font-medium ">Ride Date</span>
-                <input
-                  type="date"
-                  name="date"
-                  value={formData.date}
-                  onChange={handleChange}
-                  className="p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-amber-500"
+                <span className="text-sm font-medium">Ride Date</span>
+                <DatePicker
+                  selected={formData.date ? new Date(formData.date) : null}
+                  onChange={(date: Date | null) =>
+                    setFormData((prev) => ({
+                      ...prev,
+                      date: date ? date.toISOString().split("T")[0] : "",
+                    }))
+                  }
+                  dateFormat="yyyy-MM-dd"
+                  placeholderText="Select a date"
+                  minDate={new Date()} // ✅ disallow past dates
+                  className="p-3 w-full rounded-md border border-gray-600 bg-black text-white focus:outline-none focus:ring-2 focus:ring-amber-500"
+                  calendarClassName="dark-calendar" // ✅ custom dark styles
                 />
-                <FaRegCalendarAlt className=" content-center absolute right-3 top-1/2 mt-1 transform  text-white w-4 h-4 pointer-events-none" />
               </label>
 
               <label
-                className="flex flex-col gap-1"
+                className="flex flex-col gap-1 relative"
                 data-aos="fade-up"
                 data-aos-duration="1200"
               >
-                <span className="text-sm font-medium ">Report Time</span>
-                <input
-                  type="time"
-                  name="time"
-                  value={formData.time}
-                  onChange={handleChange}
-                  className="p-3 border content-center border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-amber-500"
+                <span className="text-sm font-medium">Report Time</span>
+                <DatePicker
+                
+                  selected={
+                    formData.time
+                      ? new Date(
+                          `${
+                            formData.date ||
+                            new Date().toISOString().split("T")[0]
+                          }T${formData.time}`
+                        )
+                      : null
+                  }
+                  onChange={(date: Date | null) =>
+                    setFormData((prev) => ({
+                      ...prev,
+                      time: date
+                        ? date.toTimeString().split(":").slice(0, 2).join(":") // store as HH:mm
+                        : "",
+                    }))
+                  }
+                  showTimeSelect
+                  showTimeSelectOnly
+                  timeIntervals={30} // ⏰ every 30 minutes
+                  timeCaption="Time"
+                  dateFormat="HH:mm"
+                  minTime={
+                    formData.date === new Date().toISOString().split("T")[0]
+                      ? new Date() // today → block past times
+                      : new Date(0, 0, 0, 0, 0) // otherwise allow full day
+                  }
+                  maxTime={new Date(0, 0, 0, 23, 59)} // till midnight
+                  placeholderText="Select time"
+                  className="p-3 w-full rounded-md border border-gray-600 bg-black text-white focus:outline-none focus:ring-2 focus:ring-amber-500"
+                  calendarClassName="dark-calendar"
+                  
                 />
-                <BsClockFill className=" content-center absolute right-3 top-1/2 mt-1 transform  text-white w-4 h-4 pointer-events-none" />
+                <BsClockFill className="absolute right-3 top-10 transform text-gray-300 w-4 h-4 pointer-events-none" />
               </label>
 
               <label
