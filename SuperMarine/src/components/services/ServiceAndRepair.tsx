@@ -1,6 +1,7 @@
-import { Link } from "react-router";
 import useService from "../../hooks/useService";
 import Loader from "../../common/Loader";
+import EnquiryModal from "./EnquiryModal";
+import { useState } from "react";
 
 const SampleServiceData = [
   {
@@ -65,6 +66,16 @@ const SampleServiceData = [
 ];
 
 const ServiceAndRepair = () => {
+
+
+  const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
+  const [selectedService, setSelectedService] = useState<string>("");
+
+
+  const handleEnquire = (title: string) => {
+    setSelectedService(title);
+    setIsModalOpen(true);
+  };
 
   const { service, loading, error } = useService();
   console.log("service", service);
@@ -163,8 +174,8 @@ const ServiceAndRepair = () => {
                   </ul>
 
                   <div data-aos="fade-up" data-aos-duration="1700">
-                    <Link
-                      to="/services"
+                    <button
+                      onClick={() => handleEnquire(data.title)}
                       className="inline-flex items-center text-md mt-4 px-6 py-3 bg-transparent border-2 border-amber-400 text-amber-400 font-semibold rounded-full hover:bg-amber-400 hover:text-gray-900 transition-all duration-300 group"
                     >
                       Enquire Now
@@ -177,11 +188,11 @@ const ServiceAndRepair = () => {
                         <path
                           strokeLinecap="round"
                           strokeLinejoin="round"
-                          strokeWidth="2"
+                          strokeWidth={2}
                           d="M14 5l7 7m0 0l-7 7m7-7H3"
                         ></path>
                       </svg>
-                    </Link>
+                    </button>
                   </div>
                 </div>
               </div>
@@ -295,6 +306,11 @@ const ServiceAndRepair = () => {
           ))}
         </div>
       </div>
+      <EnquiryModal
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+        serviceTitle={selectedService}
+      />
     </div>
   );
 };

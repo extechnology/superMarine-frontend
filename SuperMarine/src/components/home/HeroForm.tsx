@@ -129,7 +129,7 @@ const HeroForm = () => {
                 <span className="text-sm font-medium">Phone No.</span>
                 <PhoneInput
                   international
-                  defaultCountry="IN"
+                  defaultCountry="AE"
                   value={formData.phone}
                   onChange={(value) =>
                     setFormData((prev) => ({ ...prev, phone: value || "" }))
@@ -197,9 +197,9 @@ const HeroForm = () => {
                   }
                   dateFormat="yyyy-MM-dd"
                   placeholderText="Select a date"
-                  minDate={new Date()} // ✅ disallow past dates
+                  minDate={new Date()} 
                   className="p-3 w-full rounded-md border border-gray-600 bg-black text-white focus:outline-none focus:ring-2 focus:ring-amber-500"
-                  calendarClassName="dark-calendar" // ✅ custom dark styles
+                  calendarClassName="dark-calendar" 
                 />
               </label>
 
@@ -225,21 +225,21 @@ const HeroForm = () => {
                     setFormData((prev) => ({
                       ...prev,
                       time: date
-                        ? date.toTimeString().split(":").slice(0, 2).join(":") // store as HH:mm
+                        ? date.toTimeString().split(":").slice(0, 2).join(":") 
                         : "",
                     }))
                   }
                   showTimeSelect
                   showTimeSelectOnly
-                  timeIntervals={30} // ⏰ every 30 minutes
+                  timeIntervals={30}
                   timeCaption="Time"
                   dateFormat="HH:mm"
                   minTime={
                     formData.date === new Date().toISOString().split("T")[0]
-                      ? new Date() // today → block past times
-                      : new Date(0, 0, 0, 0, 0) // otherwise allow full day
+                      ? new Date() 
+                      : new Date(0, 0, 0, 0, 0) 
                   }
-                  maxTime={new Date(0, 0, 0, 23, 59)} // till midnight
+                  maxTime={new Date(0, 0, 0, 23, 59)} 
                   placeholderText="Select time"
                   className="p-3 w-full rounded-md border border-gray-600 bg-black text-white focus:outline-none focus:ring-2 focus:ring-amber-500"
                   calendarClassName="dark-calendar"
