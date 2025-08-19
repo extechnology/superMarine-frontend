@@ -9,7 +9,6 @@ const sampleServiceData: ServiceData[] = [
     title: "Jet Ski ",
     description:
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam, neque",
-
     image: "/jet_ski.jpg",
     price: 100,
     duration: "1",
@@ -20,7 +19,6 @@ const sampleServiceData: ServiceData[] = [
     title: "Standing Jet Ski ",
     description:
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam, neque",
-
     image: "/standing-jet-ski.jpg",
     price: 150,
     duration: "1",
@@ -31,7 +29,6 @@ const sampleServiceData: ServiceData[] = [
     title: "Speed Boat",
     description:
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam, neque",
-
     image: "/speed-boat.jpg",
     price: 200,
     duration: "1",
@@ -42,7 +39,6 @@ const sampleServiceData: ServiceData[] = [
     title: "Quad Bikes",
     description:
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam, neque",
-
     image: "/quad-bikes.jpg",
     price: 180,
     duration: "1",
@@ -53,7 +49,6 @@ const sampleServiceData: ServiceData[] = [
     title: "Buggy",
     description:
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam, neque",
-
     image: "/buggy.jpg",
     price: 120,
     duration: "1",
@@ -64,18 +59,16 @@ const sampleServiceData: ServiceData[] = [
     title: "Marine Cars",
     description:
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam, neque",
-
     image: "/marine-cars.jpg",
     price: 120,
     duration: "1",
     discount: 24,
   },
   {
-    id: 6,
+    id: 7,
     title: "Yachts",
     description:
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam, neque",
-
     image: "/yachts.jpg",
     price: 120,
     duration: "1",
@@ -84,11 +77,22 @@ const sampleServiceData: ServiceData[] = [
 ];
 
 const RentalVehicles = () => {
-
-  const {vehicle, loading, error } = useVehicle();
+  const { vehicle, loading, error } = useVehicle();
   console.log(vehicle, "vehicle");
+
   if (loading) return <Loader />;
-  if (error) return <div className="error-message">⚠️ Error: {error.message}</div>;
+  if (error)
+    return <div className="error-message">⚠️ Error: {error.message}</div>;
+
+  // 👇 Function to open WhatsApp
+  const handleEnquire = (title: string) => {
+    const phoneNumber = "971500000000"; // ✅ replace with your UAE number (without +)
+    const message = `Hello, I want to enquire about *${title}*. Please provide me with more details.`;
+    const whatsappURL = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(
+      message
+    )}`;
+    window.open(whatsappURL, "_blank");
+  };
 
   return (
     <div>
@@ -117,16 +121,8 @@ const RentalVehicles = () => {
                 {/* Dark overlay */}
                 <div className="absolute inset-0 bg-black/30 bg-opacity-30 rounded-xl"></div>
 
-                {/* Discount badge - top left */}
-                {/* {data.discount && (
-                  <div className=" top-3 left-3 z-30 bg-red-500 text-white px-3 py-1 rounded-full md:text-sm text-xs font-bold animate-pulse">
-                    {data.discount}% OFF
-                  </div>
-                )} */}
-
-                {/* Content container - pinned to bottom */}
-                <div className=" inset-0 z-20 flex flex-col justify-end p-3 bg-white  relative text-black">
-                  {/* Content that moves up on hover */}
+                {/* Content container */}
+                <div className="inset-0 z-20 flex flex-col justify-end p-3 bg-white relative text-black">
                   <div className="transform relative bg-white rounded-md p-3 transition-transform duration-300 group-hover:-translate-y-10">
                     <div className="flex justify-between items-center">
                       <h2
@@ -188,6 +184,7 @@ const RentalVehicles = () => {
                       data-aos-duration="1300"
                       className="flex justify-between gap-4"
                     >
+                      {/* Book Now */}
                       <Link
                         to={`/book_now/${data.id}`}
                         state={{
@@ -200,18 +197,21 @@ const RentalVehicles = () => {
                       >
                         <button>Book Now</button>
                       </Link>
-                      <button className="mt-5 bg-black text-[#D4AF37] border border-[#D4AF37] hover:bg-[#1a1a1a] py-2 px-4 rounded-lg font-medium opacity-100 sm:opacity-0 sm:group-hover:opacity-100 transition-all duration-300 transform translate-y-0 sm:translate-y-5 sm:group-hover:translate-y-0 w-full">
+
+                      {/* Enquire Now via WhatsApp */}
+                      <button
+                        onClick={() => handleEnquire(data.title)}
+                        className="mt-5 bg-black text-[#D4AF37] border border-[#D4AF37] hover:bg-[#1a1a1a] py-2 px-4 rounded-lg font-medium opacity-100 sm:opacity-0 sm:group-hover:opacity-100 transition-all duration-300 transform translate-y-0 sm:translate-y-5 sm:group-hover:translate-y-0 w-full"
+                      >
                         Enquire Now
                       </button>
                     </div>
                   </div>
-
-                  {/* Booking button - hidden until hover */}
                 </div>
               </div>
             ))}
 
-            {/* Empty divs for centering when odd number of items */}
+            {/* Fix layout if odd number */}
             {sampleServiceData.length % 3 === 2 && (
               <>
                 <div className="hidden md:block" aria-hidden="true"></div>
@@ -224,4 +224,5 @@ const RentalVehicles = () => {
     </div>
   );
 };
+
 export default RentalVehicles;
