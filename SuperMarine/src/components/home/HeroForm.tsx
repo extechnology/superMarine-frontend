@@ -23,6 +23,7 @@ const HeroForm = () => {
     duration: "",
     number_of_persons: 1,
   });
+  const [isLoading, setIsLoading] = useState(false);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
@@ -95,6 +96,8 @@ const HeroForm = () => {
     } catch (error) {
       console.error("Booking failed:", error);
       toast.error("Something went wrong. Please try again.");
+    } finally {
+      setIsLoading(false);
     }
   };
 
@@ -197,9 +200,9 @@ const HeroForm = () => {
                   }
                   dateFormat="yyyy-MM-dd"
                   placeholderText="Select a date"
-                  minDate={new Date()} 
+                  minDate={new Date()}
                   className="p-3 w-full rounded-md border border-gray-600 bg-black text-white focus:outline-none focus:ring-2 focus:ring-amber-500"
-                  calendarClassName="dark-calendar" 
+                  calendarClassName="dark-calendar"
                 />
               </label>
 
@@ -210,7 +213,6 @@ const HeroForm = () => {
               >
                 <span className="text-sm font-medium">Report Time</span>
                 <DatePicker
-                
                   selected={
                     formData.time
                       ? new Date(
@@ -225,7 +227,7 @@ const HeroForm = () => {
                     setFormData((prev) => ({
                       ...prev,
                       time: date
-                        ? date.toTimeString().split(":").slice(0, 2).join(":") 
+                        ? date.toTimeString().split(":").slice(0, 2).join(":")
                         : "",
                     }))
                   }
@@ -236,14 +238,13 @@ const HeroForm = () => {
                   dateFormat="HH:mm"
                   minTime={
                     formData.date === new Date().toISOString().split("T")[0]
-                      ? new Date() 
-                      : new Date(0, 0, 0, 0, 0) 
+                      ? new Date()
+                      : new Date(0, 0, 0, 0, 0)
                   }
-                  maxTime={new Date(0, 0, 0, 23, 59)} 
+                  maxTime={new Date(0, 0, 0, 23, 59)}
                   placeholderText="Select time"
                   className="p-3 w-full rounded-md border border-gray-600 bg-black text-white focus:outline-none focus:ring-2 focus:ring-amber-500"
                   calendarClassName="dark-calendar"
-                  
                 />
                 <BsClockFill className="absolute right-3 top-10 transform text-gray-300 w-4 h-4 pointer-events-none" />
               </label>
@@ -285,10 +286,11 @@ const HeroForm = () => {
                 type="submit"
                 data-aos="fade-up"
                 data-aos-duration="1400"
-                className="bg-black text-red-500 border border-[#D4AF37] hover:bg-[#1a1a1a]
-    font-bold py-3 px-6 rounded-md transition duration-200 mt-4 md:mt-0"
+                disabled={isLoading} 
+                className={`bg-black text-red-500 border border-[#D4AF37] font-bold py-3 px-6 rounded-md transition duration-200 mt-4 md:mt-0
+    ${isLoading ? "opacity-50 cursor-not-allowed" : "hover:bg-[#1a1a1a]"}`}
               >
-                Enquire Now!
+                {isLoading ? "Submitting..." : "Enquire Now!"}
               </button>
             </div>
           </form>

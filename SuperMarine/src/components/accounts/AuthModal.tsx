@@ -173,13 +173,13 @@ export default function AuthModal() {
               >
                 Sign In
               </button>
-              <Link to="/reset">
+              {/* <Link to="/reset">
                 <p
                   className="text-sm text-white/70 hover:text-blue-600 cursor-pointer"
                 >
                   Forgot password?
                 </p>
-              </Link>
+              </Link> */}
             </form>
           )}
 

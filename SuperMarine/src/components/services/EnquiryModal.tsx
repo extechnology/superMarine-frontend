@@ -1,5 +1,6 @@
 import { useState } from "react";
-import type { FormEvent } from "react";
+import axiosInstance from "../../api/axiosInstance";
+import { toast } from "sonner";
 
 interface EnquiryModalProps {
   isOpen: boolean;
@@ -7,21 +8,60 @@ interface EnquiryModalProps {
   serviceTitle: string;
 }
 
+interface ServiceEnquiry {
+  name: string;
+  message: string;
+}
+
 const EnquiryModal: React.FC<EnquiryModalProps> = ({
   isOpen,
   onClose,
   serviceTitle,
 }) => {
-  const [username, setUsername] = useState<string>("");
-  const [message, setMessage] = useState<string>("");
+  const [formData, setFormData] = useState<ServiceEnquiry>({
+    name: "",
+    message: "",
+  });
+
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+  const [success, setSuccess] = useState<string | null>(null);
 
   if (!isOpen) return null;
 
-  const handleSubmit = (e: FormEvent) => {
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    console.log("Message submitted:", { username, message, serviceTitle });
-    // TODO: integrate with backend or WhatsApp/email
-    onClose();
+    setError(null);
+    setSuccess(null);
+
+    if (!formData.name.trim() || !formData.message.trim()) {
+      setError("All fields are required");
+      return;
+    }
+
+    try {
+      setLoading(true);
+      const response = await axiosInstance.post("service/enquiry/", formData);
+
+      setSuccess("Enquiry submitted successfully!");
+      toast.success("Enquiry submitted successfully!");
+      setFormData({ name: "", message: "" }); // reset form
+      console.log("Server Response:", response.data);
+    } catch (err: any) {
+      if (err.response) {
+        setError(err.response.data?.error || "Failed to submit enquiry.");
+      } else {
+        setError("Network error. Please try again.");
+      }
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -41,7 +81,7 @@ const EnquiryModal: React.FC<EnquiryModalProps> = ({
 
         {/* Call Now */}
         <a
-          href="tel:+971500000000" // replace with UAE number
+          href="tel:+971509590553"
           className="block w-full text-center bg-amber-400 text-black font-semibold py-3 rounded-lg mb-4 hover:bg-amber-500 transition"
         >
           📞 Call Now
@@ -52,26 +92,33 @@ const EnquiryModal: React.FC<EnquiryModalProps> = ({
           <input
             type="text"
             placeholder="Your Name"
-            value={username}
-            onChange={(e) => setUsername(e.target.value)}
+            name="name"
+            value={formData.name}
+            onChange={handleChange}
             className="w-full p-3 rounded-md bg-black border border-gray-700 text-white focus:outline-none focus:ring-2 focus:ring-amber-400"
             required
           />
           <textarea
             placeholder="Leave a message..."
-            value={message}
-            onChange={(e) => setMessage(e.target.value)}
+            name="message"
+            value={formData.message}
+            onChange={handleChange}
             className="w-full p-3 rounded-md bg-black border border-gray-700 text-white focus:outline-none focus:ring-2 focus:ring-amber-400"
             rows={4}
             required
           ></textarea>
           <button
             type="submit"
-            className="w-full bg-amber-400 text-black font-semibold py-3 rounded-lg hover:bg-amber-500 transition"
+            disabled={loading}
+            className="w-full bg-amber-400 text-black font-semibold py-3 rounded-lg hover:bg-amber-500 transition disabled:opacity-50"
           >
-            Send Message
+            {loading ? "Sending..." : "Send Message"}
           </button>
         </form>
+
+        {/* Feedback */}
+        {error && <p className="mt-3 text-red-400">{error}</p>}
+        {success && <p className="mt-3 text-green-400">{success}</p>}
       </div>
     </div>
   );
