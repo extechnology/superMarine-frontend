@@ -86,6 +86,8 @@ export interface heroCarousel {
   title: string;
   subtitle: string;
   image: string;
+  id: number;
+  mobileImage?: string | null;
 }
 
 export interface Service {
@@ -101,14 +103,49 @@ export interface about {
   image: string;
 }
 
-export interface vehicle {
+export interface Vehicle {
+  id: number;
   unique_id: string;
-  category: string;
   name: string;
   description: string;
   image: string;
-  capacity: number;
-  price: number;
-  duration: number;
+  price: string; // comes as string from API
   discount: number;
+  duration: string; // "hh:mm:ss"
+  capacity: number;
+  category: {
+    id: number;
+    name: string;
+  };
+  created_at: string;
+  updated_at: string;
+}
+
+export interface Numbers {
+  experience: number;
+  total_customers: number;
+  total_rides: number;
+  image: string;
+}
+
+
+export interface JetSkiService {
+  id: number;
+  durationOptions: string[];
+  pricePerPerson?: boolean;
+}
+
+export interface AboutContent {
+  title: string;
+  description: string;
+  image: string;
+}
+
+export interface BookAdventure {
+  sub_title: string;
+  image: string;
+}
+
+export interface ThrillMeetAdventure {
+  image: string;
 }

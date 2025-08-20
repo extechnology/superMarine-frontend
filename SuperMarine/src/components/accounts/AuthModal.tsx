@@ -7,11 +7,10 @@ import {
   loginWithGoogle,
   loginUser,
   registerUser,
-  requestPasswordReset,
+  // requestPasswordReset,
 } from "../../apiService/authServices";
 import { useNavigate } from "react-router-dom";
 import { useModalStore } from "../../zustand/modalStore";
-import { Link } from "react-router-dom";
 
 type AuthTab = "login" | "register" | "reset";
 

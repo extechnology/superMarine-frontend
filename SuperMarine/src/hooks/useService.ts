@@ -1,9 +1,9 @@
 import { useState, useEffect } from "react";
 import getService from "../api/getService";
-import type { service } from "@/types";
+import type { Service } from "@/types";
 
 const useService = () => {
-  const [service, setService] = useState<service | null>(null);
+  const [service, setService] = useState<Service | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<Error | null>(null);
 

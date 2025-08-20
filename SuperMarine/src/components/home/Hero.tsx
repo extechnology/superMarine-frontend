@@ -1,43 +1,14 @@
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Pagination, EffectFade } from "swiper/modules";
-import type { Slide } from "../../types";
-import useHeroCarousel from "../../hooks/useHeroCarousel";
 import Loader from "../../common/Loader";
-
-// Extend Slide type to support mobileImage
-interface ResponsiveSlide extends Slide {
-  mobileImage: string;
-}
-
-const slides: ResponsiveSlide[] = [
-  {
-    id: 1,
-    image: "/hero1.jpg",
-    mobileImage: "/hero-mobile1.jpg",
-    title: "Ride the Waves, Rule the Dunes!",
-    subtitle:
-      "Experience the ultimate water adventure with excitement, splashes, and unforgettable memories",
-  },
-  {
-    id: 2,
-    image: "/hero2.jpg",
-    mobileImage: "/hero-mobile2.jpg",
-    title: "Fuel Your Thrill — Jet Ski & Quad Bike Awaits!",
-    subtitle:
-      "Experience the ultimate water adventure with excitement, splashes, and unforgettable memories",
-  },
-  {
-    id: 3,
-    image: "/hero3.jpg",
-    mobileImage: "/hero-mobile3.jpg",
-    title: "Empowering Your Journey",
-    subtitle: "Solutions built for you",
-  },
-];
+import useHeroCarousel from "../../hooks/useHeroCarousel";
+import type { heroCarousel } from "../../types";
 
 const Hero = () => {
   const { hero, loading, error } = useHeroCarousel();
-  console.log(hero, "hero");
+  const BASE_URL = "https://server.supermarinerental.com";
+
+
   if (loading) return <Loader />;
   if (error)
     return <div className="error-message">⚠️ Error: {error.message}</div>;
@@ -52,19 +23,23 @@ const Hero = () => {
         effect="fade"
         className="w-full h-full"
       >
-        {slides.map((slide) => (
+        {hero?.map((slide: heroCarousel) => (
           <SwiperSlide key={slide.id}>
             <div className="relative w-full h-full">
               {/* Desktop Background Image */}
               <div
                 className="absolute inset-0 bg-cover bg-center zoom-image transition-transform duration-[5000ms] hidden md:block"
-                style={{ backgroundImage: `url(${slide.image})` }}
+                style={{ backgroundImage: `url(${BASE_URL}${slide.image})` }}
               ></div>
 
-              {/* Mobile Background Image */}
+              {/* Mobile Background Image (fallback to desktop if null) */}
               <div
                 className="absolute inset-0 bg-cover bg-center zoom-image transition-transform duration-[5000ms] md:hidden"
-                style={{ backgroundImage: `url(${slide.mobileImage})` }}
+                style={{
+                  backgroundImage: `url(${BASE_URL}${
+                    slide.mobileImage ? slide.mobileImage : slide.image
+                  })`,
+                }}
               ></div>
 
               {/* Gradient Overlay */}

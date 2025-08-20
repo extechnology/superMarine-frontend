@@ -3,7 +3,7 @@ import getHeroCarousel from "../api/getHeroCarousel";
 import type { heroCarousel } from "@/types";
 
 const useHeroCarousel = () => {
-  const [hero, setHero] = useState<heroCarousel | null>(null);
+  const [hero, setHero] = useState<heroCarousel[]>([]); 
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<Error | null>(null);
 

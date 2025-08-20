@@ -1,6 +1,7 @@
 import { useState } from "react";
 import axiosInstance from "../../api/axiosInstance";
 import { toast } from "sonner";
+import { useNavigate } from "react-router";
 
 interface EnquiryModalProps {
   isOpen: boolean;
@@ -26,6 +27,7 @@ const EnquiryModal: React.FC<EnquiryModalProps> = ({
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [success, setSuccess] = useState<string | null>(null);
+  const navigate = useNavigate();
 
   if (!isOpen) return null;
 
@@ -51,7 +53,8 @@ const EnquiryModal: React.FC<EnquiryModalProps> = ({
 
       setSuccess("Enquiry submitted successfully!");
       toast.success("Enquiry submitted successfully!");
-      setFormData({ name: "", message: "" }); // reset form
+      navigate("/services")
+      setFormData({ name: "", message: "" });
       console.log("Server Response:", response.data);
     } catch (err: any) {
       if (err.response) {
