@@ -2,7 +2,7 @@ import axiosInstance from "./axiosInstance";
 
 const getNumbers = async () => {
     try {
-        const res = await axiosInstance.get('numbers/');
+        const res = await axiosInstance.get('api/numbers/');
         return res.data;
     }
     catch (err) {

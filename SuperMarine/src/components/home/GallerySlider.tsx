@@ -1,14 +1,16 @@
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination } from "swiper/modules";
+import useAdventureGallery from "../../hooks/useAdventureGallery";
+import Loader from "../../common/Loader";
 
-const images = [
-  "/adv-gallery1.jpg",
-  "/adv-gallery2.jpg",
-  "/adv-gallery3.jpg",
-  "/adv-gallery1.jpg",
-];
 
 const GallerySlider = () => {
+
+  const { gallery, loading, error } = useAdventureGallery();
+  console.log(gallery,'gallleryh');
+  if (loading) return <Loader />;
+  if (error)
+    return <div className="error-message">⚠️ Error: {error.message}</div>;
   return (
     <div className="bg-black text-white">
       <div className="w-full py-10 max-w-7xl mx-auto reveal">
@@ -32,10 +34,10 @@ const GallerySlider = () => {
           data-aos="fade-up"
           data-aos-duration="1100"
         >
-          {images.map((img, idx) => (
+          {gallery.map((img, idx) => (
             <SwiperSlide key={idx} className="px-4 md:px-0">
               <img
-                src={img}
+                src={img.image}
                 alt={`Gallery ${idx + 1}`}
                 className="w-full h-60 object-cover rounded-xl shadow-lg "
               />

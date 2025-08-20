@@ -78,7 +78,7 @@ const HeroForm = () => {
     // 🚀 Submit to backend
     try {
       const response = await axiosInstance.post("enquiry-booking/", formData);
-      console.log("Booking successful:", response.data);
+      console.log("Server Response:", response.data);
       toast.success("Booking submitted successfully!");
       navigate("/rental_service");
 
@@ -94,7 +94,6 @@ const HeroForm = () => {
         number_of_persons: 1,
       });
     } catch (error) {
-      console.error("Booking failed:", error);
       toast.error("Something went wrong. Please try again.");
     } finally {
       setIsLoading(false);

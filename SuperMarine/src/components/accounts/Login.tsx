@@ -22,11 +22,9 @@ const Login: React.FC = () => {
       localStorage.setItem("email", response.email);
       localStorage.setItem("id", response.user_id);
 
-      console.log("Login successful:", response);
       toast.success("Login successful!");
       navigate("/");
     } catch (error: any) {
-      console.error("Login failed:", error);
       toast.error(error.response?.data?.detail || "Invalid email or password.");
     }
   };
@@ -111,7 +109,6 @@ const Login: React.FC = () => {
                 navigate("/");
               } catch (err: any) {
                 toast.error("Google login failed.");
-                console.error(err);
               }
             }}
           />

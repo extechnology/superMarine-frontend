@@ -61,7 +61,6 @@ const VerifyOtp: React.FC = () => {
       console.log("OTP verified:", res);
       navigate("/");
     } catch (error: any) {
-      console.error("OTP verification failed", error);
       alert(
         error.response?.data?.non_field_errors?.[0] ||
           "OTP verification failed."

@@ -2,8 +2,8 @@ import { useEffect, useState } from "react";
 import getAdventureGallery from "../api/getAdventureGallery";
 import type { ThrillMeetAdventure } from "../types";
 
-const useNumbers = () => {
-  const [advGallery, setAdvGallery] = useState<ThrillMeetAdventure | null>(null);
+const useAdventureGallery = () => {
+  const [gallery, setAdvGallery] = useState<ThrillMeetAdventure[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<Error | null>(null);
 
@@ -19,7 +19,7 @@ const useNumbers = () => {
       });
   }, []);
 
-  return { advGallery, loading, error };
+  return { gallery, loading, error };
 };
 
-export default useNumbers;
+export default useAdventureGallery;

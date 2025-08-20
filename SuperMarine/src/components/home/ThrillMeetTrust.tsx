@@ -1,4 +1,12 @@
+import Loader from "../../common/Loader";
+import useThrill from "../../hooks/useThrill";
+
 const ThrillMeetTrust = () => {
+
+
+  const {thrill, loading, error} = useThrill();
+  if (loading) return <Loader />;
+  if (error) return <div className="error-message">⚠️ Error: {error.message}</div>;
   return (
     <div className="bg-black">
       <div className="max-w-7xl mx-auto px-4 md:px-0 reveal">
@@ -7,7 +15,7 @@ const ThrillMeetTrust = () => {
             {/* Image Section */}
             <div className="rounded-2xl overflow-hidden shadow-2xl reveal">
               <img
-                src="/thrill-meet-trust.jpg"
+                src={thrill[0]?.image}
                 alt="Adventure Tours"
                 data-aos="fade-up"
                 data-aos-duration="900"

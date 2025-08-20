@@ -9,16 +9,13 @@ const useNumbers = () => {
     const [error, setError] = useState<Error | null>(null);
 
     useEffect(() => {
-        getNumbers()
-            .then((res) => {
-                setNumbers(res);
-                setLoading(false);
-            })
-            .catch((err) => {
-                setError(err);
-                setLoading(false);
-            }
-        );
+      getNumbers()
+        .then((res) => {
+          // if API returns an array, pick first item
+          setNumbers(Array.isArray(res) ? res[0] : res);
+        })
+        .catch((err) => setError(err))
+        .finally(() => setLoading(false));
     }, []);
 
     return { numbers, loading, error }

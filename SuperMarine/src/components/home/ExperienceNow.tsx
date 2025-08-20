@@ -1,38 +1,10 @@
 import { Link } from "react-router";
 import { useState } from "react";
+import useVehicle from "../../hooks/useVehicle";
 
-const Data = [
-  {
-    id: 1,
-    image: "/experience-now1.jpg",
-    title: "Yamaha Jet Ski",
-    description: "Agressive Jet Ski",
-    price: "300 AED",
-  },
-  {
-    id: 2,
-    image: "/experience-now.jpg",
-    title: "Rolls Royce Boat",
-    description: "Quiet Comfortable Boat",
-    price: "350 AED",
-  },
-  {
-    id: 3,
-    image: "/experience-now3.jpg",
-    title: "Ducati Jet Ski",
-    description: "Sporty Jet Ski",
-    price: "400 AED",
-  },
-  {
-    id: 4,
-    image: "/experience-now4.jpg",
-    title: "Lamborghini Boat",
-    description: "Seaways Rocket",
-    price: "450 AED",
-  },
-];
 const ExperienceNow = () => {
-
+  const { vehicle } = useVehicle();
+  const featured = vehicle?.filter((item) => item.featured === true);
   const [isOpenId, setIsOpenId] = useState<number | null>(null);
 
   const handleMobileClick = (id: number) => {
@@ -62,7 +34,7 @@ const ExperienceNow = () => {
           data-aos-duration="1100"
           className="grid grid-cols-1 md:grid-cols-2 gap-5"
         >
-          {Data.map((data) => (
+          {featured?.map((data) => (
             <div
               key={data.id}
               className="relative group overflow-hidden rounded-3xl px-4 md:px-0"
@@ -70,7 +42,7 @@ const ExperienceNow = () => {
             >
               {/* Image */}
               <img
-                src={data.image}
+                src={`https://server.supermarinerental.com${data.image}`}
                 alt="no image"
                 className="rounded-3xl w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
               />

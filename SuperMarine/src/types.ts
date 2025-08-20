@@ -103,15 +103,20 @@ export interface about {
   image: string;
 }
 
+export interface AboutContent {
+  title: string;
+  image: string;
+}
+
 export interface Vehicle {
   id: number;
   unique_id: string;
   name: string;
   description: string;
   image: string;
-  price: string; // comes as string from API
+  price: string; 
   discount: number;
-  duration: string; // "hh:mm:ss"
+  duration: string; 
   capacity: number;
   category: {
     id: number;
@@ -119,15 +124,16 @@ export interface Vehicle {
   };
   created_at: string;
   updated_at: string;
+  featured: boolean;
+  title: string;
 }
 
 export interface Numbers {
   experience: number;
-  total_customers: number;
+  happy_customers: number;
   total_rides: number;
   image: string;
 }
-
 
 export interface JetSkiService {
   id: number;
@@ -142,8 +148,10 @@ export interface AboutContent {
 }
 
 export interface BookAdventure {
-  sub_title: string;
+  subtitle: string;
   image: string;
+  image2: string;
+  created_at: string;
 }
 
 export interface ThrillMeetAdventure {

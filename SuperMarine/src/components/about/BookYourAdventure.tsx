@@ -1,6 +1,25 @@
 import { Link } from "react-router";
+import useBookAdventure from "../../hooks/useBookAdventure";
+import Loader from "../../common/Loader";
 
 const BookYourAdventure = () => {
+  const { bookAdventure, loading, error } = useBookAdventure();
+
+  const data =
+    Array.isArray(bookAdventure) && bookAdventure.length > 0
+      ? bookAdventure[0]
+      : null;
+
+  console.log(data?.subtitle, "book adventure");
+
+
+  if (loading) {
+    Loader;
+  }
+
+  if (error) {
+    return <div className="error-message">⚠️ Error: {error.message}</div>;
+  }
   return (
     <div className="bg-black text-white py-10">
       <div className="max-w-7xl mx-auto px-4 md:px-0">

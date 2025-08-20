@@ -8,7 +8,7 @@ const GoogleLoginButton = () => {
       const res = await axiosInstance.post("google-auth/", {
         token: idToken,
       });
-      console.log("Login successful", res.data);
+      console.log("Login successful", res);
     } catch (error) {
       console.error("Login failed", error);
     }
