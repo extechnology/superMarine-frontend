@@ -4,14 +4,10 @@ import Loader from "../../common/Loader";
 
 const BookYourAdventure = () => {
   const { bookAdventure, loading, error } = useBookAdventure();
-
   const data =
     Array.isArray(bookAdventure) && bookAdventure.length > 0
       ? bookAdventure[0]
       : null;
-
-  console.log(data?.subtitle, "book adventure");
-
 
   if (loading) {
     Loader;
@@ -35,8 +31,7 @@ const BookYourAdventure = () => {
           data-aos-duration="1200"
           className="md:text-lg text-sm text-center mt-4"
         >
-          Seize the thrill, book your JetSki & Quads Bike adventure with us
-          today!
+          {data?.subtitle}
         </p>
         <div
           className="grid grid-cols-1 md:grid-cols-2 gap-5 pt-5"
@@ -46,7 +41,7 @@ const BookYourAdventure = () => {
           {/* Card 1 */}
           <div className="relative group overflow-hidden rounded-2xl">
             <img
-              src="book-adventure1.jpg"
+              src={data?.image}
               alt="Jet Ski Adventure"
               className="rounded-2xl transform transition-transform duration-500 group-hover:scale-105 w-full h-full object-cover"
             />
@@ -64,7 +59,7 @@ const BookYourAdventure = () => {
           {/* Card 2 */}
           <div className="relative group overflow-hidden rounded-2xl">
             <img
-              src="/book-adventure2.jpg"
+              src={data?.image2}
               alt="Jet Ski Adventure"
               className="rounded-2xl transform transition-transform duration-500 group-hover:scale-105 w-full h-full object-cover"
             />

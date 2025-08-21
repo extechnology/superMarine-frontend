@@ -7,7 +7,6 @@ import Loader from "../../common/Loader";
 const GallerySlider = () => {
 
   const { gallery, loading, error } = useAdventureGallery();
-  console.log(gallery,'gallleryh');
   if (loading) return <Loader />;
   if (error)
     return <div className="error-message">⚠️ Error: {error.message}</div>;

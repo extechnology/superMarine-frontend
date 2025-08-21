@@ -1,11 +1,16 @@
+import useRentalBanner from "../../hooks/useRentalBanner";
+
 const RentService = () => {
+
+  const { rentalBanner } = useRentalBanner();
+  const image = rentalBanner?.[0]?.image;
   return (
     <div className="bg-black">
       {/* Hero Section (unchanged) */}
       <div className="relative">
         <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-black/50 to-black z-10"></div>
         <img
-          src="/rental-service.jpg"
+          src={image}
           alt="Services background"
           className="w-full h-96 object-cover"
         />

@@ -2,8 +2,12 @@ import React from "react";
 import { FaInstagram, FaFacebook, FaTiktok } from "react-icons/fa";
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
+import useContactBanner from "../hooks/useContactBanner";
 
 const ContactUs: React.FC = () => {
+
+  const { contactBanner } = useContactBanner();
+  const image = contactBanner?.[0]?.image;
   return (
     <div className="bg-black">
       <div className="relative">
@@ -11,11 +15,7 @@ const ContactUs: React.FC = () => {
         <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-black/50 to-black z-10"></div>
 
         {/* Background Image */}
-        <img
-          src="/contact-us.jpg"
-          alt="no image"
-          className="w-full h-96 object-cover"
-        />
+        <img src={image} alt="no image" className="w-full h-96 object-cover" />
 
         {/* Centered Text */}
         <div className="absolute inset-0 z-20 flex items-center justify-center">

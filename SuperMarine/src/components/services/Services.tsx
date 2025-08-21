@@ -1,12 +1,15 @@
+import useServiceBanner from "../../hooks/useServiceBanner";
 
 const Services: React.FC = () => {
+  const { serviceBanner } = useServiceBanner();
+  const image = serviceBanner?.[0]?.image;
   return (
     <div className="bg-black">
       {/* Hero Section (unchanged) */}
       <div className="relative">
         <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-black/50 to-black z-10"></div>
         <img
-          src="/service-and-repair.jpg"
+          src={image}
           alt="Services background"
           className="w-full h-96 object-cover"
         />

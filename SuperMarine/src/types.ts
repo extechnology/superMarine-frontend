@@ -157,3 +157,9 @@ export interface BookAdventure {
 export interface ThrillMeetAdventure {
   image: string;
 }
+
+
+export interface Banner {
+  image: string;
+  created_at: string;
+}

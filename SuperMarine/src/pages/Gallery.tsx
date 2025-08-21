@@ -2,10 +2,14 @@ import Loader from "../common/Loader";
 import useGallery from "../hooks/useGallery";
 import { useState } from "react";
 import type { gallery } from "../types";
+import useGalleryBanner from "../hooks/useGalleryBanner";
+
 
 const Gallery = () => {
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
   const { gallery, loading, error } = useGallery();
+  const { galleryBanner } = useGalleryBanner();
+  const image = galleryBanner?.[0]?.image;
 
   console.log(gallery);
   const handleViewImage = (index: number) => {
@@ -45,7 +49,7 @@ const Gallery = () => {
         {/* Background Image with parallax effect */}
         <div className="w-full h-96 overflow-hidden">
           <img
-            src="/gallery.jpg"
+            src={image}
             alt="Gallery hero"
             className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
           />
