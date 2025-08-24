@@ -7,11 +7,7 @@ import PhoneInput, { isValidPhoneNumber } from "react-phone-number-input";
 import { useNavigate } from "react-router";
 import DatePicker from "react-datepicker";
 
-
-
-
 const HeroForm = () => {
-
   const navigate = useNavigate();
   const [formData, setFormData] = useState<BookingFormData>({
     name: "",
@@ -119,7 +115,7 @@ const HeroForm = () => {
               value={formData.name}
               onChange={handleChange}
               placeholder="Enter your name"
-              className="p-3 border border-gray-300 rounded-md bg-black text-white placeholder:text-gray-300 focus:outline-none focus:ring-2 focus:ring-amber-500"
+              className="p-3 border border-gray-300 text-sm rounded-md bg-black text-white placeholder:text-gray-300 focus:outline-none focus:ring-2 focus:ring-amber-500"
             />
 
             <div className="md:flex justify-between">
@@ -152,7 +148,7 @@ const HeroForm = () => {
                   value={formData.email}
                   onChange={handleChange}
                   placeholder="Enter your email"
-                  className="p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-amber-500"
+                  className="p-3 border text-sm border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-amber-500"
                 />
               </label>
             </div>
@@ -169,7 +165,7 @@ const HeroForm = () => {
                 onChange={(e) =>
                   setFormData((prev) => ({ ...prev, title: e.target.value }))
                 }
-                className="p-3 border border-gray-300 bg-black rounded-md focus:outline-none focus:ring-2 focus:ring-amber-500"
+                className="p-3 border text-sm border-gray-300 bg-black rounded-md focus:outline-none focus:ring-2 focus:ring-amber-500"
               >
                 <option value="">--Select vehicle--</option>
                 <option value="jet_ski">Jet Ski</option>
@@ -200,7 +196,7 @@ const HeroForm = () => {
                   dateFormat="yyyy-MM-dd"
                   placeholderText="Select a date"
                   minDate={new Date()}
-                  className="p-3 w-full rounded-md border border-gray-600 bg-black text-white focus:outline-none focus:ring-2 focus:ring-amber-500"
+                  className="p-3 w-full text-sm rounded-md border border-gray-600 bg-black text-white focus:outline-none focus:ring-2 focus:ring-amber-500"
                   calendarClassName="dark-calendar"
                 />
               </label>
@@ -242,26 +238,36 @@ const HeroForm = () => {
                   }
                   maxTime={new Date(0, 0, 0, 23, 59)}
                   placeholderText="Select time"
-                  className="p-3 w-full rounded-md border border-gray-600 bg-black text-white focus:outline-none focus:ring-2 focus:ring-amber-500"
+                  className="p-3 w-full rounded-md text-sm border border-gray-600 bg-black text-white focus:outline-none focus:ring-2 focus:ring-amber-500"
                   calendarClassName="dark-calendar"
                 />
                 <BsClockFill className="absolute right-3 top-10 transform text-gray-300 w-4 h-4 pointer-events-none" />
               </label>
 
               <label
-                className="flex flex-col  gap-1 relative"
+                className="flex flex-col gap-1 relative"
                 data-aos="fade-up"
                 data-aos-duration="1300"
               >
                 <span className="text-sm font-medium">Duration</span>
-                <input
-                  type="text"
+                <select
                   name="duration"
                   value={formData.duration}
-                  onChange={handleChange}
-                  className="p-3 pr-10 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-amber-500"
-                />
-                <BsClockFill className=" content-center absolute right-3 top-1/2 mt-1 transform  text-white w-4 h-4 pointer-events-none" />
+                  onChange={(e) =>
+                    setFormData((prev) => ({
+                      ...prev,
+                      duration: e.target.value,
+                    }))
+                  }
+                  className="p-3 pr-10 border text-sm bg-black text-white rounded-md focus:outline-none focus:ring-2 focus:ring-amber-500"
+                >
+                  <option value="">Select duration</option>
+                  <option value="30min">30 min</option>
+                  <option value="1hr">1 hr</option>
+                  <option value="2hr">2 hr</option>
+                  <option value="full-day">Full Day</option>
+                </select>
+                {/* <BsClockFill className="absolute right-3 top-1/2 mt-1 transform -translate-y-1/2 text-white w-4 h-4 pointer-events-none" /> */}
               </label>
             </div>
             <div className="md:flex items-end justify-between gap-4">
@@ -285,7 +291,7 @@ const HeroForm = () => {
                 type="submit"
                 data-aos="fade-up"
                 data-aos-duration="1400"
-                disabled={isLoading} 
+                disabled={isLoading}
                 className={`bg-black text-red-500 border border-[#D4AF37] font-bold py-3 px-6 rounded-md transition duration-200 mt-4 md:mt-0
     ${isLoading ? "opacity-50 cursor-not-allowed" : "hover:bg-[#1a1a1a]"}`}
               >

@@ -16,14 +16,14 @@ const PasswordResetRequestPage: React.FC = () => {
     setLoading(true);
     try {
       const res = await axiosInstance.post(
-        "/password-reset-request/", // change to your backend URL
+        "/password-reset/", 
         { email: email.trim() },
         {
           headers: { "Content-Type": "application/json" },
         }
       );
 
-      console.log(res.data); // debug
+      console.log(res.data); 
       toast.success("Password reset link sent! Check your email.");
       setEmail("");
     } catch (err: any) {

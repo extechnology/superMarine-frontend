@@ -12,10 +12,10 @@ export default function PaymentSuccess() {
           Thank you! Your payment has been processed successfully.
         </p>
         <button
-          onClick={() => (window.location.href = "/")}
+          onClick={() => (window.location.href = "/my_bookings")}
           className="mt-6 px-6 py-3 rounded-xl bg-green-500 hover:bg-green-600 text-white font-semibold shadow-md transition-all w-full"
         >
-          Go to Homepage
+          Go to Your Bookings
         </button>
       </div>
     </div>

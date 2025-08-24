@@ -166,13 +166,14 @@ const Header: React.FC = () => {
                   <>
                     <button
                       type="button"
-                      onClick={openLogin}
+                      onClick={() => openLogin("login")}
                       className="block w-full text-start px-4 py-2 text-sm text-gray-800 hover:bg-gray-100"
                     >
                       Login
                     </button>
+
                     <button
-                      onClick={openLogin}
+                      onClick={() => openLogin("register")}
                       className="block w-full text-start px-4 py-2 text-sm text-gray-800 hover:bg-gray-100"
                     >
                       Sign Up

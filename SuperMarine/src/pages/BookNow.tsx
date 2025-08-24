@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Calendar, Clock } from "react-feather";
+import { Calendar } from "react-feather";
 import { useLocation } from "react-router";
 import axiosInstance from "../api/axiosInstance";
 
@@ -143,17 +143,17 @@ const BookingPage = () => {
   const pricing = calculatePrice();
 
   return (
-    <div className="min-h-screen relative pt-30 bg-[url('/Book_now.jpg')] bg-cover text-gray-100 py-12 px-4 sm:px-6 lg:px-8">
+    <div className="min-h-screen relative pt-30 bg-[url('/book-now.jpg')] bg-cover text-gray-100 py-12 px-2 sm:px-4 lg:px-8">
       <div className="absolute inset-0 z-0 bg-gradient-to-b from-black/60 via-black/80 to-black"></div>
       <div className="max-w-7xl mx-auto relative z-20">
-        <h1 className="text-3xl proza-libre-bold font-bold mb-8 text-center text-white">
+        <h1 className="text-2xl md:text-3xl proza-libre-bold font-bold mb-8 text-center text-white">
           Jet Ski Rental Booking
         </h1>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           {/* Service Details Section */}
           <div className="bg-transparent">
-            <div className="bg-black/40 backdrop-blur-md rounded-xl p-6 shadow-2xl">
+            <div className="bg-black/40 backdrop-blur-md rounded-xl p-4 shadow-2xl">
               <div className="flex items-center justify-between mb-4">
                 <h2 className="text-2xl font-semibold text-white">
                   {BookNowData.title}
@@ -301,30 +301,31 @@ const BookingPage = () => {
                 )}
               </div>
 
-              {/* Time Picker */}
-              <div className="mb-6">
-                <label className="text-sm font-medium mb-2 flex items-center">
-                  <Clock className="mr-2" size={16} />
+              {/* Time Slot Picker */}
+              <div className="mb-4">
+                <label className="block text-sm font-medium text-gray-300 mb-2">
                   Select Time Slot
                 </label>
-                <div className="grid grid-cols-3 gap-2">
+
+                <div className="flex space-x-2 overflow-x-auto scrollbar-thin scrollbar-thumb-gray-700 scrollbar-track-gray-900 p-2 rounded-lg bg-gray-800">
                   {timeSlots.map((time) => (
                     <button
                       key={time}
-                      type="button"
                       onClick={() => setSelectedTime(time)}
-                      className={`py-2 rounded-md transition-all ${
-                        selectedTime === time
-                          ? "bg-blue-600 text-white"
-                          : "bg-gray-600 hover:bg-gray-500"
-                      }`}
+                      className={`px-4 py-2 rounded-xl text-sm font-medium whitespace-nowrap transition-all duration-200
+          ${
+            selectedTime === time
+              ? "bg-blue-600 text-white shadow-lg shadow-blue-500/30"
+              : "bg-gray-700 text-gray-300 hover:bg-gray-600 hover:text-white"
+          }`}
                     >
                       {time}
                     </button>
                   ))}
                 </div>
+
                 {errors.time && (
-                  <p className="text-red-400 text-sm mt-1">{errors.time}</p>
+                  <p className="mt-2 text-sm text-red-400">{errors.time}</p>
                 )}
               </div>
 

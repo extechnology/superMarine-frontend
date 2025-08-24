@@ -21,6 +21,7 @@ import Terms from "./pages/Terms";
 import RefundPolicy from "./pages/RefundPolicy";
 import { Toaster } from "sonner";
 import AuthModal from "./components/accounts/AuthModal";
+import PasswordResetConfirmPage from "./pages/PasswordResetConfirm";
 // import { PaymentElement } from "@stripe/react-stripe-js";
 const Home = lazy(() => import("./pages/Home"));
 const About = lazy(() => import("./pages/About"));
@@ -52,7 +53,7 @@ function App() {
 
   return (
     <Router>
-      <GoogleOAuthProvider clientId={import.meta.env.VITE_GOOGLE_CLIENT_ID} >
+      <GoogleOAuthProvider clientId={import.meta.env.VITE_GOOGLE_CLIENT_ID}>
         <Toaster theme="dark" position="top-center" richColors />
 
         <ScrollToTop />
@@ -74,6 +75,10 @@ function App() {
             <Route path="/payment/cancel" element={<PaymentCancel />} />
             <Route path="/payment/success" element={<PaymentSuccess />} />
             <Route path="/my_bookings" element={<MyBookings />} />
+            <Route
+              path="/reset-password/:uidb64/:token"
+              element={<PasswordResetConfirmPage />}
+            />
           </Routes>
         </Suspense>
         <AuthModal />

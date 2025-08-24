@@ -11,17 +11,18 @@ import {
 } from "../../apiService/authServices";
 import { useNavigate } from "react-router-dom";
 import { useModalStore } from "../../zustand/modalStore";
+import { Link } from "react-router-dom";
 
-type AuthTab = "login" | "register" | "reset";
 
 export default function AuthModal() {
-  const { isLoginOpen, closeLogin } = useModalStore();
-  const [tab, setTab] = useState<AuthTab>("login");
-
-  // login state
+  const { isLoginOpen, closeLogin, activeTab, setTab } = useModalStore();
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [loginLoading, setLoginLoading] = useState(false);
+  const [registerLoading, setRegisterLoading] = useState(false);
+  // const [resetEmail, setResetEmail] = useState("");
 
+  
   // register state
   const [formData, setFormData] = useState({
     username: "",
@@ -29,12 +30,10 @@ export default function AuthModal() {
     password: "",
     password_confirm: "",
   });
-
-  // reset state
-  // const [resetEmail, setResetEmail] = useState("");
-
+  
+  
   const navigate = useNavigate();
-
+  
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
     try {
@@ -50,6 +49,9 @@ export default function AuthModal() {
     } catch (error: any) {
       toast.error(error.response?.data?.detail || "Invalid email or password.");
     }
+    finally {
+      setLoginLoading(false);
+    }
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -62,7 +64,7 @@ export default function AuthModal() {
       toast.error("Passwords do not match");
       return;
     }
-
+    
     try {
       await registerUser(formData);
       navigate("/verify-otp", {
@@ -77,19 +79,21 @@ export default function AuthModal() {
       const data = err.response?.data;
       toast.error(
         data?.email ||
-          data?.username ||
+        data?.username ||
           data?.non_field_errors?.[0] ||
           "Registration failed"
       );
+    } finally {
+      setRegisterLoading(false);
     }
   };
-
+  
   // const handlePasswordResetRequest = async (e: React.FormEvent) => {
   //   e.preventDefault();
   //   try {
-  //     await requestPasswordReset(resetEmail);
-  //     toast.success("Password reset link sent! Check your email.");
-  //     setTab("login");
+    //     await requestPasswordReset(resetEmail);
+    //     toast.success("Password reset link sent! Check your email.");
+    //     setTab("login");
   //   } catch (err: any) {
   //     toast.error(err.response?.data?.detail || "Failed to send reset link.");
   //   }
@@ -108,9 +112,9 @@ export default function AuthModal() {
           {/* Header */}
           <div className="flex justify-between items-center mb-4">
             <h2 className="text-xl font-bold text-amber-400">
-              {tab === "login" && "Login to Super Marine"}
-              {tab === "register" && "Create Account"}
-              {tab === "reset" && "Reset Password"}
+              {activeTab === "login" && "Login to Super Marine"}
+              {activeTab === "register" && "Create Account"}
+              {activeTab === "reset" && "Reset Password"}
             </h2>
             <button
               title="Close"
@@ -122,12 +126,12 @@ export default function AuthModal() {
           </div>
 
           {/* Tab Switcher */}
-          {tab !== "reset" && (
+          {activeTab !== "reset" && (
             <div className="flex justify-center gap-4 mb-6">
               <button
                 onClick={() => setTab("login")}
                 className={`px-4 py-1 rounded-full text-sm font-semibold ${
-                  tab === "login"
+                  activeTab === "login"
                     ? "bg-amber-400 text-black"
                     : "text-white hover:text-amber-400"
                 }`}
@@ -137,7 +141,7 @@ export default function AuthModal() {
               <button
                 onClick={() => setTab("register")}
                 className={`px-4 py-1 rounded-full text-sm font-semibold ${
-                  tab === "register"
+                  activeTab === "register"
                     ? "bg-amber-400 text-black"
                     : "text-white hover:text-amber-400"
                 }`}
@@ -148,7 +152,7 @@ export default function AuthModal() {
           )}
 
           {/* Forms */}
-          {tab === "login" && (
+          {activeTab === "login" && (
             <form onSubmit={handleLogin} className="space-y-4">
               <input
                 type="text"
@@ -168,21 +172,27 @@ export default function AuthModal() {
               />
               <button
                 type="submit"
-                className="w-full py-2 bg-gradient-to-r from-red-500 to-red-500 text-white rounded-md font-semibold"
+                disabled={loginLoading}
+                className={`w-full py-2 rounded-md font-semibold ${
+                  loginLoading
+                    ? "bg-gray-500 cursor-not-allowed"
+                    : "bg-gradient-to-r from-red-500 to-red-500 text-white"
+                }`}
               >
-                Sign In
+                {loginLoading ? "Logging In..." : "Log In"}
               </button>
-              {/* <Link to="/reset">
+
+              <Link to="/reset">
                 <p
                   className="text-sm text-white/70 hover:text-blue-600 cursor-pointer"
                 >
                   Forgot password?
                 </p>
-              </Link> */}
+              </Link>
             </form>
           )}
 
-          {tab === "register" && (
+          {activeTab === "register" && (
             <form onSubmit={handleRegister} className="space-y-4">
               <input
                 name="username"
@@ -220,9 +230,14 @@ export default function AuthModal() {
               />
               <button
                 type="submit"
-                className="w-full py-2 bg-gradient-to-r from-red-500 to-red-600 text-white rounded-md font-semibold"
+                disabled={registerLoading}
+                className={`w-full py-2 rounded-md font-semibold ${
+                  registerLoading
+                    ? "bg-gray-500 cursor-not-allowed"
+                    : "bg-gradient-to-r from-red-500 to-red-600 text-white"
+                }`}
               >
-                Sign Up
+                {registerLoading ? "Signing Up..." : "Sign Up"}
               </button>
             </form>
           )}
@@ -253,7 +268,7 @@ export default function AuthModal() {
           )} */}
 
           {/* Google */}
-          {tab !== "reset" && (
+          {activeTab !== "reset" && (
             <>
               <div className="mt-6 text-center text-sm text-white/70">or</div>
               <div className="flex justify-center mt-2">

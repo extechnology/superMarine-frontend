@@ -17,7 +17,7 @@ const RentalVehicles: React.FC = () => {
 
   // 👇 Function to open WhatsApp
   const handleEnquire = (title: string) => {
-    const phoneNumber = "971500000000"; // ✅ replace with your UAE number (without +)
+    const phoneNumber = "971509590553"; // ✅ replace with your UAE number (without +)
     const message = `Hello, I want to enquire about *${title}*. Please provide me with more details.`;
     const whatsappURL = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(
       message

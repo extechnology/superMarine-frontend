@@ -163,3 +163,16 @@ export interface Banner {
   image: string;
   created_at: string;
 }
+
+export interface Booking {
+  id: number;
+  jet_ski: string;
+  date: string;
+  time: string;
+  duration: string;
+  price: number;
+  status: "confirmed" | "pending" | "cancelled";
+  location?: string;
+  rating?: number;
+  image?: string;
+}

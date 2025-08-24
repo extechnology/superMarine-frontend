@@ -53,7 +53,7 @@ const EnquiryModal: React.FC<EnquiryModalProps> = ({
 
       setSuccess("Enquiry submitted successfully!");
       toast.success("Enquiry submitted successfully!");
-      navigate("/services")
+      navigate("/service_and_repair");
       setFormData({ name: "", message: "" });
       console.log("Server Response:", response.data);
     } catch (err: any) {
