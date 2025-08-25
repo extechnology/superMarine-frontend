@@ -94,7 +94,7 @@ const Header: React.FC = () => {
               onMouseEnter={handleMouseEnter}
               onMouseLeave={handleMouseLeave}
               onClick={toggleDropdown}
-            >
+            > 
               <span className="flex items-center gap-1 select-none">
                 Services ▾
               </span>

@@ -2,12 +2,12 @@ import { useState } from "react";
 import { Calendar } from "react-feather";
 import { useLocation } from "react-router";
 import axiosInstance from "../api/axiosInstance";
+import PhoneInput from "react-phone-number-input";
 
 const BookingPage = () => {
   const location = useLocation();
   const BookNowData = location.state;
 
-  // Check if BookNowData exists
   if (!BookNowData) {
     return (
       <div className="min-h-screen flex items-center justify-center">
@@ -64,13 +64,12 @@ const BookingPage = () => {
     "05:00 PM",
   ];
 
-  // Duration multipliers for pricing (based on 30 mins as base)
   const getDurationMultiplier = (duration: string): number => {
     const multipliers: Record<string, number> = {
-      "30 mins": 1, // Base duration
-      "1 hour": 2, // Double the base
-      "2 hours": 4, // 4 times the base
-      "Full day": 16, // 16 times the base (8 hours)
+      "30 mins": 1,
+      "1 hour": 2,
+      "2 hours": 4,
+      "Full day": 16,
     };
     return multipliers[duration] || 1;
   };
@@ -79,12 +78,11 @@ const BookingPage = () => {
   const calculatePrice = () => {
     const durationMultiplier = getDurationMultiplier(selectedDuration);
 
-    // Calculate total cost: base price (for 30 mins) × duration multiplier × number of people
     const totalCost = basePrice * durationMultiplier * numberOfPeople;
 
     return {
       basePrice: basePrice.toFixed(2),
-      durationCost: (basePrice * durationMultiplier).toFixed(2), // Cost for selected duration per person
+      durationCost: (basePrice * durationMultiplier).toFixed(2),
       total: totalCost.toFixed(2),
       pricePerPerson: (totalCost / numberOfPeople).toFixed(2),
     };
@@ -378,22 +376,27 @@ const BookingPage = () => {
                   </div>
 
                   <div>
-                    <label className="block text-sm font-medium mb-1">
-                      Phone *
+                    <label
+                      className="flex flex-col gap-1"
+                    >
+                      <span className="text-sm font-medium">Phone No.</span>
+                      <PhoneInput
+                        title="phone"
+                        placeholder="Enter phone number"
+                        international
+                        defaultCountry="AE"
+                        value={customerInfo.phone}
+                        required
+                        onChange={(value) =>
+                          setCustomerInfo({
+                            ...customerInfo,
+                            phone: value || "",
+                          })
+                        }
+                        className="phone-input-wrapper"
+                      />
                     </label>
-                    <input
-                      title="phone"
-                      type="tel"
-                      value={customerInfo.phone}
-                      onChange={(e) =>
-                        setCustomerInfo({
-                          ...customerInfo,
-                          phone: e.target.value,
-                        })
-                      }
-                      className="w-full bg-gray-700 border border-gray-600 rounded-lg py-2 px-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
-                      required
-                    />
+
                     {errors.phone && (
                       <p className="text-red-400 text-sm mt-1">
                         {errors.phone}

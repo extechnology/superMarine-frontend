@@ -82,15 +82,15 @@ const ExperienceNow = () => {
 
                 {/* Bottom content */}
                 <div className="flex px-3 md:px-0 justify-between items-start sm:items-end w-full gap-4">
-                  <div>
+                  <div className="w-2/3">
                     <h1 className="text-lg sm:text-3xl experience font-semibold">
                       {data.title}
                     </h1>
                     <p className="text-sm sm:text-base">{data.description}</p>
                   </div>
-                  <div>
-                    <p className="text-md experience sm:text-2xl font-bold">
-                      {data.price}
+                  <div className="w-1/3">
+                    <p className="text-md experience sm:text-xl font-bold">
+                      AED {data.price}
                     </p>
                   </div>
                 </div>

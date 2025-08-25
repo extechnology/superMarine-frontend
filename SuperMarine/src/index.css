@@ -135,3 +135,51 @@ body{
 .dark-calendar .react-datepicker__day--selected {
   @apply bg-amber-500 text-black font-semibold;
 }
+
+
+
+/* Wrapper + Input */
+.phone-input-wrapper {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.phone-input-wrapper .PhoneInputInput {
+  width: 100%;
+  background-color: #374151; /* Tailwind bg-gray-700 */
+  border: 1px solid #4b5563; /* Tailwind border-gray-600 */
+  border-radius: 0.5rem; /* rounded-lg */
+  padding: 0.5rem 0.75rem; /* py-2 px-3 */
+  color: #f9fafb; /* text-gray-100 */
+  outline: none;
+}
+
+.phone-input-wrapper .PhoneInputInput:focus {
+  border-color: #3b82f6; /* border-blue-500 */
+  box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.5); /* focus:ring-2 */
+}
+
+/* Country select dropdown button */
+.phone-input-wrapper .PhoneInputCountry {
+  background-color: #374151; /* bg-gray-700 */
+  border: 1px solid #4b5563;
+  border-radius: 0.5rem 0 0 0.5rem;
+  padding: 0.5rem;
+  color: #f9fafb;
+}
+
+/* Actual dropdown menu */
+.phone-input-wrapper select.PhoneInputCountrySelect {
+  background-color: #1f2937 !important; /* bg-gray-800 */
+  color: #f9fafb !important;           /* text-gray-100 */
+  border: 1px solid #4b5563;
+  border-radius: 0.5rem;
+  padding: 0.5rem;
+}
+
+/* Dropdown options */
+.phone-input-wrapper select.PhoneInputCountrySelect option {
+  background-color: #1f2937; /* bg-gray-800 */
+  color: #f9fafb;           /* text-gray-100 */
+}
