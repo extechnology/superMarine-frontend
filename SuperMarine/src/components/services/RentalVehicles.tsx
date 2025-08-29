@@ -27,13 +27,29 @@ const RentalVehicles: React.FC = () => {
 
   // helper to format duration "01:30:00" → "1 hr 30 min"
   const formatDuration = (duration: string): string => {
-    const [hh, mm, ss] = duration.split(":").map(Number);
-    const parts: string[] = [];
-    if (hh) parts.push(`${hh} hr${hh > 1 ? "s" : ""}`);
-    if (mm) parts.push(`${mm} min`);
-    if (!hh && !mm && ss) parts.push(`${ss} sec`);
-    return parts.join(" ") || duration;
-  };
+  // Handle day + time (e.g., "1 00:00:00")
+  const [dayPart, timePart] = duration.includes(" ") 
+    ? duration.split(" ") 
+    : [null, duration];
+
+  const [hh, mm, ss] = timePart.split(":").map(Number);
+  const parts: string[] = [];
+
+  if (dayPart) {
+    const days = Number(dayPart);
+    if (days === 1 && hh === 0 && mm === 0 && ss === 0) {
+      return "One day"; // ✅ special case
+    }
+    parts.push(`${days} day${days > 1 ? "s" : ""}`);
+  }
+
+  if (hh) parts.push(`${hh} hr${hh > 1 ? "s" : ""}`);
+  if (mm) parts.push(`${mm} min`);
+  if (!hh && !mm && ss) parts.push(`${ss} sec`);
+
+  return parts.join(" ") || duration;
+};
+
 
   return (
     <div>
@@ -56,7 +72,7 @@ const RentalVehicles: React.FC = () => {
               return (
                 <div
                   key={data.id}
-                  className="relative group overflow-hidden rounded-xl shadow-lg hover:shadow-2xl transition-shadow duration-300 h-full"
+                  className="flex flex-col h-full relative group overflow-hidden rounded-xl shadow-lg hover:shadow-2xl transition-shadow duration-300"
                 >
                   {/* Image with overlay */}
                   <img
@@ -69,7 +85,7 @@ const RentalVehicles: React.FC = () => {
                   <div className="absolute inset-0 bg-black/30 bg-opacity-30 rounded-xl"></div>
 
                   {/* Content container */}
-                  <div className="inset-0 z-20 flex flex-col justify-end p-3 bg-white relative text-black">
+                  <div className="inset-0 z-20 flex flex-1 justify-end p-3 bg-white relative text-black">
                     <div className="transform relative bg-white rounded-md p-3 transition-transform duration-300 group-hover:-translate-y-10">
                       <div className="flex justify-between items-center">
                         <h2
@@ -124,7 +140,7 @@ const RentalVehicles: React.FC = () => {
                       <div
                         data-aos="fade-up"
                         data-aos-duration="1300"
-                        className="flex justify-between gap-4"
+                        className="flex justify-between mt-auto gap-4"
                       >
                         {/* Book Now */}
                         <Link
@@ -135,7 +151,7 @@ const RentalVehicles: React.FC = () => {
                             price: data.price,
                             duration: data.duration,
                             capacity: data.capacity,
-                            discount : data.discount
+                            discount: data.discount,
                           }}
                           className="mt-5 bg-[#D4AF37] text-black hover:bg-[#bfa135] py-2 px-4 rounded-lg font-medium opacity-100 sm:opacity-0 sm:group-hover:opacity-100 transition-all duration-300 transform translate-y-0 sm:translate-y-5 sm:group-hover:translate-y-0 w-full"
                         >
