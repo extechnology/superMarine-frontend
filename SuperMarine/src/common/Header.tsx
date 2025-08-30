@@ -89,7 +89,7 @@ const Header: React.FC = () => {
             </li>
 
             {/* Services Dropdown */}
-            <li
+            {/* <li
               className="relative cursor-pointer content-center"
               onMouseEnter={handleMouseEnter}
               onMouseLeave={handleMouseLeave}
@@ -138,6 +138,9 @@ const Header: React.FC = () => {
                   </Link>
                 </li>
               </ul>
+            </li> */}
+            <li className="cursor-pointer content-center">
+              <Link to="/rental_service">Rental Services</Link>
             </li>
             <li className="cursor-pointer content-center">
               <Link to="/gallery">Gallery</Link>

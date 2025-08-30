@@ -6,6 +6,29 @@ const ExperienceNow = () => {
   const { vehicle } = useVehicle();
   const featured = vehicle?.filter((item) => item.featured === true);
   const [isOpenId, setIsOpenId] = useState<number | null>(null);
+  const formatDuration = (duration: string): string => {
+    // Handle day + time (e.g., "1 00:00:00")
+    const [dayPart, timePart] = duration.includes(" ")
+      ? duration.split(" ")
+      : [null, duration];
+
+    const [hh, mm, ss] = timePart.split(":").map(Number);
+    const parts: string[] = [];
+
+    if (dayPart) {
+      const days = Number(dayPart);
+      if (days === 1 && hh === 0 && mm === 0 && ss === 0) {
+        return "ONE DAY"; // ✅ special case
+      }
+      parts.push(`${days} DAY${days > 1 ? "s" : ""}`);
+    }
+
+    if (hh) parts.push(`${hh} HOUR${hh > 1 ? "s" : ""}`);
+    if (mm) parts.push(`${mm} MIN`);
+    if (!hh && !mm && ss) parts.push(`${ss} SEC`);
+
+    return parts.join(" ") || duration;
+  };
 
   const handleMobileClick = (id: number) => {
     setIsOpenId((prev) => (prev === id ? null : id));
@@ -32,7 +55,7 @@ const ExperienceNow = () => {
         <div
           data-aos="fade-up"
           data-aos-duration="1100"
-          className="grid grid-cols-1 md:grid-cols-2 gap-5"
+          className="grid grid-cols-1 md:grid-cols-3 gap-5"
         >
           {featured?.map((data) => (
             <div
@@ -65,12 +88,15 @@ const ExperienceNow = () => {
               md:opacity-0 md:group-hover:opacity-100
             `}
               >
+                <div className="absolute top-5 flex ">
+                  <h1 className="text-md proza-libre-bold"> {data.name}</h1>
+                </div>
                 {/* Book Now button centered */}
                 <div className="absolute inset-0 flex items-center justify-center">
                   <Link
                     to={`/book_now/${data.id}`}
                     state={{
-                      title: data.title,
+                      title: data.name,
                       price: data.price,
                       image: data.image,
                     }}
@@ -82,14 +108,13 @@ const ExperienceNow = () => {
 
                 {/* Bottom content */}
                 <div className="flex px-3 md:px-0 justify-between items-start sm:items-end w-full gap-4">
-                  <div className="w-2/3">
-                    <h1 className="text-lg sm:text-3xl experience font-semibold">
-                      {data.title}
+                  <div className="w-2/3 content-center">
+                    <h1 className="text-sm  proza-libre-bold font-semibold">
+                      {formatDuration(data.duration)}
                     </h1>
-                    <p className="text-sm sm:text-base">{data.description}</p>
                   </div>
-                  <div className="w-1/3">
-                    <p className="text-md experience sm:text-xl font-bold">
+                  <div className="w-1/3 content-center">
+                    <p className="text-sm proza-libre-bold  font-bold">
                       AED {data.price}
                     </p>
                   </div>

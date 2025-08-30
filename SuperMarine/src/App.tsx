@@ -22,6 +22,7 @@ import RefundPolicy from "./pages/RefundPolicy";
 import { Toaster } from "sonner";
 import AuthModal from "./components/accounts/AuthModal";
 import PasswordResetConfirmPage from "./pages/PasswordResetConfirm";
+import Dark404Page from "./pages/NotFount";
 // import { PaymentElement } from "@stripe/react-stripe-js";
 const Home = lazy(() => import("./pages/Home"));
 const About = lazy(() => import("./pages/About"));
@@ -75,6 +76,7 @@ function App() {
             <Route path="/payment/cancel" element={<PaymentCancel />} />
             <Route path="/payment/success" element={<PaymentSuccess />} />
             <Route path="/my_bookings" element={<MyBookings />} />
+            <Route path="*" element={<Dark404Page />} />
             <Route
               path="/reset-password/:uidb64/:token"
               element={<PasswordResetConfirmPage />}
