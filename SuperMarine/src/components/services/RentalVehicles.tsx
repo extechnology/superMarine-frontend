@@ -84,8 +84,6 @@ const RentalVehicles: React.FC = () => {
                     alt={data.name}
                   />
 
-                  {/* Dark overlay */}
-                  <div className="absolute inset-0 bg-black/30 bg-opacity-30 rounded-xl"></div>
 
                   {/* Content container */}
                   <div className="z-20  justify-end p-3 bg-white relative text-black">

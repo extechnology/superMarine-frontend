@@ -11,8 +11,8 @@ import { useModalStore } from "../zustand/modalStore";
 const Header: React.FC = () => {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
-  const [dropdownOpen, setDropdownOpen] = useState(false);
-  const [mobileDropdownOpen, setMobileDropdownOpen] = useState(false);
+  // const [dropdownOpen, setDropdownOpen] = useState(false);
+  // const [mobileDropdownOpen, setMobileDropdownOpen] = useState(false);
   const timeoutRef = useRef<NodeJS.Timeout | null>(null);
   const Token = localStorage.getItem("accessToken");
   const navigate = useNavigate();
@@ -21,10 +21,10 @@ const Header: React.FC = () => {
   const [isMobileUserOpen, setIsMobileUserOpen] = useState(false);
 
 
-  const handleMouseEnter = () => {
-    if (timeoutRef.current) clearTimeout(timeoutRef.current);
-    setDropdownOpen(true);
-  };
+  // const handleMouseEnter = () => {
+  //   if (timeoutRef.current) clearTimeout(timeoutRef.current);
+  //   setDropdownOpen(true);
+  // };
 
   const handleLogout = () => {
     localStorage.removeItem("accessToken");
@@ -32,11 +32,11 @@ const Header: React.FC = () => {
     navigate("/");
   };
 
-  const handleMouseLeave = () => {
-    timeoutRef.current = setTimeout(() => {
-      setDropdownOpen(false);
-    }, 200);
-  };
+  // const handleMouseLeave = () => {
+  //   timeoutRef.current = setTimeout(() => {
+  //     setDropdownOpen(false);
+  //   }, 200);
+  // };
 
   useEffect(() => {
     return () => {
@@ -54,8 +54,8 @@ const Header: React.FC = () => {
   }, []);
 
   const toggleMenu = () => setMenuOpen((prev) => !prev);
-  const toggleDropdown = () => setDropdownOpen((prev) => !prev);
-  const toggleMobileDropdown = () => setMobileDropdownOpen((prev) => !prev);
+  // const toggleDropdown = () => setDropdownOpen((prev) => !prev);
+  // const toggleMobileDropdown = () => setMobileDropdownOpen((prev) => !prev);
 
   return (
     <header
@@ -226,9 +226,12 @@ const Header: React.FC = () => {
           <Link to="/about" onClick={toggleMenu} className="hover:underline">
             About Us
           </Link>
+          <Link to="/rental_service" onClick={toggleMenu} className="hover:underline">
+            Rental Services
+          </Link>
 
           {/* Optimized Mobile Dropdown */}
-          <div className="relative">
+          {/* <div className="relative">
             <button
               onClick={toggleMobileDropdown}
               className="flex items-center gap-1 py-2 rounded hover:bg-white/10 transition"
@@ -262,7 +265,7 @@ const Header: React.FC = () => {
                 </Link>
               </li>
             </ul>
-          </div>
+          </div> */}
 
           {/* User Icon in Mobile Navbar */}
           <div className="relative">
