@@ -3,10 +3,14 @@ import { Calendar } from "react-feather";
 import { useLocation } from "react-router";
 import axiosInstance from "../api/axiosInstance";
 import PhoneInput from "react-phone-number-input";
+import { isValidPhoneNumber } from "react-phone-number-input";
+import { useModalStore } from "../zustand/modalStore";
+import { toast } from "sonner";
 
 const BookingPage = () => {
   const location = useLocation();
   const BookNowData = location.state;
+  const { openLogin } = useModalStore();
 
   if (!BookNowData) {
     return (
@@ -17,6 +21,7 @@ const BookingPage = () => {
       </div>
     );
   }
+  const Token = localStorage.getItem("accessToken");
 
   // Extract values safely
   const basePrice = parseFloat(BookNowData?.price || "0");
@@ -74,6 +79,24 @@ const BookingPage = () => {
     return multipliers[duration] || 1;
   };
 
+
+  const handlePhoneChange = (value: string | undefined) => {
+    if (!value) {
+      setCustomerInfo({ ...customerInfo, phone: "" });
+      setErrors((prev) => ({ ...prev, phone: "Phone number is required" }));
+      return;
+    }
+
+    if (!isValidPhoneNumber(value)) {
+      setErrors((prev) => ({ ...prev, phone: "Invalid phone number" }));
+    } else {
+      setErrors((prev) => ({ ...prev, phone: "" }));
+    }
+
+    setCustomerInfo({ ...customerInfo, phone: value });
+  };
+
+
   // Price calculation
   const calculatePrice = () => {
     const durationMultiplier = getDurationMultiplier(selectedDuration);
@@ -110,6 +133,21 @@ const BookingPage = () => {
     e.preventDefault();
     setIsLoading(true);
 
+    if (!Token) {
+      toast.warning("Please log in to book a service.");
+      openLogin("login");
+      return;
+    }
+
+    if (!isValidPhoneNumber(customerInfo.phone)) {
+      setErrors((prev) => ({
+        ...prev,
+        phone: "Please enter a valid phone number",
+      }));
+      setIsLoading(false);
+      return;
+    }
+
     try {
       const payload = {
         title: BookNowData?.title,
@@ -127,6 +165,9 @@ const BookingPage = () => {
         payload,
         { headers: { "Content-Type": "application/json" } }
       );
+
+      
+
 
       window.location.href = data.checkout_url;
     } catch (err) {
@@ -376,9 +417,7 @@ const BookingPage = () => {
                   </div>
 
                   <div>
-                    <label
-                      className="flex flex-col gap-1"
-                    >
+                    <label className="flex flex-col gap-1">
                       <span className="text-sm font-medium">Phone No.</span>
                       <PhoneInput
                         title="phone"
@@ -386,15 +425,16 @@ const BookingPage = () => {
                         international
                         defaultCountry="AE"
                         value={customerInfo.phone}
-                        required
-                        onChange={(value) =>
-                          setCustomerInfo({
-                            ...customerInfo,
-                            phone: value || "",
-                          })
-                        }
-                        className="phone-input-wrapper"
+                        onChange={handlePhoneChange}
+                        className={`phone-input-wrapper ${
+                          errors.phone ? "border-red-500" : ""
+                        }`}
                       />
+                      {errors.phone && (
+                        <p className="text-red-400 text-sm mt-1">
+                          {errors.phone}
+                        </p>
+                      )}
                     </label>
 
                     {errors.phone && (
