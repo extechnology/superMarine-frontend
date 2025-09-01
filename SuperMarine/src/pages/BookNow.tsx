@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Calendar } from "react-feather";
 import { useLocation } from "react-router";
 import axiosInstance from "../api/axiosInstance";
@@ -79,7 +79,6 @@ const BookingPage = () => {
     return multipliers[duration] || 1;
   };
 
-
   const handlePhoneChange = (value: string | undefined) => {
     if (!value) {
       setCustomerInfo({ ...customerInfo, phone: "" });
@@ -95,7 +94,6 @@ const BookingPage = () => {
 
     setCustomerInfo({ ...customerInfo, phone: value });
   };
-
 
   // Price calculation
   const calculatePrice = () => {
@@ -135,6 +133,19 @@ const BookingPage = () => {
 
     if (!Token) {
       toast.warning("Please log in to book a service.");
+
+      localStorage.setItem(
+        "pendingBooking",
+        JSON.stringify({
+          BookNowData,
+          selectedDate,
+          selectedTime,
+          selectedDuration,
+          numberOfPeople,
+          customerInfo,
+        })
+      );
+
       openLogin("login");
       return;
     }
@@ -151,13 +162,23 @@ const BookingPage = () => {
     try {
       const payload = {
         title: BookNowData?.title,
-        email: customerInfo.email,
+        price: parseFloat(pricing.total), 
+        duration:
+          selectedDuration === "30 mins"
+            ? "00:30:00"
+            : selectedDuration === "1 hour"
+            ? "01:00:00"
+            : selectedDuration === "2 hours"
+            ? "02:00:00"
+            : "08:00:00", // fallback for Full day
+        time: convertTo24Hour(selectedTime), // 👌 works
         date: selectedDate?.toISOString().split("T")[0] || "",
-        time: convertTo24Hour(selectedTime),
-        duration: selectedDuration,
+        name: customerInfo.name,
+        email: customerInfo.email,
+        phone: customerInfo.phone,
+        special_request: customerInfo.notes,
+        discount: discount, // from service data
         number_of_persons: numberOfPeople,
-        base_price: basePrice,
-        total_amount: parseFloat(pricing.total),
       };
 
       const { data } = await axiosInstance.post(
@@ -166,17 +187,35 @@ const BookingPage = () => {
         { headers: { "Content-Type": "application/json" } }
       );
 
-      
-
-
       window.location.href = data.checkout_url;
     } catch (err) {
       console.error(err);
-      alert("Failed to start payment. Please try again.");
+      toast.error("Failed to start payment. Please try again.");
     } finally {
       setIsLoading(false);
     }
   };
+
+  useEffect(() => {
+    const savedBooking = localStorage.getItem("pendingBooking");
+    if (savedBooking) {
+      const parsed = JSON.parse(savedBooking);
+
+      // Restore values
+      if (parsed.BookNowData) {
+        // You already get BookNowData from location.state
+        // but fallback if not provided
+      }
+      if (parsed.selectedDate) setSelectedDate(new Date(parsed.selectedDate));
+      if (parsed.selectedTime) setSelectedTime(parsed.selectedTime);
+      if (parsed.selectedDuration) setSelectedDuration(parsed.selectedDuration);
+      if (parsed.numberOfPeople) setNumberOfPeople(parsed.numberOfPeople);
+      if (parsed.customerInfo) setCustomerInfo(parsed.customerInfo);
+
+      // Clear after restoring
+      localStorage.removeItem("pendingBooking");
+    }
+  }, []);
 
   // Calculate pricing once
   const pricing = calculatePrice();

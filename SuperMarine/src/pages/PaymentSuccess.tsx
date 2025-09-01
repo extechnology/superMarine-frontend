@@ -3,6 +3,7 @@ import { useNavigate } from "react-router";
 
 export default function PaymentSuccess() {
   const navigate = useNavigate();
+  const id = localStorage.getItem('id')
   return (
     <div className="flex items-center justify-center min-h-screen bg-gradient-to-br from-green-50 to-green-100 px-4">
       <div className="bg-white shadow-lg rounded-2xl p-8 max-w-md w-full text-center">
@@ -14,7 +15,7 @@ export default function PaymentSuccess() {
           Thank you! Your payment has been processed successfully.
         </p>
         <button
-          onClick={() => navigate("/my_bookings")}
+          onClick={() => navigate(`/my_bookings"/${id}`)}
           className="mt-6 px-6 py-3 rounded-xl bg-green-500 hover:bg-green-600 text-white font-semibold shadow-md transition-all w-full"
         >
           Go to Your Bookings

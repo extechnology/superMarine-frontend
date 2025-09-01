@@ -3,12 +3,13 @@ import { useNavigate } from "react-router";
 import {
   Calendar,
   Clock,
-  DollarSign,
   Ship,
   Loader2,
   ChevronRight,
 } from "lucide-react";
 import axiosInstance from "../api/axiosInstance";
+import { useModalStore } from "../zustand/modalStore";
+
 
 // Define booking type
 interface Booking {
@@ -33,10 +34,11 @@ export default function MyBookings() {
   const [bookings, setBookings] = useState<Booking[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+  const {openLogin} = useModalStore();
 
   useEffect(() => {
     if (!accessToken) {
-      navigate("/login");
+      openLogin("login");
       return;
     }
 
@@ -149,7 +151,7 @@ export default function MyBookings() {
 
                   <div className="flex items-center justify-between p-3 bg-gradient-to-r from-cyan-500/10 to-blue-500/10 rounded-xl border border-cyan-500/20">
                     <div className="flex items-center gap-3">
-                      <DollarSign className="w-5 h-5 text-cyan-400" />
+                      AED
                       <span className="text-white font-bold text-lg">
                         {booking.price}
                       </span>

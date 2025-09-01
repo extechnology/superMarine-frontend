@@ -75,7 +75,7 @@ function App() {
             <Route path="/reset" element={<PasswordResetRequestPage />} />
             <Route path="/payment/cancel" element={<PaymentCancel />} />
             <Route path="/payment/success" element={<PaymentSuccess />} />
-            <Route path="/my_bookings" element={<MyBookings />} />
+            <Route path="/my_bookings/:id" element={<MyBookings />} />
             <Route path="*" element={<Dark404Page />} />
             <Route
               path="/reset-password/:uidb64/:token"

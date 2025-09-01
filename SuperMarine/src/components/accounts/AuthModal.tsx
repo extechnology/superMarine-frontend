@@ -34,25 +34,44 @@ export default function AuthModal() {
   
   const navigate = useNavigate();
   
-  const handleLogin = async (e: React.FormEvent) => {
-    e.preventDefault();
-    try {
-      const response = await loginUser({ username, password });
-      localStorage.setItem("accessToken", response.access);
-      localStorage.setItem("refreshToken", response.refresh);
-      localStorage.setItem("username", username);
-      localStorage.setItem("email", response.email);
-      localStorage.setItem("id", response.user_id);
-      toast.success("Login successful!");
-      closeLogin();
-      navigate("/");
-    } catch (error: any) {
-      toast.error(error.response?.data?.detail || "Invalid email or password.");
-    }
-    finally {
-      setLoginLoading(false);
-    }
-  };
+ const handleLogin = async (e: React.FormEvent) => {
+   e.preventDefault();
+   setLoginLoading(true);
+   try {
+     const response = await loginUser({ username, password });
+
+     // Save tokens and user info
+     localStorage.setItem("accessToken", response.access);
+     localStorage.setItem("refreshToken", response.refresh);
+     localStorage.setItem("username", username);
+     localStorage.setItem("email", response.email);
+     localStorage.setItem("id", response.user_id);
+
+     // Check if booking is pending
+     const pendingBooking = localStorage.getItem("pendingBooking");
+
+     if (pendingBooking) {
+       const parsed = JSON.parse(pendingBooking);
+       const bookingId = parsed?.BookNowData?.id;
+
+       if (bookingId) {
+         navigate(`/book_now/${bookingId}`, { state: parsed.BookNowData });
+       } else {
+         navigate("/rental_service", { state: parsed.BookNowData });
+       }
+     } else {
+       navigate("/");
+     }
+
+
+     closeLogin();
+   } catch (error: any) {
+     toast.error(error.response?.data?.detail || "Invalid email or password.");
+   } finally {
+     setLoginLoading(false);
+   }
+ };
+
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });

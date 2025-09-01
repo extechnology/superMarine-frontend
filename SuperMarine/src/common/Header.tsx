@@ -15,11 +15,11 @@ const Header: React.FC = () => {
   // const [mobileDropdownOpen, setMobileDropdownOpen] = useState(false);
   const timeoutRef = useRef<NodeJS.Timeout | null>(null);
   const Token = localStorage.getItem("accessToken");
+  const id = localStorage.getItem("id");
   const navigate = useNavigate();
   const isLoggedIn = Token !== null;
   const openLogin = useModalStore((state) => state.openLogin);
   const [isMobileUserOpen, setIsMobileUserOpen] = useState(false);
-
 
   // const handleMouseEnter = () => {
   //   if (timeoutRef.current) clearTimeout(timeoutRef.current);
@@ -183,12 +183,20 @@ const Header: React.FC = () => {
                     </button>
                   </>
                 ) : (
-                  <button
-                    onClick={handleLogout}
-                    className="w-full text-left px-4 py-2 text-sm text-red-600 hover:bg-gray-100"
-                  >
-                    Logout
-                  </button>
+                  <div>
+                    <Link
+                      to={`my_bookings/${id}`}
+                      className="block w-full text-start px-4 py-2 text-sm text-gray-800 hover:bg-gray-100"
+                    >
+                      My Bookings
+                    </Link>
+                    <button
+                      onClick={handleLogout}
+                      className="w-full text-left px-4 py-2 text-sm text-red-600 hover:bg-gray-100"
+                    >
+                      Logout
+                    </button>
+                  </div>
                 )}
               </div>
             </li>
@@ -226,7 +234,11 @@ const Header: React.FC = () => {
           <Link to="/about" onClick={toggleMenu} className="hover:underline">
             About Us
           </Link>
-          <Link to="/rental_service" onClick={toggleMenu} className="hover:underline">
+          <Link
+            to="/rental_service"
+            onClick={toggleMenu}
+            className="hover:underline"
+          >
             Rental Services
           </Link>
 

@@ -147,6 +147,7 @@ const RentalVehicles: React.FC = () => {
                         <Link
                           to={`/book_now/${data.unique_id}`}
                           state={{
+                            id:data.unique_id,
                             title: data.name,
                             image: data.image,
                             price: data.price,
