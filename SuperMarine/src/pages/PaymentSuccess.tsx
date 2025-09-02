@@ -15,7 +15,7 @@ export default function PaymentSuccess() {
           Thank you! Your payment has been processed successfully.
         </p>
         <button
-          onClick={() => navigate(`/my_bookings"/${id}`)}
+          onClick={() => navigate(`/my_bookings/${id}`)}
           className="mt-6 px-6 py-3 rounded-xl bg-green-500 hover:bg-green-600 text-white font-semibold shadow-md transition-all w-full"
         >
           Go to Your Bookings
