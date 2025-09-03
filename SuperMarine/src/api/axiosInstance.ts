@@ -3,8 +3,8 @@ import toast from "react-hot-toast";
 import { useModalStore } from "../zustand/modalStore";
 
 const axiosInstance = axios.create({
-  baseURL: "http://127.0.0.1:8001/",
-  // "http://127.0.0.1:8001/",
+  baseURL: import.meta.env.VITE_API_BASE_URL ,
+  // "http://127.0.0.1:8000/",
   headers: {
     "Content-Type": "application/json",
   },

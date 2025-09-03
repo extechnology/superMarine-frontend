@@ -1,9 +1,37 @@
 import { CheckCircle } from "lucide-react";
 import { useNavigate } from "react-router";
+import axiosInstance from "../api/axiosInstance";
+import { useLocation } from "react-router";
 
 export default function PaymentSuccess() {
   const navigate = useNavigate();
-  const id = localStorage.getItem('id')
+  const location = useLocation();
+  const searchParams = new URLSearchParams(location.search);
+  const sessionId = searchParams.get("session_id");
+
+  const handleClick = async () => {
+    if (!sessionId) {
+      console.error("No session_id found in URL");
+      return;
+    }
+
+    try {
+      // ✅ Call your backend API with session_id
+      const { data } = await axiosInstance.get(
+        `/api/payments/session/${sessionId}/`
+      );
+
+      console.log("Stripe session data:", data);
+
+      // ✅ After success, navigate to bookings page
+      navigate(`/my_bookings/${sessionId}`);
+    } catch (error: any) {
+      console.error(
+        "Error fetching session:",
+        error.response?.data || error.message
+      );
+    }
+  };
   return (
     <div className="flex items-center justify-center min-h-screen bg-gradient-to-br from-green-50 to-green-100 px-4">
       <div className="bg-white shadow-lg rounded-2xl p-8 max-w-md w-full text-center">
@@ -15,7 +43,7 @@ export default function PaymentSuccess() {
           Thank you! Your payment has been processed successfully.
         </p>
         <button
-          onClick={() => navigate(`/my_bookings/${id}`)}
+          onClick={handleClick}
           className="mt-6 px-6 py-3 rounded-xl bg-green-500 hover:bg-green-600 text-white font-semibold shadow-md transition-all w-full"
         >
           Go to Your Bookings
